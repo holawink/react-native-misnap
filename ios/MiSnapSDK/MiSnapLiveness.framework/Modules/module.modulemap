@@ -1,0 +1,6 @@
+framework module MiSnapLiveness {
+  umbrella header "MiSnapLiveness.h"
+
+  export *
+  module * { export * }
+}

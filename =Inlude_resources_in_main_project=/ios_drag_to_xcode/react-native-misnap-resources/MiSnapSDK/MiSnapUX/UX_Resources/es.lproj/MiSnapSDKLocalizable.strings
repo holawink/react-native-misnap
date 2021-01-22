@@ -1,0 +1,161 @@
+/* 
+  Localizable.strings
+  MiSnap
+
+  Copyright (c) 2014 Mitek Systems, Inc. All rights reserved.
+*/
+
+// Navigation buttons
+"dialog_mitek_cancel"                   = "Cancelar Captura"; //Cancelar
+"dialog_mitek_back"                     = "Volver";
+"dialog_mitek_capture"                  = "Continuar";
+"dialog_mitek_try_again"                = "Reintentar Captura Automática"; //Intentar de nuevo
+"dialog_mitek_manual_capture"           = "Capturar Manualmente"; //Captura Manual
+"dialog_mitek_torch_on"                 = "Encendido";
+"dialog_mitek_torch_off"                = "Apagado";
+"dialog_mitek_torch_auto"               = "Automático";
+
+// Titles
+"misnap_check_front_text"               = "Imagen Frontal";
+"misnap_check_back_text"                = "Imagen Posterior";
+"misnap_license_text"                   = "Licensia";
+"misnap_id_card_text"                   = "La tarjeta de identidad";
+"misnap_passport_text"                  = "Pasaporte";
+"misnap_document_text"                  = "Documento";
+
+"dialog_success"                        = "Éxito!";
+
+"misnap_tutorial_do_not_show_again"     = "No use esta misma pantalla de nuevo";
+"misnap_tutorial_check"                 = "Centre el cheque en la pantalla. No lo mueva, le tomaremos la foto";
+"misnap_tutorial_document"              = "Centre el documento en la pantalla. No lo mueva, le tomaremos la foto";
+
+"help_failover_license"                 = "Center the license with all four corners visible and press the snap photo button when ready.";
+"help_failover_passport"                = "Center the passport with all four corners visible and press the snap photo button when ready.";
+
+"help_failover_check"                   = "Centre el cheque con las 4 esquinas visibles y presione el botón Snap Photo (tomar foto) cuando esté listo";
+"help_failover_document"                = "Centre el documento con las 4 esquinas visibles y presione el botón Snap Photo (tomar foto) cuando esté listo";
+"help_check"                            = "Trate de colocar el cheque en una superficie oscura, bien iluminada y no lo mueva, le tomaremos la foto";
+"help_document"                         = "Trate de colocar el documento en una superficie oscura, bien iluminada y no lo mueva, le tomaremos la foto";
+"help_manual_check"                     = "Coloque el cheque en una superficie oscura, bien iluminada con las 4 esquinas visibles, presione el botón Snap Photo (tomar foto) cuando esté listo";
+"help_manual_document"                  = "Coloque el documento en una superficie oscura, bien iluminada con las 4 esquinas visibles, presione el botón Snap Photo (tomar foto) cuando esté listo";
+
+"help_seamless_failover"                = "We were unable to automatically capture the image. Please align to the guide and snap a photo manually";
+
+"tutorial_help_check"                   = "Coloque el cheque sobre una superficie oscura, bien iluminada. Alinear el cheque.";
+"tutorial_help_license"                 = "Coloque la licensia sobre una superficie oscura, bien iluminada. Alinear la licensia.";
+"tutorial_help_passport"                = "Coloque el pasaporte sobre una superficie oscura, bien iluminada. Alinear el pasaporte";
+"tutorial_help_document"                = "Coloque el documento sobre una superficie oscura, bien iluminada. Alinear el documento";
+"tutorial_help_manual_check"            = "Coloque el cheque sobre una superficie oscura, bien iluminada. Alinear el cheque, manten estable su dispositivo, y presione el boton Snap Photo (tomar foto) cuando esté listo.";
+"tutorial_help_manual_license"          = "Coloque la licensia sobre una superficie oscura, bien iluminada. Alinear la licensia, manten estable su dispositivo, y presione el boton Snap Photo (tomar foto) cuando esté listo.";
+"tutorial_help_manual_passport"         = "Coloque el pasaporte sobre una superficie oscura, bien iluminada. Alinear el pasaporte, manten estable su dispositivo, y presione el boton Snap Photo (tomar foto) cuando esté listo.";
+"tutorial_help_manual_document"         = "Coloque el documento sobre una superficie oscura, bien iluminada. Alinear el documento, manten estable su dispositivo, y presione el boton Snap Photo (tomar foto) cuando esté listo.";
+
+"tutorial_photo_auto"                   = "Captaremos la foto por usted.";
+"tutorial_photo_manual"                 = "presione el boton Snap Photo (tomar foto) cuando esté listo.";
+
+"ghost_image_remittance"                = "Centre el talón del recibo de pago aquí y espere, le tomaremos la foto";
+"ghost_image_remittance_manual"         = "Centre el talón del recibo de pago aquí, a continuación presione el botón Snap Photo (tomar foto) cuando esté listo";
+"ghost_image_check"                     = "Centre el cheque aquí y espere, le tomaremos la foto";
+"ghost_image_check_manual"              = "Centre el cheque aquí, a continuación presione el botón Snap Photo (tomar foto) cuando esté listo";
+"ghost_image_drivers_license"           = "Centre la licencia de conducir aquí y espere, le tomaremos la foto";
+"ghost_image_drivers_license_manual"    = "Centre la licencia de conducir aquí, a continuación presione el botón Snap Photo (tomar foto) cuando esté listo";
+"ghost_image_id_card"                   = "Centre la tarjeta de identidad aquí y espere, le tomaremos la foto";
+"ghost_image_id_card_manual"            = "Centre la tarjeta de identidad aquí, a continuación presione el botón Snap Photo (tomar foto) cuando esté listo";
+"ghost_image_insurance_card"            = "Centre la tarjeta del seguro aquí y espere, nosotros tomaremos la fotografía por usted";
+"ghost_image_insurance_card_manual"     = "Centre la tarjeta del seguro aquí, a continuación presione el botón Snap Photo (tomar foto) cuando esté listo";
+"ghost_image_vin_manual"                = "Centre el VIN aquí, a continuación presione el botón Snap Photo (tomar foto) cuando esté listo";
+"ghost_image_w2"                        = "Centre W2 aquí y espere, le tomaremos la foto";
+"ghost_image_w2_manual"                 = "Centre W2 aquí, a continuación presione el botón Snap Photo (tomar foto) cuando esté listo";
+"ghost_image_passport"                  = "Centre el pasaporte aquí y espere, le tomaremos la foto";
+"ghost_image_passport_manual"           = "Centre el pasaporte aquí, a continuación presione el botón Snap Photo (tomar foto) cuando esté listo";
+"ghost_image_document_landscape"        = "Centre la tarjeta aquí y espere, le tomaremos la foto";
+"ghost_image_document_landscape_manual" = "Centre la tarjeta aquí, a continuación presione el botón Snap Photo (tomar foto) cuando esté listo";
+"ghost_image_document_portrait"         = "Centre el documento aquí y espere, le tomaremos la foto";
+"ghost_image_document_portrait_manual"  = "Centre el documento aquí, a continuación presione el botón Snap Photo (tomar foto) cuando esté listo";
+
+"button_cancel"                         = "Cancelar";
+"misnap_overlay_cancel_button"          = "Cancelar";
+"misnap_overlay_capture_button"         = "Capturar imagen";
+"misnap_overlay_flash_on"               = "Flash está activo";
+"misnap_overlay_flash_off"              = "Flash está apagado";
+"misnap_overlay_flash_auto"             = "Flash está en modo automático";
+"misnap_overlay_help_button"            = "Ayuda";
+
+// Hint Messages for accessibility
+"more_light"                            = "Mover a una superficie mejor iluminada"; //Demasiado oscuro
+"less_light"                            = "Demasiado brillo";
+
+"hold_steady"                           = "Sujeta firmemente";
+"get_close"                             = "Acercate mas";
+"get_close_check"                       = "Acercarse a cheque";
+"get_close_license"                     = "Acercarse a la licencia";
+"get_close_passport"                    = "Acercarse el pasaporte";
+
+"too_close"                             = "Aléjate un poco";
+"too_close_check"                       = "Aléjate un poco";
+"too_close_license"                     = "Aléjate un poco";
+"too_close_passport"                    = "Aléjate un poco";
+
+//"too_close_check"                     = "Demasiado cerca al cheque";
+//"too_close_license"                   = "Demasiado cerca a la licensia";
+//"too_close_passport"                  = "Demasiado cerca al pasaporte";
+
+"hold_center"                           = "Encuadra y centra el documento";
+"hold_center_check"                     = "Encuadra y centra el documento";
+"hold_center_license"                   = "Encuadra y centra el documento";
+"hold_center_passport"                  = "Encuadra y centra el documento";
+
+//"hold_center_check"                   = "Centrar el cheque";
+//"hold_center_license"                 = "Centrar la licensia";
+//"hold_center_passport"                = "Centre el pasaporte";
+
+"reduce_glare"                          = "Reduce la exposicion de luz";
+"nothing_detected"                      = "Coloca en superficie oscura"; //Centre el documento sobre una superficie oscura
+"low_contrast"                          = "Coloca en superficie oscura"; //Centre el documento sobre una superficie oscura
+"busy_background"                       = "Coloque en superficie despejada";
+"not_check_back"                        = "Dale la vuelta";
+"not_check_front"                       = "Utiliza el frente del cheque";
+
+// Failover Reasons
+"Too Dim"                               = "Coloca el documento en una superficie bien iluminada";
+"Too Bright"                            = "Coloca el documento en una superficie con menos luz";
+"Not Sharp"                             = "Sujeta el dispositivo firmemente";
+"Low Contrast"                          = "Centre el documento sobre una superficie oscura";
+"Busy Background"                       = "Coloca el documento en una superficie despejada";
+"Reduce Glare"                          = "Evita el deslumbramiento";
+"Not Check Front"                       = "Utilice el frente del cheque con todos los números visibles";
+"Not Check Back"                        = "Dale la vuelta al cheque para capturar el reverso ";
+"Angle Too Large"                       = "Sujeta el dispositivo directamente sobre el documento";
+"Too Much Rotation"                     = "Sujeta el dispositivo directamente sobre el documento";
+"Too Close"                             = "Aleje el dispositivo del documento ";
+"Too Far"                               = "Acerca el dispositivo al documento";
+"Hold Steady"                           = "Sujeta el dispositivo firmemente";
+"Nothing Detected"                      = "Centre el documento sobre una superficie oscura";
+
+"session_interruption_label"            = "Se requiere el modo de pantalla completa";
+
+/*
+";<string name="misnap_tutorial_check">Centre el cheque, la foto se tomará automáticamente</string>
+<string name="misnap_tutorial_document">Centre el documento, la foto se tomará automáticamente</string>
+<string name="help_failover_check">Centre el cheque con las 4 esquinas visibles y presione el botón Snap Photo (tomar foto) cuando esté listo.</string>
+<string name="help_failover_document">Centre el documento con las 4 esquinas visibles y presione el botón Snap Photo (tomar foto) cuando esté listo.</string>
+<string name="help_check">Trate de colocar el cheque en una superficie oscura, bien iluminada y no lo mueva, le tomaremos la foto.</string>
+<string name="help_document">Trate de colocar el documento en una superficie oscura, bien iluminada y no lo mueva, le tomaremos la foto.</string>
+<string name="help_manual_check">Coloque el cheque en una superficie oscura, bien iluminada con las 4 esquinas visibles, presione el botón Snap Photo (tomar foto) cuando esté listo</string>
+<string name="help_manual_document">Coloque el documento en una superficie oscura, bien iluminada con las 4 esquinas visibles, presione el botón Snap Photo (tomar foto) cuando esté listo</string>
+<string name="ghost_image_remittance">Centre el talón del recibo de pago aquí y espere, le tomaremos la foto</string>
+<string name="ghost_image_remittance_manual">Centre el talón del recibo de pago aquí, a continuación presione el botón Snap Photo (tomar foto) cuando esté listo</string>
+<string name="ghost_image_check">Centre el cheque aquí y espere, le tomaremos la foto</string>
+<string name="ghost_image_check_manual">Centre el cheque aquí, a continuación presione el botón Snap Photo (tomar foto) cuando esté listo</string>
+<string name="ghost_image_drivers_license">Centre la licencia de conducir aquí y espere, le tomaremos la foto</string>
+<string name="ghost_image_drivers_license_manual">Centre la licencia de conducir aquí, a continuación presione el botón Snap Photo (tomar foto) cuando esté listo</string>
+<string name="button_cancel">Cancelar</string>
+<string name="more_light">Más luz</string>
+<string name="hold_steady">Mantener estable</string>
+<string name="get_close">Acercamiento</string>
+<string name="hold_center">Centrar</string>
+<string name="misnap_overlay_cancel_button">Cancelar</string>
+<string name="misnap_overlay_capture_button">Capturar imagen</string>
+<string name="misnap_overlay_flash_toggle">Flash</string>
+<string name="misnap_overlay_help_button">Ayuda</string>
+*/

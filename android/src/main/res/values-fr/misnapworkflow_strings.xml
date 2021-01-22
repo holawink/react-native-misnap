@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misnap_camera_permission_title_ux2">Pour raisons d\'autorisation</string>
+    <string name="misnap_camera_permission_rationale_ux2">L\'accès à l\'appareil photo est nécessaire pour capturer votre document.</string>
+    <string name="misnap_video_ft_tut_message_ux2">Tenez fermement et nous prendrons une photo pour vous</string>
+    <string name="misnap_manual_ft_tut_message_ux2">Tenez fermement et lorsque vous êtes prêt, appuyez sur le bouton de Déclic</string>
+
+    <string name="misnap_video_session_timeout_first_btn_string_ux2">Annuler</string>
+    <string name="misnap_video_session_timeout_second_btn_string_ux2">Essayer de nouveau</string>
+    <string name="misnap_detailed_failover_title_ux2">Nous ne pouvions pas trouver une image propre.</string>
+    <string name="misnap_detailed_failover_first_btn_string_ux2">Annuler capture</string>
+    <string name="misnap_detailed_failover_second_btn_string_ux2">Capturer manuallement</string>
+    <string name="misnap_detailed_failover_third_btn_string_ux2">Recommencez la capture automatique</string>
+    <string name="misnap_video_help_first_btn_string_ux2">Annuler</string>
+    <string name="misnap_video_help_second_btn_string_ux2">Continuer</string>
+    <string name="misnap_video_ft_second_btn_string_ux2">Continuer</string>
+    <string name="misnap_manual_help_first_btn_string_ux2">Annuler</string>
+    <string name="misnap_manual_help_second_btn_string_ux2">Continuer</string>
+    <string name="misnap_manual_ft_second_btn_string_ux2">Continuer</string>
+    <string name="misnap_multi_tap_first_btn_string_ux2">Annuler</string>
+    <string name="misnap_multi_tap_second_btn_string_ux2">Continuer</string>
+    <string name="misnap_check_front_text_ux2">Recto de l’image</string>
+    <string name="misnap_check_back_text_ux2">Verso de l’image</string>
+
+    <string name="misnap_bug_message_ux2">Succès!</string>
+
+    <!-- For MiSnap hint messages -->
+    <string name="misnap_more_light_ux2">Déplacez dans un endroit mieux éclairer</string>
+    <string name="misnap_less_light_ux2">Trop lumineux</string>
+    <string name="misnap_hold_steady_ux2">Ne pas bouger</string>
+    <string name="misnap_get_closer_generic_ux2">S’approcher</string>
+    <string name="misnap_too_close_generic_ux2">Se reculer</string>
+    <string name="misnap_hold_center_generic_ux2">Rèduire l’angle</string>
+    <string name="misnap_glare_ux2">Éviter le reflet</string>
+    <string name="misnap_busy_background_ux2">Utiliser un fond uni</string>
+    <string name="misnap_low_contrast_ux2">Utiliser un fond sombre</string>
+    <string name="misnap_wrong_doc_generic_ux2">Une erroné image suspectée</string>
+    <string name="misnap_wrong_doc_check_back_expected_ux2">Retourner le chèque</string>
+    <string name="misnap_wrong_doc_check_front_expected_ux2">Utilisiez l’avant du chèque</string>
+
+    <string name="misnap_overlay_flash_on_ux2">Flash est activé</string>
+    <string name="misnap_overlay_flash_off_ux2">Flash est désactivé</string>
+    <string name="misnap_overlay_help_ux2">d\’aide</string>
+    <string name="misnap_overlay_cancel_ux2">Annuler</string>
+    <string name="misnap_overlay_capture_ux2">de saisie d\’image</string>
+
+    <!-- For optional workflow changes -->
+    <string name="misnap_seamless_failover_ux2">Mode manuel. Lorsque vous êtes prêt, appuyez sur le bouton de Déclic.</string>
+
+
+    <!--Workflow display strings-->
+
+    <string name="misnap_video_help_message_1_check_ux2">Placez le chèque sur une surface foncée</string>
+    <string name="misnap_video_help_message_1_license_ux2">Placez la licence sur une surface foncée</string>
+    <string name="misnap_video_help_message_1_passport_ux2">Placez le passeport sur une surface foncée</string>
+    <string name="misnap_video_help_message_1_document_ux2">Placez le document sur une surface foncée</string>
+    <string name="misnap_video_help_message_2_ux2">Fournissez assez de lumière</string>
+    <string name="misnap_video_help_message_3_check_ux2">Aligner le chèque. Nous allons prendre la photo pour vous</string>
+    <string name="misnap_video_help_message_3_license_ux2">Aligner la licence. Nous allons prendre la photo pour vous</string>
+    <string name="misnap_video_help_message_3_passport_ux2">Aligner le passeport. Nous allons prendre la photo pour vous</string>
+    <string name="misnap_video_help_message_3_document_ux2">Aligner le document. Nous allons prendre la photo pour vous</string>
+
+    <string name="misnap_video_tutorial_message_1_check_ux2">Placez le chèque sur une surface foncée</string>
+    <string name="misnap_video_tutorial_message_1_license_ux2">Placez la licence sur une surface foncée</string>
+    <string name="misnap_video_tutorial_message_1_passport_ux2">Placez le passeport sur une surface foncée</string>
+    <string name="misnap_video_tutorial_message_1_document_ux2">Placez le document sur une surface foncée</string>
+    <string name="misnap_video_tutorial_message_2_ux2">Fournissez assez de lumière</string>
+    <string name="misnap_video_tutorial_message_3_check_ux2">Aligner le chèque. Nous allons prendre la photo pour vous</string>
+    <string name="misnap_video_tutorial_message_3_license_ux2">Aligner la licence. Nous allons prendre la photo pour vous</string>
+    <string name="misnap_video_tutorial_message_3_passport_ux2">Aligner le passeport. Nous allons prendre la photo pour vous</string>
+    <string name="misnap_video_tutorial_message_3_document_ux2">Aligner le document. Nous allons prendre la photo pour vous</string>
+
+    <!--manual help screen strings-->
+
+    <string name="misnap_manual_help_message_1_document_ux2">Placez le document sur une surface foncée</string>
+    <string name="misnap_manual_help_message_1_check_ux2">Placez le chèque sur une surface foncée</string>
+    <string name="misnap_manual_help_message_1_license_ux2">Placez la licence sur une surface foncée</string>
+    <string name="misnap_manual_help_message_1_passport_ux2">Placez le passeport sur une surface foncée</string>
+    <string name="misnap_manual_help_message_2_ux2">Fournissez assez de lumière</string>
+    <string name="misnap_manual_help_message_3_document_ux2">Aligner le document. Ne le bougez plus. Lorsque vous êtes prêt, appuyez sur le bouton de Déclic</string>
+    <string name="misnap_manual_help_message_3_check_ux2">Aligner le chèque. Ne le bougez plus. Lorsque vous êtes prêt, appuyez sur le bouton de Déclic</string>
+    <string name="misnap_manual_help_message_3_license_ux2">Aligner la licence. Ne le bougez plus. Lorsque vous êtes prêt, appuyez sur le bouton de Déclic</string>
+    <string name="misnap_manual_help_message_3_passport_ux2">Aligner le passeport. Ne le bougez plus. Lorsque vous êtes prêt, appuyez sur le bouton de Déclic</string>
+
+    <string name="misnap_manual_tutorial_message_1_document_ux2">Placez le document sur une surface foncée</string>
+    <string name="misnap_manual_tutorial_message_1_check_ux2">Placez le chèque sur une surface foncée</string>
+    <string name="misnap_manual_tutorial_message_1_license_ux2">Placez la licence sur une surface foncée</string>
+    <string name="misnap_manual_tutorial_message_1_passport_ux2">Placez le passeport sur une surface foncée</string>
+    <string name="misnap_manual_tutorial_message_2_ux2">Fournissez assez de lumière</string>
+    <string name="misnap_manual_tutorial_message_3_document_ux2">Aligner le document. Ne le bougez plus. Lorsque vous êtes prêt, appuyez sur le bouton de Déclic</string>
+    <string name="misnap_manual_tutorial_message_3_check_ux2">Aligner le chèque. Ne le bougez plus. Lorsque vous êtes prêt, appuyez sur le bouton de Déclic</string>
+    <string name="misnap_manual_tutorial_message_3_license_ux2">Aligner la licence. Ne le bougez plus. Lorsque vous êtes prêt, appuyez sur le bouton de Déclic</string>
+    <string name="misnap_manual_tutorial_message_3_passport_ux2">Aligner le passeport. Ne le bougez plus. Lorsque vous êtes prêt, appuyez sur le bouton de Déclic</string>
+
+    <!-- For wrong document toast -->
+    <string name="misnap_wrong_document_check_front_found_ux2">Tournez le chèque. Le verso du chèque est nécessaire, mais le recto du chèque a été ce qui ce a trouvé.</string>
+
+    <!-- Friendly names for failure reason codes, mapped to OnFrameProcessedEvent -->
+    <string name="misnap_failure_reason_unknown_ux2">Centrez le document de sorte que les 4 coins soient visibles</string>
+    <string name="misnap_failure_reason_four_corner_confidence_ux2">Centrez le document de sorte que les 4 coins soient visibles</string>
+    <string name="misnap_failure_reason_horizontal_min_fill_ux2">Approchez-vous du document</string>
+    <string name="misnap_failure_reason_min_brightness_ux2">Placez le document sur une surface bien éclairée</string>
+    <string name="misnap_failure_reason_max_brightness_ux2">Placez le document sur une surface avec moins de lumière</string>
+    <string name="misnap_failure_reason_skew_angle_ux2">Tenez le dispositif directement sur le document</string>
+    <string name="misnap_failure_reason_sharpness_ux2">Tenez le dispositif fermement</string>
+    <string name="misnap_failure_reason_min_padding_ux2">Éloignez-vous du document</string>
+    <string name="misnap_failure_reason_rotation_angle_ux2">Tenez le dispositif directement sur le document</string>
+    <string name="misnap_failure_reason_low_contrast_ux2">Centrez le document sur une surface foncée</string>
+    <string name="misnap_failure_reason_busy_background_ux2">Placez le document sur une surface bien dégagé</string>
+    <string name="misnap_failure_reason_wrong_doc_generic_ux2">Une erroné image suspectée</string>
+    <string name="misnap_failure_reason_wrong_doc_check_front_ux2">Utilisiez le recto du chèque avec tous le numéros visibles</string>
+    <string name="misnap_failure_reason_wrong_doc_check_back_ux2">Tournez le chèque pour scaner le verso</string>
+    <string name="misnap_failure_reason_glare_ux2">Évitez les reflets sur le document</string>
+
+    <!-- For MiSnap priority hint messages -->
+    <string name="misnap_priority_glare_ux2">Éviter le reflet</string>
+    <string name="misnap_priority_busy_background_ux2">Utiliser un fond uni</string>
+    <string name="misnap_priority_low_contrast_ux2">Utiliser un fond sombre</string>
+
+    <string name="misnap_priority_wrong_doc_generic_ux2">Une erroné image suspectée</string>
+    <string name="misnap_priority_wrong_doc_check_back_expected_ux2">Retourner le chèque</string>
+    <string name="misnap_priority_wrong_doc_check_front_expected_ux2">Utilisiez l’avant du chèque</string>
+    <string name="minsap_bad_orientation_ux2">Rotez le document 90 degrés</string>
+
+    <!--overlay screen strings-->
+    <string name="misnap_ghost_image_remittance_ux2">Centrez le talon de paiement ici et attendez. Nous allons prendre la photo pour vous</string>
+    <string name="misnap_ghost_image_remittance_manual_ux2"><![CDATA[Centrez le talon paiement et appuyez sur le bouton de <b><i>Déclic</i></b> lorsque vous êtes prêt]]></string>
+    <string name="misnap_ghost_image_check_ux2"></string>
+    <string name="misnap_ghost_image_check_manual_ux2"></string>
+    <string name="misnap_ghost_image_drivers_license_ux2"></string>
+    <string name="misnap_ghost_image_drivers_license_manual_ux2"></string>
+    <string name="misnap_ghost_image_id_card_ux2"></string>
+    <string name="misnap_ghost_image_id_card_manual_ux2"></string>
+    <string name="misnap_ghost_image_insurance_card_ux2">Centrez la carte d\'assurance ici et attendez. Nous allons prendre la photo pour vous</string>
+    <string name="misnap_ghost_image_insurance_card_manual_ux2"><![CDATA[Centrez la carte d\'assurance et appuyez sur le bouton de <b><i>Déclic</i></b> lorsque vous êtes prêt]]></string>
+    <string name="misnap_ghost_image_vin_manual_ux2">Centrez le VIN ici et appuyez sur le bouton de prise de photo lorsque vous êtes prêt</string>
+    <string name="misnap_ghost_image_w2_ux2">Centrez le W2 ici et attendez. Nous allons prendre la photo pour vous</string>
+    <string name="misnap_ghost_image_w2_manual_ux2">Centrez le W2 ici et appuyez sur le bouton de prise de photo lorsque vous êtes prêt</string>
+    <string name="misnap_ghost_image_passport_ux2">Centrez le passeport ici et attendez. Nous allons prendre la photo pour vous</string>
+    <string name="misnap_ghost_image_passport_manual_ux2"><![CDATA[Centrez le passeport ici, puis appuyez sur le bouton de <b><i>Déclic</i></b> lorsque vous êtes prêt]]></string>
+    <string name="misnap_ghost_image_document_landscape_ux2">Centrez le document ici et attendez. Nous allons prendre la photo pour vous</string>
+    <string name="misnap_ghost_image_document_landscape_manual_ux2"><![CDATA[Centrez le document et appuyez sur le bouton de <b><i>Déclic</i></b> lorsque vous êtes prêt]]></string>
+    <string name="misnap_ghost_image_document_portrait_ux2">Centrez le document ici et attendez. Nous allons prendre la photo pour vous</string>
+    <string name="misnap_ghost_image_document_portrait_manual_ux2"><![CDATA[Centrez le document et appuyez sur le bouton de <b><i>Déclic</i></b> lorsque vous êtes prêt]]></string>
+    <string name="misnap_ghost_barcode_tooltip_ux2">Scan le code barre au verso du permis de conduire</string>
+
+    <string name="flash_on_ux2">Activé</string>
+    <string name="flash_off_ux2">Déactivé</string>
+
+    <string name="misnap_manual_capture_please_wait_ux2">Ne le bougez plus, s\'il vous plaît attendre…</string>
+    <string name="misnap_video_ft_message_ux2"><![CDATA[<b><i>Ne le bougez plus. Nous allons prendre la photo pour vous</i></b>]]></string>
+    <string name="misnap_dont_show_again_ux2">Ne plus afficher ce même écran</string>
+
+</resources>

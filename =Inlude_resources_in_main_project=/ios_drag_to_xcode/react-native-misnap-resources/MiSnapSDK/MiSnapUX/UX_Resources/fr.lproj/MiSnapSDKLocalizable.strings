@@ -1,0 +1,172 @@
+/* 
+  Localizable.strings
+  MiSnap
+
+  Copyright (c) 2014 Mitek Systems, Inc. All rights reserved.
+*/
+
+// Navigation buttons
+"dialog_mitek_cancel"                   = "Annuler Capture"; //Annuler
+"dialog_mitek_back"                     = "Retour";
+"dialog_mitek_capture"                  = "Continuer";
+"dialog_mitek_try_again"                = "Recommencez La Capture Automatique"; //Essayer de nouveau
+"dialog_mitek_manual_capture"           = "Capturer Manuallement"; //Capture Manuelle
+"dialog_mitek_torch_on"                 = "Allumer";
+"dialog_mitek_torch_off"                = "Étteindre";
+"dialog_mitek_torch_auto"               = "Automatique";
+
+// Titles
+"misnap_check_front_text"               = "Recto de l’image";
+"misnap_check_back_text"                = "Verso de l’image";
+"misnap_license_text"                   = "Licence";
+"misnap_id_card_text"                   = "La carte d’identité";
+"misnap_passport_text"                  = "Passeport";
+"misnap_document_text"                  = "Document";
+
+"dialog_success"                        = "Succès!";
+
+"misnap_tutorial_do_not_show_again"     = "Ne plus afficher ce même écran";
+"misnap_tutorial_check"                 = "Centrez le chèque sur l\'écran. Ne le bougez plus, nous allons prendre la photo pour vous.";
+"misnap_tutorial_document"              = "Centrez le document sur l\'écran. Ne le bougez plus, nous allons prendre la photo pour vous.";
+
+"help_failover_license"                 = "Centrez le permis de conduire de sorte que les 4 coins soient visibles. Lorsque vous êtes prêt, appuyez sur le bouton de Déclic.";
+"help_failover_passport"                = "Centrez le passeport de sorte que les 4 coins soient visibles. Lorsque vous êtes prêt, appuyez sur le bouton de Déclic.";
+
+"help_failover_check"                   = "Centrez le chèque de sorte que les 4 coins soient visibles. Lorsque vous êtes prêt, appuyez sur le bouton de Déclic.";
+"help_failover_document"                = "Centrez le document de sorte que les 4 coins soient visibles. Lorsque vous êtes prêt, appuyez sur le bouton de Déclic.";
+"help_check"                            = "Placez le chèque sur une surface foncée et bien éclairée. Ne le bougez plus, nous allons prendre la photo pour vous.";
+"help_document"                         = "Placez le document sur une surface foncée et bien éclairée. Ne le bougez plus, nous allons prendre la photo pour vous.";
+"help_manual_check"                     = "Placez le chèque sur une surface foncée et bien éclairée de sorte que les 4 coins soient visibles. Lorsque vous êtes prêt, appuyez sur le bouton de Déclic";
+"help_manual_document"                  = "Placez le document sur une surface foncée et bien éclairée de sorte que les 4 coins soient visibles. Lorsque vous êtes prêt, appuyez sur le bouton  de Déclic";
+
+"help_seamless_failover"                = "We were unable to automatically capture the image. Please align to the guide and snap a photo manually";
+
+"tutorial_help_check"                   = "Placez le chèque sur une surface foncée et bien éclairée. Aligner le chèque.";
+"tutorial_help_license"                 = "Placez la licence sur une surface foncée et bien éclairée. Aligner la licence.";
+"tutorial_help_passport"                = "Placez le passeport sur une surface foncée et bien éclairée. Aligner le passeport.";
+"tutorial_help_document"                = "Placez le document sur une surface foncée et bien éclairée. Aligner le document.";
+"tutorial_help_manual_check"            = "Placez le chèque sur une surface foncée et bien éclairée. Aligner le chèque, ne le bougez plus. Lorsque vous êtes prêt, appuyez sur le bouton de Déclic.";
+"tutorial_help_manual_license"          = "Placez la licence sur une surface foncée et bien éclairée. Aligner la licence, ne le bougez plus. Lorsque vous êtes prêt, appuyez sur le bouton de Déclic.";
+"tutorial_help_manual_passport"         = "Placez le passeport sur une surface foncée et bien éclairée. Aligner le passeport, ne le bougez plus. Lorsque vous êtes prêt, appuyez sur le bouton de Déclic.";
+"tutorial_help_manual_document"         = "Placez le document sur une surface foncée et bien éclairée. Aligner le document, ne le bougez plus. Lorsque vous êtes prêt, appuyez sur le bouton de Déclic.";
+
+"tutorial_photo_auto"                   = "Nous allons prendre la photo pour vous.";
+"tutorial_photo_manual"                 = "Lorsque vous êtes prêt, appuyez sur le bouton de Déclic.";
+
+"ghost_image_remittance"                = "Centrez le talon de paiement ici et attendez, nous allons prendre la photo pour vous";
+"ghost_image_remittance_manual"         = "Centrez le talon paiement, puis appuyez sur le bouton de Déclic lorsque vous êtes prêt";
+"ghost_image_check"                     = "Centrez le chèque ici et attendez, nous allons prendre la photo pour vous";
+"ghost_image_check_manual"              = "Centrez le chèque ici, puis appuyez sur le bouton de Déclic lorsque vous êtes prêt";
+"ghost_image_drivers_license"           = "Centrez le permis de conduire ici et attendez, nous allons prendre la photo pour vous";
+"ghost_image_drivers_license_manual"    = "Centrez le permis de conduire ici, puis appuyez sur le bouton de Déclic lorsque vous êtes prêt";
+"ghost_image_id_card"                   = "Centrez la carte d\'identité ici et attendez, nous allons prendre la photo pour vous";
+"ghost_image_id_card_manual"            = "Centrez la carte d\'identité ici, puis appuyez sur le bouton de Déclic lorsque vous êtes prêt";
+"ghost_image_insurance_card"            = "Centrez la carte d\'assurance ici et attendez, nous allons prendre la photo pour vous";
+"ghost_image_insurance_card_manual"     = "Centrez la carte, puis appuyez sur le bouton de Déclic lorsque vous êtes prêt";
+"ghost_image_vin_manual"                = "Centrez le VIN, puis appuyez sur le bouton de Déclic lorsque vous êtes prêt";
+"ghost_image_w2"                        = "Centrez le W2 ici et attendez, nous allons prendre la photo pour vous";
+"ghost_image_w2_manual"                 = "Centrez le W2 ici, puis appuyez sur le bouton de Déclic lorsque vous êtes prêtt";
+"ghost_image_passport"                  = "Centrez le passeport ici et attendez, nous allons prendre la photo pour vous";
+"ghost_image_passport_manual"           = "Centrez le passeport ici, puis appuyez sur le bouton de Déclic lorsque vous êtes prêt";
+
+"ghost_image_document_landscape"        = "Centrez le document ici et attendez, nous allons prendre la photo pour vous";
+"ghost_image_document_landscape_manual" = "Centrez le document ici et appuyez sur le bouton de Déclic  lorsque vous êtes prêt";
+"ghost_image_documet_portrait"          = "Centrez le document ici et attendez, nous allons prendre la photo pour vous";
+"ghost_image_documet_portrait_manual"   = "Centrez le document ici et appuyez sur le bouton de Déclic  lorsque vous êtes prêt";
+
+"button_cancel"                         = "Annuler";
+"misnap_overlay_cancel_button"          = "Annuler"; // "d\’annulation"
+"misnap_overlay_capture_button"         = "de saisie d\’image";
+"misnap_overlay_flash_on"               = "Flash est activé";
+"misnap_overlay_flash_off"              = "Flash est désactivé";
+"misnap_overlay_flash_auto"             = "Flash est en mode automatique";
+"misnap_overlay_help_button"            = "d\’aide";
+
+// Hint Messages for accessibility
+"more_light"                            = "Déplacez dans un endroit mieux éclairer"; //Trop sombre
+"less_light"                            = "Trop lumineux";
+
+"hold_steady"                           = "Ne pas bouger";
+"get_close"                             = "S’approcher";
+"get_close_check"                       = "S’approcher";
+"get_close_license"                     = "S’approcher";
+"get_close_passport"                    = "S’approcher";
+
+"too_close"                             = "Se reculer";
+"too_close_check"                       = "Se reculer";
+"too_close_license"                     = "Se reculer";
+"too_close_passport"                    = "Se reculer";
+
+//"too_close_check"                     = "trop près du chèque";
+//"too_close_license"                   = "trop près de la licence";
+//"too_close_passport"                  = "trop près du passeport";
+
+"hold_center"                           = "Rèduire l’angle";
+"hold_center_check"                     = "Rèduire l’angle";
+"hold_center_license"                   = "Rèduire l’angle";
+"hold_center_passport"                  = "Rèduire l’angle";
+
+//"hold_center_check"                   = "Centrer le chèque";
+//"hold_center_license"                 = "Centrer la licence";
+//"hold_center_passport"                = "Centrer le passeport";
+
+"reduce_glare"                          = "Éviter le reflet";
+"nothing_detected"                      = "Utiliser un fond sombre"; //Centrez le document sur une surface foncée
+"low_contrast"                          = "Utiliser un fond sombre"; //Centrez le document sur une surface foncée
+"busy_background"                       = "Utiliser un fond uni";
+"not_check_back"                        = "Retourner le chèque";
+"not_check_front"                       = "Utilisiez l’avant du chèque";
+
+// Failover Reasons
+"Too Dim"                               = "Placez le document sur une surface bien éclairée";
+"Too Bright"                            = "Placez le document sur une surface avec moins de lumière";
+"Not Sharp"                             = "Tenez le dispositif fermement";
+"Low Contrast"                          = "Centrez le document sur une surface foncée";
+"Busy Background"                       = "Placez le document sur une surface bien dégagé";
+"Reduce Glare"                          = "Évitez les reflets sur le document";
+"Not Check Front"                       = "Utilisiez le recto du chèque avec tous le numéros visibles";
+"Not Check Back"                        = "Tournez le chèque pour scaner le verso";
+"Angle Too Large"                       = "Tenez le dispositif directement sur le document";
+"Too Much Rotation"                     = "Tenez le dispositif directement sur le document";
+"Too Close"                             = "Éloignez-vous du document";
+"Too Far"                               = "Approchez-vous du document";
+"Hold Steady"                           = "Tenez le dispositif fermement";
+"Nothing Detected"                      = "Centrez le document sur une surface foncée";
+
+"session_interruption_label"            = "Le mode plein écran est nécessaire";
+
+/*
+ <string name="dialog_mitek_cancel">Annuler</string>
+ <string name="dialog_mitek_capture">Continuer</string>
+ <string name="dialog_mitek_try_again">Essayer de nouveau</string>
+ <string name="dialog_mitek_manual_capture">Capture manuelle</string>
+ <string name="misnap_check_front_text">Recto de l’image</string>
+ <string name="misnap_check_back_text">Verso de l’image</string>
+ 
+ <string name="misnap_tutorial_check">Centrez le chèque, la photo sera prise automatiquement</string>
+ <string name="misnap_tutorial_document">Centrez le document, la photo sera prise automatiquement</string>
+ <string name="help_failover_check">Centrez le chèque de sorte que les 4 coins soient visibles. Lorsque vous êtes prêt, appuyez sur le bouton de Déclic.</string>
+ <string name="help_failover_document">Centrez le document de sorte que les 4 coins soient visibles. Lorsque vous êtes prêt, appuyez sur le bouton de Déclic.</string>
+ <string name="help_check">Placez le chèque sur une surface foncée et bien éclairée. Ne le bougez plus, nous allons prendre la photo pour vous.</string>
+ <string name="help_document">Placez le document sur une surface foncée et bien éclairée. Ne le bougez plus, nous allons prendre la photo pour vous.</string>
+ <string name="help_manual_check">Placez le chèque sur une surface foncée et bien éclairée de sorte que les 4 coins soient visibles. Lorsque vous êtes prêt, appuyez sur le bouton de Déclic</string>
+ <string name="help_manual_document">Placez le document sur une surface foncée et bien éclairée de sorte que les 4 coins soient visibles. Lorsque vous êtes prêt, appuyez sur le bouton de Déclic</string>
+ <string name="ghost_image_remittance">Centrez le talon de paiement ici et attendez, nous allons prendre la photo pour vous</string>
+ <string name="ghost_image_remittance_manual">Centrez le talon paiement et appuyez sur le bouton de Déclic lorsque vous êtes prêt</string>
+ <string name="ghost_image_check">Centrez le chèque ici et attendez, nous allons prendre la photo pour vous</string>
+ <string name="ghost_image_check_manual">Centrez le chèque et appuyez sur le bouton de Déclic  lorsque vous êtes prêt</string>
+ <string name="ghost_image_drivers_license">Centrez le permis de conduire ici et attendez, nous allons prendre la photo pour vous</string>
+ <string name="ghost_image_drivers_license_manual">Centrez le permis de conduire et appuyez sur le bouton de Déclic lorsque vous êtes prêt</string>
+ <string name="ghost_image_documet_portrait">Centrez le document ici et attendez, nous allons prendre la photo pour vous</string>
+ <string name="ghost_image_documet_portrait_manual">Centrez le document et appuyez sur le bouton de Déclic  lorsque vous êtes prêt</string>
+ 
+ <string name="more_light">Plus de lumière</string>
+ <string name="hold_steady">Ne pas bouger</string>
+ <string name="get_close">Se rapprocher</string>
+ <string name="hold_center">Centrer</string>
+ <string name="button_cancel">Annuler</string>
+ <string name="misnap_overlay_cancel_button">d\’annulation</string>
+ <string name="misnap_overlay_capture_button">de saisie d\’image</string>
+ <string name="misnap_overlay_flash_toggle">de flash</string>
+ <string name="misnap_overlay_help_button">d\’aide</string>
+ */
