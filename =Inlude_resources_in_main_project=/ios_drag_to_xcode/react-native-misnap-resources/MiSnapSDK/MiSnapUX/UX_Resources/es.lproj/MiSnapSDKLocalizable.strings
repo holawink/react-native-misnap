@@ -6,10 +6,10 @@
 */
 
 // Navigation buttons
-"dialog_mitek_cancel"                   = "Cancelar Captura"; //Cancelar
+"dialog_mitek_cancel"                   = "Cancelar captura"; //Cancelar
 "dialog_mitek_back"                     = "Volver";
 "dialog_mitek_capture"                  = "Continuar";
-"dialog_mitek_try_again"                = "Reintentar Captura Automática"; //Intentar de nuevo
+"dialog_mitek_try_again"                = "Reintentar captura"; //Intentar de nuevo
 "dialog_mitek_manual_capture"           = "Capturar Manualmente"; //Captura Manual
 "dialog_mitek_torch_on"                 = "Encendido";
 "dialog_mitek_torch_off"                = "Apagado";
@@ -25,7 +25,7 @@
 
 "dialog_success"                        = "Éxito!";
 
-"misnap_tutorial_do_not_show_again"     = "No use esta misma pantalla de nuevo";
+"misnap_tutorial_do_not_show_again"     = "Omitir pantalla de ayuda";
 "misnap_tutorial_check"                 = "Centre el cheque en la pantalla. No lo mueva, le tomaremos la foto";
 "misnap_tutorial_document"              = "Centre el documento en la pantalla. No lo mueva, le tomaremos la foto";
 
@@ -82,6 +82,7 @@
 "misnap_overlay_help_button"            = "Ayuda";
 
 // Hint Messages for accessibility
+"good_frame"                            = "Pulse ahora";
 "more_light"                            = "Mover a una superficie mejor iluminada"; //Demasiado oscuro
 "less_light"                            = "Demasiado brillo";
 
@@ -110,7 +111,7 @@
 //"hold_center_passport"                = "Centre el pasaporte";
 
 "reduce_glare"                          = "Reduce la exposicion de luz";
-"nothing_detected"                      = "Coloca en superficie oscura"; //Centre el documento sobre una superficie oscura
+"nothing_detected"                      = "Centre el documento sobre una superficie oscura";
 "low_contrast"                          = "Coloca en superficie oscura"; //Centre el documento sobre una superficie oscura
 "busy_background"                       = "Coloque en superficie despejada";
 "not_check_back"                        = "Dale la vuelta";

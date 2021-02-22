@@ -29,7 +29,7 @@
 RCT_EXPORT_MODULE()
 
 RCT_REMAP_METHOD(greet, resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
-    NSString *greetText = @"HELLO FROM IOS NATIVE CODE";
+    NSString *greetText = @"HELLO FROM IOS NATIVE CODE (1.0.5)";
     resolve(greetText);
     // reject([NSError errorWithDomain:@"com.companyname.app" code:0 userInfo:@{ @"text": @"something happend" }]);
 }
@@ -39,13 +39,13 @@ RCT_EXPORT_METHOD(capture:(NSDictionary *)config resolver:(RCTPromiseResolveBloc
     cRejecter = reject;
     
     // Bypassing the tutorial views for iDFront an iDBack, as they dirupt the camera view making it black screen.
-
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"MiSnapShowTutorialIdFront"];
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"MiSnapShowTutorialIdBack"];
-
+    
+    // [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"MiSnapShowTutorialIdFront"];
+    // [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"MiSnapShowTutorialIdBack"];
+    
     self.miSnapController = nil;
     self.livenessController = nil;
-
+    
     if ([config[@"captureType"] isEqualToString:@"idFront"]) {
         self.selectedJobType = kMiSnapDocumentTypeIdCardFront;
     } else if ([config[@"captureType"] isEqualToString:@"idBack"]) {
@@ -56,13 +56,13 @@ RCT_EXPORT_METHOD(capture:(NSDictionary *)config resolver:(RCTPromiseResolveBloc
     } else if ([config[@"captureType"] isEqualToString:@"creditCard"]) {
         self.selectedJobType = kMiSnapDocumentTypeCreditCard;
     }
-
+    
     self.miSnapController = (MiSnapSDKViewController *)[[UIStoryboard storyboardWithName:@"MiSnapUX2" bundle:nil] instantiateViewControllerWithIdentifier:@"MiSnapSDKViewControllerUX2"];
-
+    
     self.miSnapController.delegate = self;
     [self.miSnapController setupMiSnapWithParams:[self getMiSnapParameters:config]];
     self.miSnapController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-
+    
     if (self.miSnapController != nil) {
         dispatch_async(dispatch_get_main_queue(), ^{
             UIViewController *rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
@@ -84,7 +84,7 @@ RCT_EXPORT_METHOD(capture:(NSDictionary *)config resolver:(RCTPromiseResolveBloc
     self.livenessController.delegate = self;
     self.livenessController.captureParams = self.captureParams;
     self.livenessController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-
+    
     if (self.livenessController != nil) {
         dispatch_async(dispatch_get_main_queue(), ^{
             UIViewController *rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
@@ -108,6 +108,7 @@ RCT_EXPORT_METHOD(capture:(NSDictionary *)config resolver:(RCTPromiseResolveBloc
             NSMutableDictionary *resultDic = [[NSMutableDictionary alloc] init];
             resultDic[@"base64encodedImage"] = encodedImage;
             resultDic[@"metadata"] = results;
+            // [self storeImageToDocumentsDirectory:encodedImage];
             cResolver(resultDic);
         }];
     }
@@ -116,16 +117,6 @@ RCT_EXPORT_METHOD(capture:(NSDictionary *)config resolver:(RCTPromiseResolveBloc
 - (NSDictionary *)getMiSnapParameters:(NSDictionary *)options
 {
     NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:[MiSnapSDKViewController defaultParametersForACH]];
-
-    // Must set specific server type and server version
-    [parameters setObject:@"test" forKey:kMiSnapServerType];
-    [parameters setObject:@"0.0" forKey:kMiSnapServerVersion];
-
-    // LanguageOverride forces only English "en". Uncomment this to enforce just English localization.
-    [parameters setObject:@"es" forKey:@"LanguageOverride"];
-    [parameters setObject:@"90000" forKey:kMiSnapTimeout];
-    [parameters setObject:@"2" forKey:kMiSnapMaxCaptures]; // Shows how to set 3 rather than default 5
-
     if ([self.selectedJobType isEqualToString:kMiSnapDocumentTypeIdCardFront]) { //@"ID_CARD_FRONT"
         parameters = [NSMutableDictionary dictionaryWithDictionary:[MiSnapSDKViewController defaultParametersForIdCardFront]];
         [parameters setObject:@"ID Card Front" forKey:kMiSnapShortDescription];
@@ -135,11 +126,39 @@ RCT_EXPORT_METHOD(capture:(NSDictionary *)config resolver:(RCTPromiseResolveBloc
         [parameters setObject:@"ID Card Back" forKey:kMiSnapShortDescription];
         [parameters setObject:@"0" forKey:kMiSnapTorchMode];
     }
-
+    // External settings
+    NSNumber *glare = options[@"glare"];
+    NSNumber *contrast = options[@"contrast"];
+    NSNumber *imageQuality = options[@"imageQuality"];
+    
+    NSLog(@"Glare: %@", glare);
+    NSLog(@"Contrast: %@", contrast);
+    NSLog(@"Quality: %@", imageQuality);
+    if (glare != nil) {
+        [parameters setObject:glare.stringValue forKey:kMiSnapGlareConfidence];
+    }
+    if (contrast != nil) {
+        [parameters setObject:contrast.stringValue forKey:kMiSnapBackgroundConfidence];
+    }
+    if (imageQuality != nil) {
+        [parameters setObject:imageQuality.stringValue forKey:kMiSnapImageQuality];
+    }
+    
+    [parameters setObject:@"2" forKey:kMiSnapOrientationMode];
+    
+    // Must set specific server type and server version
+    [parameters setObject:@"test" forKey:kMiSnapServerType];
+    [parameters setObject:@"0.0" forKey:kMiSnapServerVersion];
+    
+    // LanguageOverride forces only English "en". Uncomment this to enforce just English localization.
+    // [parameters setObject:@"es" forKey:@"LanguageOverride"];
+    [parameters setObject:@"90000" forKey:kMiSnapTimeout];
+    [parameters setObject:@"2" forKey:kMiSnapMaxCaptures]; // Shows how to set 3 rather than default 5
+    
     if (options[@"autocapture"] == NO) {
         [parameters setObject:@"1" forKey:kMiSnapCaptureMode];
     }
-
+    
     return [parameters copy];
 }
 
@@ -151,7 +170,7 @@ RCT_EXPORT_METHOD(capture:(NSDictionary *)config resolver:(RCTPromiseResolveBloc
     resultDic[@"base64encodedImage"] = results.encodedImage;
     resultDic[@"metadata"] = @{ @"data": results.uxpData };
     cResolver(resultDic);
-
+    
     if (results.isSpoofDetected) {
         // Handle spoof detected during successful capture
         //NSLog(@"*** Spoof detected");
@@ -160,6 +179,21 @@ RCT_EXPORT_METHOD(capture:(NSDictionary *)config resolver:(RCTPromiseResolveBloc
         //NSLog(@"*** Successs");
     }
     //NSLog(@"Success results: %@", results.uxpData);
+}
+
+#pragma mark - Helper
+
+- (void) storeImageToDocumentsDirectory:(NSString *)image {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, true);
+    NSString *documentPath = [paths objectAtIndex:0];
+    NSURL *url = [NSURL fileURLWithPath:documentPath];
+    NSURL *saveUrl = [url URLByAppendingPathComponent:[[NSUUID alloc] init].UUIDString];
+    NSLog(@"%@", saveUrl.absoluteString);
+    NSError *error;
+    [image writeToURL:saveUrl atomically:true encoding:NSUTF8StringEncoding error:&error];
+    if (error) {
+        NSLog(@"%@", error.localizedDescription);
+    }
 }
 
 @end

@@ -81,8 +81,57 @@ typedef NS_OPTIONS(NSInteger, MiSnapLivenessResultType) {
 	 */
 	kLiveness_Error_Device_Tilt			= 1 << 8,
     
+    /**
+     *  Hold Still - hold the device still while liveness is being verified
+     *
+     *  - Since: 2.1
+     */
+    kLiveness_Hold_Still                = 1 << 9,
+    
 };
 
+/**
+ *  `MiSnapLivenessResultCode` defines various result codes return by a session.
+ *
+ *  - Since: 2.1
+ */
+typedef NS_ENUM(NSInteger, MiSnapLivenessResultCode)
+{
+    /**
+     *  Result Unverified - auto capture passive liveness NOT detected, active liveness detected
+     *
+     *  - Since: 2.1
+     */
+    kLiveness_Result_Unverified = 0,
+    
+    /**
+     *  Result Unverified Still Camera - manual capture passive liveness NOT detected, active liveness NOT detected
+     *
+     *  - Since: 2.1
+     */
+    kLiveness_Result_Unverified_Still_Camera,
+    
+    /**
+     *  Result Success Video - auto capture passive liveness detected, active liveness detected
+     *
+     *  - Since: 2.1
+     */
+    kLiveness_Result_Success_Video,
+    
+    /**
+     *  Result Success Still Camera - manual capture passive liveness detected, active liveness NOT detected
+     *
+     *  - Since: 2.1
+     */
+    kLiveness_Result_Success_Still_Camera,
+    
+    /**
+     *  Result Spoof Detected - auto or manual capture spoof detected
+     *
+     *  - Since: 2.1
+     */
+    kLiveness_Result_Spoof_Detected
+};
 
 /**
  *  `MiSnapLivenessCaptureResults` stores the video frame analysis.  The contents
@@ -102,15 +151,6 @@ typedef NS_OPTIONS(NSInteger, MiSnapLivenessResultType) {
 @interface MiSnapLivenessCaptureResults : NSObject <NSCopying>
 
 /**
- *  The quality score for a given analyzed video frame.
- *
- *  Range: [0..1]
- *
- *  - Since: 1.0
- */
-@property (atomic, assign, readonly) float score;
-
-/**
  *  The captured image that meets or exceeds the capture parameter thresholds.
  *  This property is nil until a capture occurs.
  *
@@ -125,6 +165,14 @@ typedef NS_OPTIONS(NSInteger, MiSnapLivenessResultType) {
  *  - Since: 1.0
  */
 @property (nonatomic, strong, readonly) NSString *encodedImage;
+
+/**
+ *  The liveness result code
+ *  See MiSnapLivenessResultCode enum for all available result codes
+ *
+ *  - Since: 2.1
+ */
+@property (nonatomic, assign, readonly) MiSnapLivenessResultCode livenessResultCode;
 
 /**
  *  A JSON formatted string containing user-experience-data.
@@ -233,5 +281,14 @@ typedef NS_OPTIONS(NSInteger, MiSnapLivenessResultType) {
  *  - Since: 1.0
  */
 - (BOOL)isErrorDeviceTilt;
+
+/**
+ *  Convenience method to evalute the `analysisFlags` property
+ *
+ *  @return Returns `TRUE` if the device should be held still.
+ *
+ *  - Since: 2.1
+ */
+- (BOOL)shouldHoldStill;
 
 @end

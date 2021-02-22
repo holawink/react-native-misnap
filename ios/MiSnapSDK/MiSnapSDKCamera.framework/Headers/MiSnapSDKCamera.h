@@ -30,6 +30,27 @@
  */
 - (void)didReceiveSampleBuffer:(CMSampleBufferRef _Nonnull )sampleBuffer;
 
+/*!
+ @method didReceivePhotoSampleBuffer:previewPhotoSampleBuffer:error:
+ @abstract
+ Called whenever a MiSnapSDKCamera instance outputs a frame captured with AVCapturePhotoOutput (still image).
+
+ @param photoSampleBuffer
+ A CMSampleBuffer object containing the still frame data.
+ 
+ @param previewPhotoSampleBuffer
+ A CMSampleBuffer object containing the still frame preview data.
+ 
+ @param error
+ A CMSampleBuffer object containing the still frame preview data.
+
+ @discussion
+ Delegates receive this message whenever the output captures a still image
+
+    Clients that need to reference the CMSampleBuffer object outside of the scope of this method must CFRetain it and then CFRelease it when they are finished with it.
+*/
+- (void)didReceivePhotoSampleBuffer:(CMSampleBufferRef _Nullable)photoSampleBuffer previewPhotoSampleBuffer:(CMSampleBufferRef _Nullable)previewPhotoSampleBuffer error:(NSError * _Nullable )error;
+
 @optional
 
 /*!
@@ -52,6 +73,22 @@
  transition to the video presentation.
  */
 - (void)didFinishConfiguringSession;
+
+/*!
+ @method didDecodeBarcode:
+ @abstract
+ Called once for each frame where a barcode is decoded.
+ 
+ @param decodedBarcodeString
+ A NSString object containing PDF417 Data
+ 
+ @discussion
+ Delegates receive this message whenever a PDF417 Data is decoded. This method is called once for each frame where a barcode is decoded. The NSString object passed to this delegate method will contain PDF417 Data.
+ 
+ @note
+ detectPDF417 property of MiSnapSDKCamera should be set to YES to enable MiSnapSDKCamera to decode barcodes
+ */
+- (void)didDecodeBarcode:(NSString *_Nonnull)decodedBarcodeString;
 
 @end
 
@@ -78,6 +115,11 @@
  Default is YES.
  */
 @property (nonatomic) BOOL analyzeRGBVideo;
+
+/*! @abstract When set to YES enables barcode scanning capabilities. When set to NO barcode scanning capabilities are disabled.
+ Default is NO.
+ */
+@property (nonatomic) BOOL detectPDF417;
 
 /*! @abstract When set to YES the torch is ion auto mode. When set to NO the torch is not in auto mode.
  Default is YES.
@@ -106,6 +148,10 @@
 - (instancetype _Nullable )initWithSessionPreset:(AVCaptureSessionPreset _Nullable )sessionPreset pixelBufferFormat:(NSInteger)pixelBufferFormat andFrame:(CGRect)frame;
 
 - (void)setSessionPreset:(AVCaptureSessionPreset _Nullable )sessionPreset pixelBufferFormat:(NSInteger)pixelBufferFormat;
+
+- (void)setSessionPreset:(AVCaptureSessionPreset _Nullable)sessionPreset pixelBufferFormat:(NSInteger)pixelBufferFormat devicePosition:(AVCaptureDevicePosition)devicePosition;
+
+- (void)setImage:(UIImage *_Nullable)image frameRate:(NSInteger)frameRate;
 
 /*!
  @abstract Updates the preview layer with a deviceOrientation
@@ -160,13 +206,8 @@
 - (BOOL)hasTorch;
 
 /*!
- @abstract Defines the MiSnapManualCaptureHandler to receive the imageSampleBuffer or error
- */
-typedef void (^MiSnapManualCaptureHandler)(CMSampleBufferRef _Nullable imageSampleBuffer, NSError * _Nullable error);
-
-/*!
- @abstract Initiates the camera to take a still image returned through the completion handler
- */
-- (void)captureStillImageAsynchronouslyWithCompletionHandler:(_Nullable MiSnapManualCaptureHandler)manualCaptureHandler;
+ @abstract Initiates the camera to take a still image returned through a callback didReceivePhotoSampleBuffer:previewPhotoSampleBuffer:error: 
+*/
+- (void)captureStillImage;
 
 @end

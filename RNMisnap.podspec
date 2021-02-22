@@ -21,7 +21,17 @@ Pod::Spec.new do |s|
   s.frameworks  = 'UIKit', 'AudioToolbox', 'AVFoundation', 'CoreGraphics', 'CoreMedia', 'CoreVideo', 'MobileCoreServices', 'OpenGLES', 'QuartzCore', 'Security', 'ImageIO'
 
   # s.resources =  ['ios/MiSnapSDK/resources/*']
-  s.vendored_frameworks = 'ios/MiSnapSDK/MiSnapSDK.framework','ios/MiSnapSDK/MiSnapSDKCamera.framework','ios/MiSnapSDK/MiSnapSDKMibiData.framework','ios/MiSnapSDK/MiSnapSDKScience.framework','ios/MiSnapSDK/MobileFlow.framework' ,'ios/MiSnapSDK/MiSnapLiveness.framework'
+  s.vendored_frameworks = 'ios/MiSnapSDK/MiSnapSDK.framework',
+  'ios/MiSnapSDK/MiSnapSDKCamera.framework',
+  'ios/MiSnapSDK/MiSnapSDKMibiData.framework',
+  'ios/MiSnapSDK/MiSnapSDKScience.framework',
+  'ios/MiSnapSDK/MobileFlow.framework', 
+  'ios/MiSnapSDK/MiSnapBarcodeScanner.framework', 
+  'ios/MiSnapSDK/MiSnapLiveness.framework', 
+  'ios/MiSnapSDK/DaonFaceLiveness.framework', 
+  'ios/MiSnapSDK/DaonFaceLivenessBlink.framework', 
+  'ios/MiSnapSDK/DaonFaceQuality.framework', 
+  'ios/MiSnapSDK/DaonFaceSDK.framework'
 
   s.requires_arc = true
   s.dependency "React"

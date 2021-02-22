@@ -118,7 +118,7 @@
     self.smartHintBackgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f];
     self.smartHintBorderColor = [[UIColor whiteColor] colorWithAlphaComponent:1.0f];
     self.smartHintTextColor = [[UIColor darkTextColor] colorWithAlphaComponent:1.0f];
-    self.smartHintFont = [UIFont fontWithName:@"Helvetica" size:28];
+    self.smartHintFont = [UIFont systemFontOfSize:28];
     self.smartHintBorderWidth = 0.0f;
     self.smartHintCornerRadius = 18.0f;
     
@@ -133,6 +133,8 @@
     self.shouldShowSmartHintLowContrast = YES;  // YES, display low contrast hint.
     self.shouldShowSmartHintBusyBackground = YES;  // YES, display busy background hint.
     
+    self.successImageView.hidden = YES; //Hide the success view so it won't show even briefly during the check for camera permissions
+
 //    isFirstTime = TRUE;
 //    isFirstTimeHint = TRUE;
     
@@ -249,11 +251,12 @@
 
     self.docCaptureParams = [MiSnapSDKParameters new];
     [self.docCaptureParams updateParameters:params];
-    self.resourceLocator = [MiSnapSDKResourceLocator initWithLanguageKey:self.docCaptureParams.languageOverride];
+    self.resourceLocator = [MiSnapSDKResourceLocator initWithLanguageKey:self.docCaptureParams.languageOverride bundle:[NSBundle bundleForClass:[self class]] localizableStringsName:@"MiSnapSDKLocalizable"];
 
     self.successImageView.hidden = YES;
     self.successImageView.layer.cornerRadius = 12.0f;
     [self.successLabel setText:[self.resourceLocator getLocalizedString:@"dialog_success"]];
+    [self.successLabel setTextColor:[UIColor blackColor]];
     self.successLabel.hidden = YES;
 
     self.ghostImageView.hidden = YES;
@@ -273,7 +276,7 @@
     [self.helpButton   setAccessibilityLabel:[self.resourceLocator getLocalizedString:@"misnap_overlay_help_button"]];
 
     [self.helpButton setEnabled:YES];
-    self.helpButton.hidden = YES;
+    self.helpButton.hidden = NO;
     self.cancelButton.hidden = NO;
     self.jobTitleLabel.hidden = NO;
     
@@ -539,11 +542,11 @@
         //NSLog(@"UX2: showHint return due to isShowingSmartHint");
         return;
     }
-    
-    if ([hintString isEqualToString:kMiSnapHintNothingDetected])
-    {
-        return;
-    }
+// Hint is now valid again in v4.4
+//    if ([hintString isEqualToString:kMiSnapHintNothingDetected])
+//    {
+//        return;
+//    }
     
     self.hintView = nil;     // Force an unload
 
@@ -633,13 +636,13 @@
         ////////////////////
         // Check messages
         ////////////////////
-        if ([hintString isEqualToString:kMiSnapHintTooDim])
+        if ([hintString isEqualToString:kMiSnapHintGoodFrame])
+        {
+            messageKey = @"good_frame";
+        }
+        else if ([hintString isEqualToString:kMiSnapHintTooDim])
         {
             messageKey = @"more_light";
-            self.hintView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"misnap_en_check_hint_too_dark"]];
-            [self animateHint:self.hintView];
-            //[self.parentViewController.uxpEventMgr addEvent:UXP_BRIGHTNESS_HELP];
-            [self sayText:@"more_light"];
         }
         else if ([hintString isEqualToString:kMiSnapHintTooBright])
         {
@@ -714,7 +717,8 @@
     }
     
     float width = 320;
-    float height = 100;
+    /// Add more height for nothing detected hint
+    float height = [hintString isEqualToString:kMiSnapHintNothingDetected]?130:100;
     float originX = (self.bounds.size.width - width) / 2;
     float originY = (self.bounds.size.height - height) / 2;
     CGRect hintRect = CGRectMake(originX, originY, width, height);
@@ -742,7 +746,8 @@
     [self animateSmartHint:self.smartHint];
     [self sayText:messageKey];
     
-    self.smartHint.titleLabel.numberOfLines = 2;
+    // Let nothing detected hint span 3 lines
+    self.smartHint.titleLabel.numberOfLines = ([hintString isEqualToString:kMiSnapHintNothingDetected]?3:2);
     self.smartHint.titleLabel.adjustsFontSizeToFitWidth = NO;
     self.smartHint.titleLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
     self.smartHint.titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -773,6 +778,7 @@
     else if ([hintString isEqualToString:kMiSnapHintBusyBackground] && self.shouldShowSmartHintBusyBackground == FALSE) {
         return;
     }
+// Nothing detected hint is valid in v4.4
 //    else if ([hintString isEqualToString:kMiSnapHintNothingDetected])
 //    {
 //        return;
@@ -782,7 +788,8 @@
     NSString *hintMessage = nil;
     
     float width = 320;
-    float height = 100;
+    // Add more height for nothing detected hint
+    float height = [hintString isEqualToString:kMiSnapHintNothingDetected]?130:100;
     float originX = (self.bounds.size.width - width) / 2;
     float originY = (self.bounds.size.height - height) / 2;
     CGRect hintRect = CGRectMake(originX, originY, width, height);
@@ -870,7 +877,8 @@
     [self animateSmartHint:self.smartHint];
     [self sayText:hintMessage];
 
-    self.smartHint.titleLabel.numberOfLines = 2;
+    // Let nothing detected hint span 3 lines
+    self.smartHint.titleLabel.numberOfLines = ([hintString isEqualToString:kMiSnapHintNothingDetected]?3:2);
     self.smartHint.titleLabel.adjustsFontSizeToFitWidth = NO;
     self.smartHint.titleLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
     self.smartHint.titleLabel.textAlignment = NSTextAlignmentCenter;

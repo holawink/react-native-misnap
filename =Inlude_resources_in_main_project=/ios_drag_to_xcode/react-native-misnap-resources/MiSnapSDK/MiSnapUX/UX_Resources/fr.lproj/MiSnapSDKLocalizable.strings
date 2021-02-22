@@ -83,6 +83,7 @@
 "misnap_overlay_help_button"            = "d\’aide";
 
 // Hint Messages for accessibility
+"good_frame"                            = "Appuyer";
 "more_light"                            = "Déplacez dans un endroit mieux éclairer"; //Trop sombre
 "less_light"                            = "Trop lumineux";
 
@@ -111,7 +112,7 @@
 //"hold_center_passport"                = "Centrer le passeport";
 
 "reduce_glare"                          = "Éviter le reflet";
-"nothing_detected"                      = "Utiliser un fond sombre"; //Centrez le document sur une surface foncée
+"nothing_detected"                      = "Centrez le document sur une surface foncée";
 "low_contrast"                          = "Utiliser un fond sombre"; //Centrez le document sur une surface foncée
 "busy_background"                       = "Utiliser un fond uni";
 "not_check_back"                        = "Retourner le chèque";

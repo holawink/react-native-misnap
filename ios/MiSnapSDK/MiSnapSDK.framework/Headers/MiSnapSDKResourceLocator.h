@@ -15,11 +15,17 @@
 
 @property (nonatomic, weak) NSString* languageKey;
 
-- (UIImage*)getLocalizedImage:(NSString *)imageName;
-- (UIImage*)getLocalizedImage:(NSString *)imageName withOrientation:(UIInterfaceOrientation)orientation withOrientationMode:(MiSnapOrientationMode)orientationMode;
-- (UIImage*)getLocalizedTutorialImage:(NSString *)imageName withOrientation:(UIInterfaceOrientation)orientation withOrientationMode:(MiSnapOrientationMode)orientationMode;
+- (UIImage *)getLocalizedImage:(NSString *)imageName;
+- (UIImage *)getLocalizedImage:(NSString *)imageName extension:(NSString *)extension;
+
+- (UIImage *)getLocalizedImage:(NSString *)imageName withOrientation:(UIInterfaceOrientation)orientation withOrientationMode:(MiSnapOrientationMode)orientationMode;
+- (UIImage *)getLocalizedImage:(NSString *)imageName extension:(NSString *)extension withOrientation:(UIInterfaceOrientation)orientation withOrientationMode:(MiSnapOrientationMode)orientationMode;
+
+- (UIImage *)getLocalizedTutorialImage:(NSString *)imageName withOrientation:(UIInterfaceOrientation)orientation withOrientationMode:(MiSnapOrientationMode)orientationMode;
+- (UIImage *)getLocalizedTutorialImage:(NSString *)imageName extension:(NSString *)extension withOrientation:(UIInterfaceOrientation)orientation withOrientationMode:(MiSnapOrientationMode)orientationMode;
+
 - (NSString*)getLocalizedString:(NSString*)key;
 
-+ (MiSnapSDKResourceLocator *)initWithLanguageKey:(NSString*)key;
++ (MiSnapSDKResourceLocator *)initWithLanguageKey:(NSString*)key bundle:(NSBundle *)bundle localizableStringsName:(NSString *)localizableStringsName;
 
 @end

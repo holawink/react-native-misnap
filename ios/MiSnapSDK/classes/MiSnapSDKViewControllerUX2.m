@@ -91,7 +91,7 @@
 
 + (MiSnapSDKViewControllerUX2 *)instantiateFromStoryboard
 {
-    return [[UIStoryboard storyboardWithName:@"MiSnapUX2" bundle:nil] instantiateViewControllerWithIdentifier:[MiSnapSDKViewControllerUX2 storyboardIdentifier]];
+    return [[UIStoryboard storyboardWithName:@"MiSnapUX2" bundle:[NSBundle bundleForClass:self.class]] instantiateViewControllerWithIdentifier:[MiSnapSDKViewControllerUX2 storyboardIdentifier]];
 }
 
 @end

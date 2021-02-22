@@ -115,7 +115,7 @@ typedef NS_ENUM(NSInteger, MiSnapLivenessCaptureMode) {
  *  The lighting threshold.
  *  Values below the minimum set `MiSnapLivenessResultType.kLiveness_Error_Low_Lighting` flag.
  * 
- *  Range: [0..1000] - Default: 500
+ *  Range: [0..1000] - Default: 350
  *
  *  @see `MiSnapLivenessCaptureResults` and `MiSnapLivenessCaptureView`
  *  - Since: 1.0

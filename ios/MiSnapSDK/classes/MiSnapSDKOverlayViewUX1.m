@@ -16,6 +16,8 @@
 
 @property (nonatomic, strong) MiSnapSDKParameters* docCaptureParams;
 
+@property (nonatomic, strong) MiSnapSDKResourceLocator* resourceLocator;
+
 @property (nonatomic, assign) NSInteger smartBubbleCounter;
 @property (nonatomic, assign) CGFloat smartBubbleDelay;
 
@@ -107,10 +109,9 @@
 
 - (void)sayText:(NSString *)textStr
 {
-    MiSnapSDKResourceLocator* resourceLocator = [MiSnapSDKResourceLocator initWithLanguageKey:self.docCaptureParams.languageOverride];
     //NSString *localizedStr = [resourceLocator getLocalizedString:textStr];
     //NSLog(@"UX1 sayText textStr %@ localizedStr %@", textStr, localizedStr);
-    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, [resourceLocator getLocalizedString:textStr]);
+    UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, [self.resourceLocator getLocalizedString:textStr]);
 }
 
 #pragma mark - Animation
@@ -221,12 +222,12 @@
 
     [self setupJobTitle];
 
-    MiSnapSDKResourceLocator* resourceLocator = [MiSnapSDKResourceLocator initWithLanguageKey:self.docCaptureParams.languageOverride];
+    self.resourceLocator = [MiSnapSDKResourceLocator initWithLanguageKey:self.docCaptureParams.languageOverride bundle:[NSBundle bundleForClass:[self class]] localizableStringsName:@"MiSnapSDKLocalizable"];
 
-    [self.cancelButton setAccessibilityLabel:[resourceLocator getLocalizedString:@"misnap_overlay_cancel_button"]];
-    [self.snapButton   setAccessibilityLabel:[resourceLocator getLocalizedString:@"misnap_overlay_capture_button"]];
-    [self.torchButton  setAccessibilityLabel:[resourceLocator getLocalizedString:@"misnap_overlay_flash_off"]];
-    [self.helpButton   setAccessibilityLabel:[resourceLocator getLocalizedString:@"misnap_overlay_help_button"]];
+    [self.cancelButton setAccessibilityLabel:[self.resourceLocator getLocalizedString:@"misnap_overlay_cancel_button"]];
+    [self.snapButton   setAccessibilityLabel:[self.resourceLocator getLocalizedString:@"misnap_overlay_capture_button"]];
+    [self.torchButton  setAccessibilityLabel:[self.resourceLocator getLocalizedString:@"misnap_overlay_flash_off"]];
+    [self.helpButton   setAccessibilityLabel:[self.resourceLocator getLocalizedString:@"misnap_overlay_help_button"]];
 
     [self.helpButton setEnabled:YES];
 
@@ -266,17 +267,17 @@
     if (self.docCaptureParams.torchMode == 0)
     {
         torchImage = [self getResourcePNG:@"icon_flash_off"];
-        torchAccessibilityLabel = [resourceLocator getLocalizedString:@"misnap_overlay_flash_off"];
+        torchAccessibilityLabel = [self.resourceLocator getLocalizedString:@"misnap_overlay_flash_off"];
     }
     else if (self.docCaptureParams.torchMode == 1)
     {
         torchImage = [self getResourcePNG:@"icon_flash_on"];
-        torchAccessibilityLabel = [resourceLocator getLocalizedString:@"misnap_overlay_flash_on"];
+        torchAccessibilityLabel = [self.resourceLocator getLocalizedString:@"misnap_overlay_flash_on"];
     }
     else if (self.docCaptureParams.torchMode == 2)
     {
         torchImage = [self getResourcePNG:@"icon_flash_on"];
-        torchAccessibilityLabel = [resourceLocator getLocalizedString:@"misnap_overlay_flash_auto"];
+        torchAccessibilityLabel = [self.resourceLocator getLocalizedString:@"misnap_overlay_flash_auto"];
     }
 
     [self.torchButton setBackgroundImage:torchImage forState:UIControlStateNormal];
@@ -315,17 +316,16 @@
 {
     UIImage* image;
     NSString* accessibilityLabel;
-    MiSnapSDKResourceLocator* resourceLocator = [MiSnapSDKResourceLocator initWithLanguageKey:self.docCaptureParams.languageOverride];
     
     if (onFlag == YES)
     {
         image = [self getResourcePNG:@"icon_flash_on"];
-        accessibilityLabel = [resourceLocator getLocalizedString:@"misnap_overlay_flash_on"];
+        accessibilityLabel = [self.resourceLocator getLocalizedString:@"misnap_overlay_flash_on"];
     }
     else
     {
         image = [self getResourcePNG:@"icon_flash_off"];
-        accessibilityLabel = [resourceLocator getLocalizedString:@"misnap_overlay_flash_off"];
+        accessibilityLabel = [self.resourceLocator getLocalizedString:@"misnap_overlay_flash_off"];
     }
     
     [self.torchButton setBackgroundImage:image forState:UIControlStateNormal];
@@ -561,8 +561,6 @@
     
     self.smartHint = nil;     // Force an unload
     
-    MiSnapSDKResourceLocator* resourceLocator = [MiSnapSDKResourceLocator initWithLanguageKey:self.docCaptureParams.languageOverride];
-    
     NSString *smartBubbleString = [NSString string];
     
     if ([hintString isEqualToString:kMiSnapHintGlare])
@@ -579,6 +577,11 @@
         
         self.smartBubbleImageView.image = [UIImage imageNamed:@"error_reduce_glare"];
         smartBubbleString = @"reduce_glare";
+    }
+    else if ([hintString isEqualToString:kMiSnapHintGoodFrame])
+    {
+        self.smartBubbleImageView.image = [UIImage imageNamed:@"error_use_front_check"];
+        smartBubbleString = @"good_frame";
     }
     else if ([hintString isEqualToString:kMiSnapHintNotCheckBack])
     {
@@ -668,7 +671,7 @@
     [self animateBubble];
     [self animateHint:self.smartHint];
     [self sayText:smartBubbleString];
-    self.smartBubbleLabel.text = [resourceLocator getLocalizedString:smartBubbleString];
+    self.smartBubbleLabel.text = [self.resourceLocator getLocalizedString:smartBubbleString];
 }
 
 - (void)hideSmartHint

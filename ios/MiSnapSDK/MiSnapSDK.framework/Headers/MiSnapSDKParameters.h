@@ -26,7 +26,7 @@
  @unsorted
  */
 
-#define MISNAP_VERSION @"4.3.1"
+#define MISNAP_VERSION @"4.5.0"
 
 // MiSnap Capture modes
 typedef NS_ENUM(NSInteger, MiSnapCaptureMode) {
@@ -515,13 +515,13 @@ extern NSString* const kMiSnapHintBusyBackground;
 extern NSString* const kMiSnapHintGlare;
 extern NSString* const kMiSnapHintNotCheckFront;
 extern NSString* const kMiSnapHintNotCheckBack;
-extern NSString* const kMiSnapHintNotCheckFront;
 extern NSString* const kMiSnapHintRotation;
 extern NSString* const kMiSnapHintAngleTooLarge;
 extern NSString* const kMiSnapHintTooClose;
 extern NSString* const kMiSnapHintTooFar;
 extern NSString* const kMiSnapHintNothingDetected;
 extern NSString* const kMiSnapHintHoldSteady;
+extern NSString* const kMiSnapHintGoodFrame;
 extern NSString* const kMiSnapOrientation;
 
 // Tutorial info

@@ -40,7 +40,6 @@
 @property (nonatomic, assign) BOOL imageCaptured;
 
 @property (nonatomic, assign) UIDeviceOrientation oldOrientation;
-@property (nonatomic, assign) bool originalNavigationBarHiddenStatus;
 
 @property (nonatomic, assign) BOOL torchWasON;
 @property (nonatomic, assign) BOOL isFailover;
@@ -68,6 +67,7 @@
 - (void)initializeObjects
 {
     self.shouldDissmissOnSuccess = TRUE; // The default
+    self.showHintsInManualMode = FALSE;
     self.torchWasON = FALSE;
     self.isFailover = FALSE;
     self.gaugeIsShowing = FALSE;
@@ -89,14 +89,7 @@
     // by a standard UIView.
     [MiSnapSDKOverlayView class];
     
-    if ((self.navigationController != nil) && (self.navigationController.navigationBar != nil))
-    {
-        self.originalNavigationBarHiddenStatus = self.navigationController.isNavigationBarHidden;
-    }
-    else
-    {
-        self.originalNavigationBarHiddenStatus = NO;
-    }
+    self.useBarcodeScannerLight = YES;
 }
 
 - (id)init
@@ -136,6 +129,11 @@
     [super viewWillAppear:animated];
     
     self.statusbarOrientation = [UIApplication sharedApplication].statusBarOrientation;
+    
+    if (self.navigationController)
+    {
+        [self.navigationController setNavigationBarHidden:YES];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -158,14 +156,22 @@
             self.cameraView.cameraOrientation = self.statusbarOrientation;
         }
         [self.cameraView setSessionPreset:AVCaptureSessionPreset1920x1080 pixelBufferFormat:kCVPixelFormatType_32BGRA];
+        
+        if ([self.captureParams[kMiSnapDocumentType] isEqualToString:kMiSnapDocumentTypeIdCardBack] && self.useBarcodeScannerLight)
+        {
+            self.cameraView.detectPDF417 = YES;
+        }
+
         self.cameraView.delegate = self;
     }
     else
     {
-    #endif
         [self didFinishConfiguringSession];
-    #if !TARGET_IPHONE_SIMULATOR
     }
+    #else
+        [self.cameraView setImage:[UIImage imageNamed:self.captureParams[@"InjectImageName"]] frameRate:4];
+        self.cameraView.delegate = self;
+        [self didFinishConfiguringSession];
     #endif
 }
 
@@ -223,9 +229,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
     [self.captureView shutdown];
-    
-    [self.navigationController setNavigationBarHidden:self.originalNavigationBarHiddenStatus];
-    
+        
     self.sessionInterruptionView = nil;
     self.sessionInterruptionLabel = nil;
     
@@ -369,18 +373,28 @@
             self.cameraView.delegate = nil;
             [self.cameraView stop];
             [self.cameraView shutdown];
-            if (self.shouldDissmissOnSuccess) {
-                terminationDelay = [self.captureParams[kMiSnapTerminationDelay] integerValue] / 1000.0;
-                
-                dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, terminationDelay * NSEC_PER_SEC);
+            
+            terminationDelay = [self.captureParams[kMiSnapTerminationDelay] integerValue] / 1000.0;
+            
+            dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, terminationDelay * NSEC_PER_SEC);
+            {
+            dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                if (self.shouldDissmissOnSuccess)
                 {
-                    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
-                        if (wself.navigationController == nil)
-                            [wself dismissViewControllerAnimated:YES completion:nil];
-                        else
-                            [wself.navigationController popViewControllerAnimated:YES];
-                    });
+                    if (wself.navigationController == nil)
+                    {
+                        [wself dismissViewControllerAnimated:YES completion:nil];
+                    }
+                    else
+                    {
+                        [wself.navigationController popViewControllerAnimated:YES];
+                    }
                 }
+                if ([self.delegate respondsToSelector:@selector(miSnapDidFinishSuccessAnimation)])
+                {
+                    [self.delegate miSnapDidFinishSuccessAnimation];
+                }
+            });
             }
             break;
             
@@ -584,7 +598,7 @@
             self.overlayView.hidden = YES;
             self.captureView.hidden = YES;
             
-            MiSnapSDKResourceLocator* resourceLocator = [MiSnapSDKResourceLocator initWithLanguageKey:self.captureParams[@"LanguageOverride"]];
+            MiSnapSDKResourceLocator* resourceLocator = [MiSnapSDKResourceLocator initWithLanguageKey:self.captureParams[@"LanguageOverride"] bundle:[NSBundle bundleForClass:[self class]] localizableStringsName:@"MiSnapSDKLocalizable"];
             
             UIVisualEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
             self.sessionInterruptionView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
@@ -626,13 +640,28 @@
     [self.captureView didReceiveSampleBuffer:sampleBuffer];
 }
 
+- (void)didReceivePhotoSampleBuffer:(CMSampleBufferRef)photoSampleBuffer previewPhotoSampleBuffer:(CMSampleBufferRef)previewPhotoSampleBuffer error:(NSError *)error
+{
+    [self.captureView captureStill:photoSampleBuffer previewPhotoSampleBuffer:previewPhotoSampleBuffer error:error];
+}
+
+- (void)didDecodeBarcode:(NSString *)decodedBarcodeString
+{
+    [self.captureView didDecodeBarcode:decodedBarcodeString];
+}
+
 #pragma mark - MiSnapCaptureViewDelegate callbacks
+
+- (void)miSnapCaptureViewReceivingCameraOutput:(MiSnapSDKCaptureView *)captureView
+{
+    NSLog(@"MSVC miSnapCaptureViewReceivingCameraOutput");
+    // Start the torch after the camera has started and camera output is being received
+    [self.captureView startTorch];
+}
 
 - (void)miSnapCaptureViewCaptureStillImage
 {
-    [self.cameraView captureStillImageAsynchronouslyWithCompletionHandler:^(CMSampleBufferRef  _Nullable imageSampleBuffer, NSError * _Nullable error) {
-        [self.captureView captureStill:imageSampleBuffer error:error];
-    }];
+    [self.cameraView captureStillImage];
 }
 
 - (void)miSnapCaptureViewTurnTorchOn
@@ -801,6 +830,7 @@
 
 - (void)miSnapCaptureView:(MiSnapSDKCaptureView *)captureView userHintAvailable:(NSString *)hintString withBoundingRect:(CGRect)boundingRect {
     //NSLog(@"MSVC : userHintAvailable %@ boundingRect: x:%.0f y:%.0f w:%.0f h:%.0f", hintString, boundingRect.origin.x, boundingRect.origin.y, boundingRect.size.width, boundingRect.size.height);
+    if (!self.showHintsInManualMode && [self isManualMode]) { return; }
     
     if ([hintString isEqualToString:kMiSnapHintGlare]) {
         __weak MiSnapSDKViewController* wself = self;
@@ -812,7 +842,11 @@
     else
     {
         NSString *message = @"Not defined";
-        if ([hintString isEqualToString:kMiSnapHintLowContrast])
+        if ([hintString isEqualToString:kMiSnapHintGoodFrame])
+        {
+            message = kMiSnapHintGoodFrame;
+        }
+        else if ([hintString isEqualToString:kMiSnapHintLowContrast])
         {
             message = kMiSnapHintLowContrast;
         }
@@ -1071,6 +1105,7 @@
         /////////////////////////////////////////////////////////////////////////////
     }
     
+    self.captureView.useBarcodeScannerLight = self.useBarcodeScannerLight;
     [self.captureView initializeObjectsWithCaptureParameters:self.captureParams];
     
     if ([self.captureParams[kMiSnapTorchMode] integerValue] == TorchModeAUTO)
@@ -1173,7 +1208,7 @@
     
     __weak MiSnapSDKViewController* wself = self;
     int captureMode = (int)[self.captureParams[kMiSnapCaptureMode] integerValue];
-    MiSnapSDKResourceLocator* resourceLocator = [MiSnapSDKResourceLocator initWithLanguageKey:wself.captureParams[@"LanguageOverride"]];
+    MiSnapSDKResourceLocator* resourceLocator = [MiSnapSDKResourceLocator initWithLanguageKey:wself.captureParams[@"LanguageOverride"] bundle:[NSBundle bundleForClass:[self class]] localizableStringsName:@"MiSnapSDKLocalizable"];
     
     NSString* msg = [resourceLocator getLocalizedString:@"help_seamless_failover"];
     
@@ -1220,9 +1255,9 @@
         wself.helpViewController = nil;
         @try {
             // Customers who remove UX2 files will not have the UX2 storyboard and will get an exception
-            wself.helpViewController = [[UIStoryboard storyboardWithName:@"MiSnapUX2" bundle:nil] instantiateViewControllerWithIdentifier:@"MiSnapSDKTutorialViewController"];
+            wself.helpViewController = [[UIStoryboard storyboardWithName:@"MiSnapUX2" bundle:[NSBundle bundleForClass:self.class]] instantiateViewControllerWithIdentifier:@"MiSnapSDKTutorialViewController"];
         } @catch (NSException *exception) {
-            wself.helpViewController = [[UIStoryboard storyboardWithName:@"MiSnapUX1" bundle:nil] instantiateViewControllerWithIdentifier:@"MiSnapSDKTutorialViewController"];
+            wself.helpViewController = [[UIStoryboard storyboardWithName:@"MiSnapUX1" bundle:[NSBundle bundleForClass:self.class]] instantiateViewControllerWithIdentifier:@"MiSnapSDKTutorialViewController"];
         }
         wself.helpViewController.delegate = wself;
 
@@ -1237,10 +1272,10 @@
         // When no results, keep the default image for the failover view
         if ([self.timeoutResults count] > 0) {
             // Dots are tiled to match help and tutorial screens
-            wself.helpViewController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background-dots"]];
+            //wself.helpViewController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background-dots"]];
             wself.helpViewController.backgroundImageName = nil;
             
-            MiSnapSDKResourceLocator* resourceLocator = [MiSnapSDKResourceLocator initWithLanguageKey:wself.captureParams[@"LanguageOverride"]];
+            MiSnapSDKResourceLocator* resourceLocator = [MiSnapSDKResourceLocator initWithLanguageKey:wself.captureParams[@"LanguageOverride"] bundle:[NSBundle bundleForClass:[self class]] localizableStringsName:@"MiSnapSDKLocalizable"];
             CGRect screenRect = [[UIScreen mainScreen] bounds];
             CGFloat screenWidth = screenRect.size.width;        // iPhone = 736, iPad = 1366
             CGFloat screenHeight = screenRect.size.height;      // iPhone = 414, iPad = 1024
@@ -1301,8 +1336,9 @@
                 speakableText = [speakableText stringByAppendingFormat:@"%@,,", localizedHint];
                 
                 [hintLabel setText:localizedHint];
-                [hintLabel setFont:[UIFont fontWithName:@"Helvetica" size:fontSize]];
+                [hintLabel setFont:[UIFont systemFontOfSize:fontSize]];
                 [hintLabel setNumberOfLines:6];
+                [hintLabel setTextColor:[UIColor blackColor]];
                 
                 
                 [hintView addSubview:hintPointerView];
@@ -1341,6 +1377,8 @@
         wself.helpViewController.timeoutDelay = 0;
         
         wself.helpViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        // For iOS 13, UIModalPresentationFullScreen is not the default, so be explicit
+        wself.helpViewController.modalPresentationStyle = UIModalPresentationFullScreen;
         
         if (wself.navigationController != nil)
         {
@@ -1406,6 +1444,18 @@
 {
     self.shouldSkipFrames = YES;
     //NSLog(@"$$$$$$ pauseCapture");
+}
+
+- (BOOL)isManualMode
+{
+    if ([self.captureParams[kMiSnapCaptureMode] integerValue] == MiSnapCaptureModeManual ||
+        [self.captureParams[kMiSnapCaptureMode] integerValue] == MiSnapCaptureModeHighResManual ||
+        [self.captureParams[kMiSnapCaptureMode] integerValue] == MiSnapCaptureModeManualAssist)
+    {
+        return TRUE;
+    }
+    
+    return FALSE;
 }
 
 #pragma mark - Public class method implementations

@@ -28,21 +28,21 @@
  @param parameters the MiSnapSDKScienceParameters to use
  @return an instance of MiSnapSDKScience that is ready to use
  */
-- (instancetype)initWithParameters:(MiSnapSDKScienceParameters*)parameters;
+- (instancetype)initWithParameters:(MiSnapSDKScienceParameters *)parameters;
 
 /*!
  @abstract analyze the sampleBuffer video image and return the results
  @param sampleBuffer the video image to analyze
  @return the MiSnapSDKScienceResults from analyzing the sampleBuffer input
  */
-- (MiSnapSDKScienceResults*)analyzeFrame:(CMSampleBufferRef)sampleBuffer;
+- (MiSnapSDKScienceResults *)analyzeFrame:(CMSampleBufferRef)sampleBuffer;
 
 /*!
  @abstract analyze the scienceResults and return the analyzer results
  @param scienceResults the results obtained from analyzeFrame
  @return the MiSnapSDKAnalyzeResults from analyzing the scienceResults input
  */
-- (MiSnapSDKAnalyzeResults*)analyzeScienceResults:(MiSnapSDKScienceResults*)scienceResults;
+- (MiSnapSDKAnalyzeResults *)analyzeScienceResults:(MiSnapSDKScienceResults *)scienceResults;
 
 /*!
  @abstract Interface orientation needed for performing calculations
@@ -53,6 +53,6 @@
  @abstract provides the version of the science
  @return the string of the science version
  */
-+ (NSString*)miSnapSDKScienceVersion;
++ (NSString *)miSnapSDKScienceVersion;
 
 @end

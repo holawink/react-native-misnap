@@ -60,12 +60,24 @@
                 width = height * 16/9;
                 ghostImageCenter = CGPointMake(width * 0.5, height * 0.5);
             }
-            else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad && width / height < 1.4)
+            else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad && width / height < 1.76)
             {
                 height = width * 9/16;
             }
             
             ghostImageWidth = width * self.docCaptureParams.minLandscapeHorizontalFill / 1000.0;
+            if ([self.docCaptureParams.documentType isEqualToString:kMiSnapDocumentTypeDriverLicense] ||
+                [self.docCaptureParams.documentType isEqualToString:kMiSnapDocumentTypeIdCardFront] ||
+                [self.docCaptureParams.documentType isEqualToString:kMiSnapDocumentTypeIdCardBack])
+            {
+                ghostImageWidth *= 1.34f; // The guide is bigger to allow more flexibility in device distance from doc
+            }
+            
+            if ([self.docCaptureParams.documentType isEqualToString:kMiSnapDocumentTypePassport])
+            {
+                ghostImageWidth *= 1.15f; // The guide is bigger to allow more flexibility in device distance from doc
+            }
+
             ghostImageHeight = ghostImageWidth / imageAspectRatio;
             break;
             
@@ -83,7 +95,7 @@
                 height = width * 16/9;
                 ghostImageCenter = CGPointMake(width * 0.5, height * 0.5);
             }
-            else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad && height / width < 1.4)
+            else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad && height / width < 1.76)
             {
                 width = height * 9/16;
             }
@@ -91,11 +103,24 @@
             if (orientationMode == MiSnapOrientationModeDevicePortraitGhostPortrait)
             {
                 ghostImageHeight = height * self.docCaptureParams.minLandscapeHorizontalFill / 1000.0;
+                if ([self.docCaptureParams.documentType isEqualToString:kMiSnapDocumentTypeDriverLicense] ||
+                    [self.docCaptureParams.documentType isEqualToString:kMiSnapDocumentTypeIdCardFront] ||
+                    [self.docCaptureParams.documentType isEqualToString:kMiSnapDocumentTypeIdCardBack])
+                {
+                    ghostImageHeight *= 1.34f; // The guide is bigger to allow more flexibility in device distance from doc
+                }
+
+                if ([self.docCaptureParams.documentType isEqualToString:kMiSnapDocumentTypePassport])
+                {
+                    ghostImageHeight *= 1.15f; // The guide is bigger to allow more flexibility in device distance from doc
+                }
+
                 ghostImageWidth = ghostImageHeight / imageAspectRatio;
             }
             else if (orientationMode == MiSnapOrientationModeDevicePortraitGhostLandscape)
             {
                 ghostImageWidth = width * self.docCaptureParams.minPortraitHorizontalFill / 1000.0;
+                ghostImageWidth *= 1.14f; // The guide is bigger to allow more flexibility in device distance from doc
                 ghostImageHeight = ghostImageWidth / imageAspectRatio;
             }
             break;
@@ -296,11 +321,10 @@
     }
     
     CGFloat fontSize = 70;
-    NSString *fontName = [self.ghostTextLabel.font fontName];
     
     while (true)
     {
-        UIFont *currentFont = [UIFont fontWithName:fontName size:fontSize];
+        UIFont *currentFont = [UIFont systemFontOfSize:fontSize];
         
         CGRect ghostTextRect = [self.ghostTextLabel.text boundingRectWithSize:CGSizeMake(self.ghostTextLabel.frame.size.width, CGFLOAT_MAX)
                                                                       options:NSStringDrawingUsesLineFragmentOrigin
@@ -317,7 +341,7 @@
         }
         else
         {
-            self.ghostTextLabel.font = [UIFont fontWithName:fontName size:fontSize];
+            self.ghostTextLabel.font = [UIFont systemFontOfSize:fontSize];
             break;
         }
     }
@@ -331,11 +355,10 @@
     }
     
     CGFloat fontSize = 22;
-    NSString *fontName = [self.jobTitleLabel.font fontName];
     
     while (true)
     {
-        UIFont *currentFont = [UIFont fontWithName:fontName size:fontSize];
+        UIFont *currentFont = [UIFont systemFontOfSize:fontSize];
         
         CGRect jobTitleTextRect = [self.jobTitleLabel.text boundingRectWithSize:CGSizeMake(self.jobTitleLabel.frame.size.width, CGFLOAT_MAX)
                                                                         options:NSStringDrawingUsesLineFragmentOrigin
@@ -352,7 +375,7 @@
         }
         else
         {
-            self.jobTitleLabel.font = [UIFont fontWithName:fontName size:fontSize];
+            self.jobTitleLabel.font = [UIFont systemFontOfSize:fontSize];
             break;
         }
     }
@@ -372,7 +395,7 @@
     
     self.ghostImageView.image = nil;
     
-    MiSnapSDKResourceLocator* resourceLocator = [MiSnapSDKResourceLocator initWithLanguageKey:self.docCaptureParams.languageOverride];
+    MiSnapSDKResourceLocator* resourceLocator = [MiSnapSDKResourceLocator initWithLanguageKey:self.docCaptureParams.languageOverride bundle:[NSBundle bundleForClass:[self class]] localizableStringsName:@"MiSnapSDKLocalizable"];
     
     NSString *ghostTxtString;
     
@@ -573,7 +596,7 @@
 - (void)setupJobTitle
 {
     NSString* jobTitle = nil;
-    MiSnapSDKResourceLocator* resourceLocator = [MiSnapSDKResourceLocator initWithLanguageKey:self.docCaptureParams.languageOverride];
+    MiSnapSDKResourceLocator* resourceLocator = [MiSnapSDKResourceLocator initWithLanguageKey:self.docCaptureParams.languageOverride bundle:[NSBundle bundleForClass:[self class]] localizableStringsName:@"MiSnapSDKLocalizable"];
     
     if ([self.docCaptureParams.documentType isEqualToString:kMiSnapDocumentTypeCheckFront])
     {
@@ -644,7 +667,7 @@
     textStyle.alignment = NSTextAlignmentCenter;
     
     NSDictionary *fontAttributes = @{
-                                     NSFontAttributeName                : [UIFont fontWithName:@"Avenir" size:15],
+                                     NSFontAttributeName                : [UIFont systemFontOfSize:15],
                                      NSForegroundColorAttributeName     : [UIColor blackColor],
                                      NSParagraphStyleAttributeName      : textStyle
                                      };

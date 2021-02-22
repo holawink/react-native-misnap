@@ -30,6 +30,10 @@
 
 @optional
 
+/*! Occurs when the camera is succesfully started and the miSnapCaptureView is receiving sampleBuffer frames
+ This event allows the app developer to perform other capure device operations safely after the camera has started. e.g. turning torch on/off
+ */
+- (void)miSnapCaptureViewReceivingCameraOutput:(MiSnapSDKCaptureView *)captureView;
 
 /*! Occurs when the user taps the manual capture button.
     Once the image is ready, the miSnapCaptureView:encodedImage:originaImage:andResults: will be called.
@@ -90,6 +94,7 @@
 @property (weak, nonatomic) IBOutlet NSObject <MiSnapCaptureViewDelegate>* delegate;
 @property (nonatomic, assign) BOOL timeoutOccurred;
 @property (nonatomic, assign) BOOL showGlareTracking;
+@property (nonatomic, assign) BOOL useBarcodeScannerLight;
 @property (nonatomic, assign) BOOL torchInAutoMode;
 @property (nonatomic, strong) UIImage *injectImage;
 @property (nonatomic) float analyzeFrameDelay;
@@ -103,11 +108,13 @@
 - (void)captureCurrentFrame;
 - (void)setCaptureParams:(NSDictionary*)params;
 - (BOOL)getTorchStatus;
+- (void)startTorch; // Handles the torch at the start the session
 - (void)turnTorchOn:(BOOL)isOn;
 - (void)turnTorchOff:(BOOL)isOff;
 
 - (void)didReceiveSampleBuffer:(CMSampleBufferRef)sampleBuffer;
-- (void)captureStill:(CMSampleBufferRef)imageSampleBuffer error:(NSError *)error;
+- (void)didDecodeBarcode:(NSString *)decodedBarcodeString;
+- (void)captureStill:(CMSampleBufferRef)photoSampleBuffer previewPhotoSampleBuffer:(CMSampleBufferRef)previewPhotoSampleBuffer error:(NSError *)error;
 
 - (CGRect)getDocumentRectangle;
 - (NSArray *)getDocumentCornerPoints;

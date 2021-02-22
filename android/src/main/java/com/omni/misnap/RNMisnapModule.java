@@ -4,6 +4,7 @@ package com.omni.misnap;
 import android.app.Activity;
 import android.content.Intent;
 import android.util.Base64;
+import android.util.Log;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -23,6 +24,7 @@ import com.miteksystems.facialcapture.workflow.FacialCaptureWorkflowActivity;
 import com.miteksystems.facialcapture.workflow.params.FacialCaptureWorkflowParameters;
 import com.miteksystems.misnap.params.CameraApi;
 import com.miteksystems.misnap.params.MiSnapApi;
+import com.miteksystems.misnap.params.ScienceApi;
 import com.miteksystems.misnap.utils.Utils;
 
 
@@ -34,8 +36,12 @@ import com.miteksystems.misnap.params.MiSnapApi;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.UUID;
 
 
 public class RNMisnapModule extends ReactContextBaseJavaModule implements ActivityEventListener {
@@ -56,7 +62,7 @@ public class RNMisnapModule extends ReactContextBaseJavaModule implements Activi
 
   @ReactMethod
   public void greet(Promise promise) {
-    promise.resolve("HELLO FROM ANDROID NATIVE CODE");
+    promise.resolve("HELLO FROM ANDROID NATIVE CODE (1.0.5)");
   }
 
   @ReactMethod
@@ -67,7 +73,16 @@ public class RNMisnapModule extends ReactContextBaseJavaModule implements Activi
     String captureType = config.hasKey("captureType") ?
         config.getString("captureType") : "idFront";
 
+    // Config parameters
     String licenseKey = config.hasKey("livenessLicenseKey") ? config.getString("livenessLicenseKey") : "";
+    int glare = config.hasKey("glare") ? config.getInt("glare") : 670;
+    int contrast = config.hasKey("contrast") ? config.getInt("contrast") : 550;
+    int imageQuality = config.hasKey("imageQuality") ? config.getInt("imageQuality") : 65;
+
+    // Log external parameters
+    Log.d("RNMisnapModule", "Glare: " + glare);
+    Log.d("RNMisnapModule", "Contrast: " + contrast);
+    Log.d("RNMisnapModule", "ImageQuality: " + imageQuality);
 
     if (captureType.equals("idFront") || captureType.equals("idBack")) {
 
@@ -75,10 +90,15 @@ public class RNMisnapModule extends ReactContextBaseJavaModule implements Activi
       
       try {
         misnapParams.put(MiSnapApi.MiSnapDocumentType, (captureType.equals("idFront")) ? MiSnapApi.PARAMETER_DOCTYPE_ID_CARD_FRONT : MiSnapApi.PARAMETER_DOCTYPE_ID_CARD_BACK);
+        // External parameters
+        misnapParams.put(ScienceApi.MiSnapNoGlare, glare );
+        misnapParams.put(ScienceApi.MiSnapContrast, contrast );
+        misnapParams.put(MiSnapApi.MiSnapImageQuality, imageQuality );
+
+        // Other Parameters
         misnapParams.put(CameraApi.MiSnapAllowScreenshots, 1);
-        misnapParams.put(WorkflowApi.MiSnapTrackGlare, WorkflowApi.TRACK_GLARE_ENABLED);
         misnapParams.put(CameraApi.MiSnapFocusMode, CameraApi.PARAMETER_FOCUS_MODE_HYBRID);
-        misnapParams.put(MiSnapApi.MiSnapOrientation, 1);
+        misnapParams.put(MiSnapApi.MiSnapOrientation, 2);
       } catch (JSONException exception) {
         exception.printStackTrace();
       }
@@ -122,9 +142,16 @@ public class RNMisnapModule extends ReactContextBaseJavaModule implements Activi
       if (RESULT_OK == resultCode) {
         byte[] image = intent.getByteArrayExtra(MiSnapApi.RESULT_PICTURE_DATA);
         String encoded = Base64.encodeToString(image, Base64.DEFAULT);
-
+        String mibiData = intent.getStringExtra(MiSnapApi.RESULT_MIBI_DATA);
+        // // Log
+        // try {
+        //   this.storeImageToDocumentsDirectory(encoded);
+        // } catch (IOException e) {
+        //   e.printStackTrace();
+        // }
         HashMap<String, String> hm = new HashMap<>();
         hm.put("base64encodedImage", encoded);
+        hm.put("metadata", mibiData);
         WritableMap map = new WritableNativeMap();
         for (Map.Entry<String, String> entry : hm.entrySet()) {
             map.putString(entry.getKey(), entry.getValue());
@@ -137,5 +164,17 @@ public class RNMisnapModule extends ReactContextBaseJavaModule implements Activi
   @ReactMethod
   public void getResults(Promise promise) {
     currentPromise = promise;
+  }
+
+  public void storeImageToDocumentsDirectory(String image) throws IOException {
+    Activity currentActivity = getCurrentActivity();
+    File path = currentActivity.getFilesDir();
+    File file = new File(path, UUID.randomUUID().toString());
+    FileOutputStream stream = new FileOutputStream(file);
+    try {
+      stream.write(image.getBytes());
+    } finally {
+      stream.close();
+    }
   }
 }

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "MiSnapSDKScienceMicr.h"
+#import "MiSnapSDKScienceMrzResult.h"
 
 /*!
  @class MiSnapSDKScienceResults
@@ -77,9 +77,10 @@
 @property (nonatomic, assign) int MICRConfidence;
 
 /*!
- @abstract The IQA value detected for micrResult. Not implemented in this version of MiSnap.
+ @abstract The IQA value detected for MICRConfidence.
+ Range: [0, 1000] (1000 represents the highest possible. 0 = no MRZ, 500 = partial MRZ, 1000 = MRZ present)
  */
-@property (nonatomic, strong) MiSnapSDKScienceMicr *micrResult;
+@property (nonatomic, assign) int MRZConfidence;
 
 /*!
  @abstract The IQA value detected for backgroundConfidence.
@@ -96,7 +97,7 @@
 /*!
  @abstract The aspect ratio of an ID document
  */
-@property (nonatomic, assign) int ascpectRatio;
+@property (nonatomic, assign) int aspectRatio;
 
 /*!
  @abstract A placeholder image that clients of this interface can set for convenience.
@@ -127,6 +128,12 @@
  @abstract A placeholder result code that clients of this interface can set for convenience.
  */
 @property (nonatomic, strong) NSString* resultCode;
+
+/*!
+@abstract MRZ result
+@return the MRZ result when MobileVerifyNFC SDK is integrated; otherwise nil
+*/
+- (MiSnapSDKScienceMrzResult *)mrzResult;
 
 /*!
  @abstract The corner points with the given CGPoint parameters

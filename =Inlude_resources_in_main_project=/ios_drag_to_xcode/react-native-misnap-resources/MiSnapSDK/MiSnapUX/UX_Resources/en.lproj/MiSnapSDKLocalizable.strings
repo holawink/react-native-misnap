@@ -81,6 +81,7 @@
 "misnap_overlay_help_button"            = "Help";
 
 // Hint Messages for accessibility
+"good_frame"                            = "Tap now";
 "more_light"                            = "Move to a well-lit area"; //Too dark
 "less_light"                            = "Too bright";
 
@@ -101,7 +102,7 @@
 "hold_center_passport"                  = "Reduce angle of passport";
 
 "reduce_glare"                          = "Reduce glare";
-"nothing_detected"                      = "Use dark background"; //Center a document on a dark background
+"nothing_detected"                      = "Center a document on a dark background"; //For doc not found hint
 "low_contrast"                          = "Use dark background"; //Center a document on a dark background
 "busy_background"                       = "Use plain background";
 "not_check_back"                        = "Flip check";

@@ -37,6 +37,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = UIColor.whiteColor;
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -46,7 +47,7 @@
     
     self.statusbarOrientation = [UIApplication sharedApplication].statusBarOrientation;
     
-    self.resourceLocator = [MiSnapSDKResourceLocator initWithLanguageKey:self.languageOverride];
+    self.resourceLocator = [MiSnapSDKResourceLocator initWithLanguageKey:self.languageOverride bundle:[NSBundle bundleForClass:[self class]] localizableStringsName:@"MiSnapSDKLocalizable"];
     
     [self.cancelButton setTitle:[self.resourceLocator getLocalizedString:@"dialog_mitek_cancel"] forState:UIControlStateNormal];
     [self.cancelButton setAccessibilityLabel:[self.resourceLocator getLocalizedString:@"dialog_mitek_cancel"]];
@@ -122,6 +123,7 @@
     if ((self.backgroundImageName != nil) && ([self.backgroundImageName isEqualToString:@""] == NO))
     {
         self.backgroundImageView.image = [self.resourceLocator getLocalizedTutorialImage:self.backgroundImageName withOrientation:self.statusbarOrientation withOrientationMode:self.orientationMode];
+        self.backgroundImageView.backgroundColor = UIColor.whiteColor;
         [self.view bringSubviewToFront:self.backgroundImageView];
     }
     else
@@ -256,8 +258,7 @@
 {
     if ((self.speakableText != nil) && ([self.speakableText isEqualToString:@""] == NO))
     {
-        MiSnapSDKResourceLocator* resourceLocator = [MiSnapSDKResourceLocator initWithLanguageKey:self.languageOverride];
-        NSString* localizedStr = [resourceLocator getLocalizedString:self.speakableText];
+        NSString* localizedStr = [self.resourceLocator getLocalizedString:self.speakableText];
         
         self.backgroundImageView.accessibilityLabel = localizedStr;
         
@@ -401,9 +402,10 @@
     self.dontShowLabel.center = CGPointMake(screenWidth * 0.5, screenHeight - self.buttonBackgroundView.frame.size.height - self.dontShowLabel.frame.size.height - offset);
     self.dontShowLabel.text = dontShowString;
     self.dontShowLabel.font = [UIFont systemFontOfSize:dontShowAgainFontSize];
-    
+    [self.dontShowLabel setTextColor:[UIColor blackColor]];
+
     self.checkboxImageView = [[UIImageView alloc] init];
-    self.checkboxImageView.image = [[MiSnapSDKResourceLocator initWithLanguageKey:self.languageOverride] getLocalizedImage:@"checkbox_unchecked"];
+    self.checkboxImageView.image = [self.resourceLocator getLocalizedImage:@"checkbox_unchecked"];
     self.checkboxImageView.frame = CGRectMake(0, 0, dontShowRect.size.height - 5, dontShowRect.size.height - 5);
     self.checkboxImageView.center = CGPointMake(self.dontShowLabel.center.x - self.dontShowLabel.frame.size.width * 0.5 - self.checkboxImageView.frame.size.width * 0.5 - 5, self.dontShowLabel.center.y);
     
@@ -422,12 +424,12 @@
     //NSLog(@"Don't show was tapped");
     if (self.shouldShowFirstTimeTutorial)
     {
-        self.checkboxImageView.image = [[MiSnapSDKResourceLocator initWithLanguageKey:self.languageOverride] getLocalizedImage:@"checkbox_checked"];
+        self.checkboxImageView.image = [self.resourceLocator getLocalizedImage:@"checkbox_checked"];
         self.shouldShowFirstTimeTutorial = NO;
     }
     else
     {
-        self.checkboxImageView.image = [[MiSnapSDKResourceLocator initWithLanguageKey:self.languageOverride] getLocalizedImage:@"checkbox_unchecked"];
+        self.checkboxImageView.image = [self.resourceLocator getLocalizedImage:@"checkbox_unchecked"];
         self.shouldShowFirstTimeTutorial = YES;
     }
     

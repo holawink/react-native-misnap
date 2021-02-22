@@ -53,6 +53,7 @@ typedef NS_ENUM(NSInteger, CaptureStateType)
 @property (strong, nonatomic) NSString *lastSpeakMessage;						// Cache previous hint message to not be overly repetitive
 @property (assign, nonatomic) BOOL tutorialHasBeenShown;
 @property (assign, nonatomic) BOOL tutorialCancelled;
+@property (strong, nonatomic) NSTimer *messageTimer;
 @end
 
 @implementation LivenessViewController
@@ -62,7 +63,8 @@ typedef NS_ENUM(NSInteger, CaptureStateType)
     [super viewDidLoad];
 
 	self.captureView.backgroundColor = [UIColor blackColor];
-	
+    self.hintLabel.textColor = [UIColor blackColor];
+
 	self.sessionGUID = [[NSUUID UUID] UUIDString];
 	
 	self.captureState = kCapture_No_State;
@@ -89,6 +91,7 @@ typedef NS_ENUM(NSInteger, CaptureStateType)
         self.tutorialHasBeenShown = YES;
         LivenessTutorialViewController *tutorialVC = [LivenessTutorialViewController instantiateFromStoryboard];
         tutorialVC.delegate = self;
+        tutorialVC.modalPresentationStyle = UIModalPresentationFullScreen;
         if (self.navigationController)
         {
             [self.navigationController presentViewController:tutorialVC animated:NO completion:nil];
@@ -267,9 +270,29 @@ typedef NS_ENUM(NSInteger, CaptureStateType)
 
 #pragma mark - Control Logic
 
+- (void)messageTimerExpired
+{
+    if (self.messageTimer)
+    {
+        [self.messageTimer invalidate];
+        self.messageTimer = nil;
+    }
+}
+
 // This method shows real-time hints and, if needed, plays an Accessibility message
 - (void)showPopup:(NSString *)message completionState:(NSInteger)completionState
 {
+    if (self.messageTimer)
+    {
+        //NSLog(@"Return: message timer in progress");
+        return;
+    }
+    else
+    {
+        //NSLog(@"Started message timer");
+        self.messageTimer = [NSTimer scheduledTimerWithTimeInterval:0.4f target:self selector:@selector(messageTimerExpired) userInfo:nil repeats:NO];
+    }
+    
 	self.captureState = completionState;
 	self.hintView.hidden = NO;
     self.hintLabel.text = [NSString localizedStringForKey:message];
@@ -312,6 +335,10 @@ typedef NS_ENUM(NSInteger, CaptureStateType)
 	{
 		[self showPopup:@"Hold device upright" completionState:kCapture_No_State];
 	}
+    else if (results.shouldHoldStill)
+    {
+        [self showPopup:@"Hold still" completionState:kCapture_No_State];
+    }
 }
 
 - (BOOL)doesResultsHaveErrors:(MiSnapLivenessCaptureResults*)results
@@ -321,7 +348,8 @@ typedef NS_ENUM(NSInteger, CaptureStateType)
 		results.isErrorLowLighting 	    ||
         results.isErrorFaceNotCentered  ||
 		results.isErrorDeviceTilt 	    ||
-		!results.isFacePresent)
+		!results.isFacePresent          ||
+        results.shouldHoldStill)
 	{
 		return TRUE;
 	}

@@ -69,6 +69,7 @@
 #define UXP_DEVICE_LANDSPACE_RIGHT              @"DR"
 #define UXP_DEVICE_LANDSPACE_LEFT               @"DL"
 #define UXP_DEVICE_PORTRAIT                     @"DP"
+#define UXP_DETECTED_BARCODE                    @"DB"
 
 /*!
  @class MiSnapSDKUxpEventMgr

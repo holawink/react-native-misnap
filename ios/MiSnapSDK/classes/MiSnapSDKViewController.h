@@ -129,7 +129,6 @@
 - (void)miSnapCapturedOriginalImage:(UIImage *)originalImage
                          andResults:(NSDictionary *)results;
 
-
 /*!
  @abstract invoked whenever MiSnap starts a capture session. Also invoked when the session is restarted after timeout or failover.
  
@@ -144,12 +143,15 @@
  */
 - (void)miSnapDidStartSession:(MiSnapSDKViewController *)controller;
 
+/*!
+@abstract invoked when success animation is completed
+
+@discussion The event when MiSnap is completed success animation may be important to client apps to modify or customize the session.
+It is useful when shouldDissmissOnSuccess is overridden to FALSE
+*/
+- (void)miSnapDidFinishSuccessAnimation;
+
 @end
-
-
-
-
-
 
 
 @interface MiSnapSDKViewController : UIViewController
@@ -191,11 +193,26 @@
  */
 @property (nonatomic, assign) BOOL shouldDissmissOnSuccess;
 
+/*! @abstract When TRUE, hints are displayed in Manual mode.
+ When FALSE, hints are not displayed in Manual mode
+ default = FALSE
+ */
+@property (nonatomic, assign) BOOL showHintsInManualMode;
+
 /*! @abstract Checks whether the app has been given permission to use the camera.  Returns TRUE if it has,
  return FALSE permission was denied or pending.  If false, the app should not call MiSnap until subsequent
  calls return TRUE.  Only checks if the current iOS version greater than or equal to 8.0, return TRUE if less than 8.0
  */
 - (bool)checkCameraPermission;
+
+/*! @abstract When TRUE, MiSnapBarcodeScannerLight is used for detecting a barcode when kMiSnapDocumentTypeIdCardBack is invoked.
+ When FALSE, MiSnapBarcodeScanner is used for detecting a barcode when kMiSnapDocumentTypeIdCardBack is invoked.
+ 
+ @note Applicable only when kMiSnapDocumentTypeIdCardBack is used for capturing a document.
+ When FALSE and MiSnapBarcodeScanner is not integrated a FrameworkNotFoundException is raised resulting in a crash.
+ default = TRUE
+ */
+@property (nonatomic, assign) BOOL useBarcodeScannerLight;
 
 /*!
  The setupMiSnapWithParams method accepts parameters from the calling app.

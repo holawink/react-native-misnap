@@ -9,7 +9,7 @@
     <string name="misnap_detailed_failover_title_ux2">No se econtró una imagen clara.</string>
     <string name="misnap_detailed_failover_first_btn_string_ux2">Cancelar captura</string>
     <string name="misnap_detailed_failover_second_btn_string_ux2">Capturar manualmente</string>
-    <string name="misnap_detailed_failover_third_btn_string_ux2">Reintentar captura automática</string>
+    <string name="misnap_detailed_failover_third_btn_string_ux2">Reintentar captura</string>
     <string name="misnap_video_help_first_btn_string_ux2">Cancelar</string>
     <string name="misnap_video_help_second_btn_string_ux2">Continuar</string>
     <string name="misnap_video_ft_second_btn_string_ux2">Continuar</string>
@@ -33,7 +33,7 @@
     <string name="misnap_glare_ux2">Reduce la exposicion de luz</string>
     <string name="misnap_busy_background_ux2">Coloque en superficie despejada</string>
     <string name="misnap_low_contrast_ux2">Coloque en superficie oscura</string>
-    <string name="misnap_wrong_doc_generic_ux2">Sospecha de documento erroneo</string>
+    <string name="misnap_wrong_doc_generic_ux2">Centre el documento</string>
     <string name="misnap_wrong_doc_check_back_expected_ux2">Dale la vuelta</string>
     <string name="misnap_wrong_doc_check_front_expected_ux2">Utiliza el frente del cheque</string>
 
@@ -106,7 +106,7 @@
     <string name="misnap_failure_reason_rotation_angle_ux2">Sujeta el dispositivo directamente sobre el documento</string>
     <string name="misnap_failure_reason_low_contrast_ux2">Centre el documento sobre una superficie oscura</string>
     <string name="misnap_failure_reason_busy_background_ux2">Coloca el documento en una superficie despejada</string>
-    <string name="misnap_failure_reason_wrong_doc_generic_ux2">Sospecha de documento erroneo</string>
+    <string name="misnap_failure_reason_wrong_doc_generic_ux2">Centre el documento</string>
     <string name="misnap_failure_reason_wrong_doc_check_front_ux2">Utilice el frente del cheque con todos los números visibles</string>
     <string name="misnap_failure_reason_wrong_doc_check_back_ux2">Dale la vuelta al cheque para capturar el reverso</string>
     <string name="misnap_failure_reason_glare_ux2">Evita el deslumbramiento</string>
@@ -147,6 +147,6 @@
 
     <string name="misnap_manual_capture_please_wait_ux2">No lo mueva, por favor espere…</string>
     <string name="misnap_video_ft_message_ux2"><![CDATA[No lo mueva. <b><i>Le tomaremos la foto</i></b>]]></string>
-    <string name="misnap_dont_show_again_ux2">No use esta misma pantalla de nuevo</string>
+    <string name="misnap_dont_show_again_ux2">Omitir pantalla de ayuda</string>
 
 </resources>

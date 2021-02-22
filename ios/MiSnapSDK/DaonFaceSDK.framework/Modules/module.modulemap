@@ -1,0 +1,6 @@
+framework module DaonFaceSDK {
+  umbrella header "DaonFaceSDK.h"
+
+  export *
+  module * { export * }
+}

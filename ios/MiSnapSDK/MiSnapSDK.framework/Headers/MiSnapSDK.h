@@ -635,6 +635,21 @@ extern NSString* const kMiSnapResultWarnings;
 /*! A key to retrieve prioritized warnings after image analysis. */
 extern NSString* const kAnalyzedWarnings;
 
+/*! A key to retrieve mrz result; note it's only present if MiSnapFCSSDK is integrated */
+extern NSString* const kMiSnapMrzResult;
+
+/*! A key to retrieve mrz string; note it's only present if MiSnapFCSSDK is integrated */
+extern NSString* const kMiSnapMrzString;
+
+/*! A key to retrieve mrz document number; note it's only present if MiSnapFCSSDK is integrated */
+extern NSString* const kMiSnapMrzDocNumber;
+
+/*! A key to retrieve mrz date of birth; note it's only present if MiSnapFCSSDK is integrated */
+extern NSString* const kMiSnapMrzDob;
+
+/*! A key to retrieve mrz date of expiry; note it's only present if MiSnapFCSSDK is integrated */
+extern NSString* const kMiSnapMrzDoe;
+
 typedef NS_ENUM(NSInteger, MiSnapResultWarningCodes)
 {
 	MiSnapResultWarning_NothingDetected		= 1 << 0,

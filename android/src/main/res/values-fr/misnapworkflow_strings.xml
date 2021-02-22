@@ -34,7 +34,7 @@
     <string name="misnap_glare_ux2">Éviter le reflet</string>
     <string name="misnap_busy_background_ux2">Utiliser un fond uni</string>
     <string name="misnap_low_contrast_ux2">Utiliser un fond sombre</string>
-    <string name="misnap_wrong_doc_generic_ux2">Une erroné image suspectée</string>
+    <string name="misnap_wrong_doc_generic_ux2">Centrez le document</string>
     <string name="misnap_wrong_doc_check_back_expected_ux2">Retourner le chèque</string>
     <string name="misnap_wrong_doc_check_front_expected_ux2">Utilisiez l’avant du chèque</string>
 
@@ -107,7 +107,7 @@
     <string name="misnap_failure_reason_rotation_angle_ux2">Tenez le dispositif directement sur le document</string>
     <string name="misnap_failure_reason_low_contrast_ux2">Centrez le document sur une surface foncée</string>
     <string name="misnap_failure_reason_busy_background_ux2">Placez le document sur une surface bien dégagé</string>
-    <string name="misnap_failure_reason_wrong_doc_generic_ux2">Une erroné image suspectée</string>
+    <string name="misnap_failure_reason_wrong_doc_generic_ux2">Centrez le document</string>
     <string name="misnap_failure_reason_wrong_doc_check_front_ux2">Utilisiez le recto du chèque avec tous le numéros visibles</string>
     <string name="misnap_failure_reason_wrong_doc_check_back_ux2">Tournez le chèque pour scaner le verso</string>
     <string name="misnap_failure_reason_glare_ux2">Évitez les reflets sur le document</string>
