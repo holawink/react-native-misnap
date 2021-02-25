@@ -1,0 +1,6 @@
+framework module DaonFaceQuality {
+  umbrella header "DaonFaceQuality.h"
+
+  export *
+  module * { export * }
+}

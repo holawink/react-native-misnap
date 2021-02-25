@@ -1,0 +1,123 @@
+
+/* Class = "UIButton"; accessibilityLabel = "Manual Photo"; ObjectID = "1tP-Ts-cOX"; */
+"1tP-Ts-cOX.accessibilityLabel" = "Manual Foto";
+"1tP-Ts-cOX.normalTitle" = "Manual";
+
+/* Class = "UILabel"; accessibilityLabel = "Don't"; ObjectID = "2mN-gm-HuF"; */
+"2mN-gm-HuF.accessibilityLabel" = "Tambien";
+"2mN-gm-HuF.text" = "Tambien:";
+
+/* Class = "UILabel"; accessibilityLabel = "Neutral"; ObjectID = "2xm-sF-D0e"; */
+"2xm-sF-D0e.accessibilityLabel" = "Expresión Neutra";
+"2xm-sF-D0e.text" = "Expresión Neutra";
+
+/* Class = "UILabel"; accessibilityLabel = "Please Do"; ObjectID = "8CX-Vh-vzl"; */
+"8CX-Vh-vzl.accessibilityLabel" = "Por Favor, Centrar Su Rostro, Expresión Neutra. Parpadear Cuando Este Listo. Tambien, Sin gorras, pañuelos, cabello. Sin Anteojos.";
+"8CX-Vh-vzl.text" = "Por Favor Haga:";
+
+/* Class = "UIButton"; accessibilityLabel = "Continue"; ObjectID = "9yP-rb-ahV"; */
+"9yP-rb-ahV.accessibilityLabel" = "Continuar";
+"9yP-rb-ahV.normalTitle" = "Continuar";
+
+/* Class = "UILabel"; accessibilityLabel = "Get ready"; ObjectID = "Cvr-23-bbu"; */
+"Cvr-23-bbu.accessibilityLabel" = "Preparese para centrar su rostro en el óvalo";
+"Cvr-23-bbu.text" = "Preparese para centrar su rostro en el óvalo";
+
+/* Class = "UIButton"; accessibilityLabel = "Continue"; ObjectID = "D5R-WA-cbO"; */
+"D5R-WA-cbO.accessibilityLabel" = "Continuar";
+"D5R-WA-cbO.normalTitle" = "Continuar";
+
+/* Class = "UIButton"; accessibilityLabel = "Help"; ObjectID = "Fx8-jz-YK8"; */
+"Fx8-jz-YK8.accessibilityLabel" = "Ayuda";
+"Fx8-jz-YK8.normalTitle" = "Ayuda";
+
+/* Class = "UIButton"; accessibilityLabel = "Cancel"; ObjectID = "JJN-ma-iyf"; */
+"JJN-ma-iyf.accessibilityLabel" = "Cancelar";
+"JJN-ma-iyf.normalTitle" = "Cancelar";
+
+/* Class = "UIButton"; accessibilityLabel = "Start"; ObjectID = "Oab-cP-IGo"; */
+"Oab-cP-IGo.accessibilityLabel" = "Comienzo";
+"Oab-cP-IGo.normalTitle" = "Comienzo";
+
+/* Class = "UILabel"; accessibilityLabel = "Center"; ObjectID = "SYu-RC-HnI"; */
+"SYu-RC-HnI.accessibilityLabel" = "Centrar Su Rostro";
+"SYu-RC-HnI.text" = "Centrar Su Rostro";
+
+/* Class = "UIButton"; accessibilityLabel = "Retry Auto"; ObjectID = "VlN-Zl-bLp"; */
+"VlN-Zl-bLp.accessibilityLabel" = "Reintento Automático";
+"VlN-Zl-bLp.normalTitle" = "Automático";
+
+/* Class = "UIButton"; accessibilityLabel = "Manual"; ObjectID = "XgA-oG-TdM"; */
+"XgA-oG-TdM.accessibilityLabel" = "Manual";
+"XgA-oG-TdM.normalTitle" = "Manual";
+
+/* Class = "UILabel"; accessibilityLabel = "Time"; ObjectID = "YBa-cy-hUo"; */
+"YBa-cy-hUo.accessibilityLabel" = "Se acabó el tiempo, no tomamos su foto. Quisiera intentar de nuevo con Captura Automatica ó Captura Manual?";
+"YBa-cy-hUo.text" = "Se acabó el tiempo, no tomamos su foto...";
+
+/* Class = "UILabel"; accessibilityLabel = "No Hats"; ObjectID = "bem-SU-aVA"; */
+"bem-SU-aVA.accessibilityLabel" = "Sin gorras, pañuelos, cabello";
+"bem-SU-aVA.text" = "Sin gorras, pañuelos, cabello";
+
+/* Class = "UIButton"; accessibilityLabel = "Cancel"; ObjectID = "cRE-x6-XCc"; */
+"cRE-x6-XCc.accessibilityLabel" = "Cancelar";
+"cRE-x6-XCc.normalTitle" = "Cancelar";
+
+/* Class = "UILabel"; accessibilityLabel = "How"; ObjectID = "eQ7-qy-2jF"; */
+"eQ7-qy-2jF.accessibilityLabel" = "Quisiera intentar de nuevo?";
+"eQ7-qy-2jF.text" = "Quisiera intentar de nuevo?";
+
+/* Class = "UILabel"; accessibilityLabel = "Blink"; ObjectID = "eZW-ST-K2D"; */
+"eZW-ST-K2D.accessibilityLabel" = "Parpadear Cuando Este Listo";
+"eZW-ST-K2D.text" = "Parpadear cuando este Listo";
+
+/* Class = "UILabel"; accessibilityLabel = "Manual"; ObjectID = "edg-7z-6YI"; */
+"edg-7z-6YI.accessibilityLabel" = "Captura Manual";
+"edg-7z-6YI.text" = "Captura Manual";
+
+/* Class = "UILabel"; accessibilityLabel = "Neutral"; ObjectID = "euq-eA-qUc"; */
+"euq-eA-qUc.accessibilityLabel" = "Expresión Neutra";
+"euq-eA-qUc.text" = "Expresión Neutra";
+
+/* Class = "UIButton"; accessibilityLabel = "Cancel"; ObjectID = "hHZ-c2-efL"; */
+"hHZ-c2-efL.accessibilityLabel" = "Cancelar";
+"hHZ-c2-efL.normalTitle" = "Cancelar";
+
+/* Class = "UIImageView"; accessibilityLabel = "Ghost"; ObjectID = "hdd-t8-Omx"; */
+"hdd-t8-Omx.accessibilityLabel" = "Centrar su rostro en el óvalo";
+
+/* Class = "UIButton"; accessibilityLabel = "Cancel"; ObjectID = "id0-yg-oxP"; */
+"id0-yg-oxP.accessibilityLabel" = "Cancelar";
+"id0-yg-oxP.normalTitle" = "Cancelar";
+
+/* Class = "UILabel"; accessibilityLabel = "No Glasses"; ObjectID = "imU-vQ-yXD"; */
+"imU-vQ-yXD.accessibilityLabel" = "Sin Anteojos";
+"imU-vQ-yXD.text" = "Sin Anteojos";
+
+/* Class = "UIButton"; accessibilityLabel = "Cancel"; ObjectID = "kj5-qr-cbd"; */
+"kj5-qr-cbd.accessibilityLabel" = "Cancelar";
+"kj5-qr-cbd.normalTitle" = "Cancelar";
+
+/* Class = "UILabel"; accessibilityLabel = "No Glasses"; ObjectID = "mE5-NW-PEc"; */
+"mE5-NW-PEc.accessibilityLabel" = "Sin Anteojos";
+"mE5-NW-PEc.text" = "Sin Anteojos";
+
+/* Class = "UILabel"; accessibilityLabel = "Please Do"; ObjectID = "qws-WO-nTe"; */
+"qws-WO-nTe.accessibilityLabel" = "Por Favor, Centrar Su Rostro, Expresión Neutra. Tambien, Sin gorras, pañuelos, cabello. Sin Anteojos.";
+"qws-WO-nTe.text" = "Por Favor Haga:";
+
+/* Class = "UILabel"; accessibilityLabel = "Don't"; ObjectID = "u8s-Dx-ywM"; */
+"u8s-Dx-ywM.accessibilityLabel" = "Tambien";
+"u8s-Dx-ywM.text" = "Tambien:";
+
+/* Class = "UILabel"; accessibilityLabel = "No Hats"; ObjectID = "uN1-h7-jZc"; */
+"uN1-h7-jZc.accessibilityLabel" = "Sin gorras, pañuelos, cabello";
+"uN1-h7-jZc.text" = "Sin gorras, pañuelos, cabello";
+
+/* Class = "UILabel"; accessibilityLabel = "Auto"; ObjectID = "uwM-ks-VjN"; */
+"uwM-ks-VjN.accessibilityLabel" = "Captura Automatica";
+"uwM-ks-VjN.text" = "Captura Automatica";
+
+/* Class = "UILabel"; accessibilityLabel = "Center"; ObjectID = "v1v-sn-iHW"; */
+"v1v-sn-iHW.accessibilityLabel" = "Centrar Su Rostro";
+"v1v-sn-iHW.text" = "Centrar Su Rostro";

@@ -1,0 +1,163 @@
+/* 
+  Localizable.strings
+  MiSnap
+
+  Copyright (c) 2014 Mitek Systems, Inc. All rights reserved.
+*/
+
+// Navigation buttons
+"dialog_mitek_cancel"                   = "Cancel Capture"; //Cancel
+"dialog_mitek_back"                     = "Back";
+"dialog_mitek_capture"                  = "Continue";
+"dialog_mitek_try_again"                = "Retry Autocapture"; //Try Again
+"dialog_mitek_manual_capture"           = "Capture Manually"; //Manual Capture
+"dialog_mitek_torch_on"                 = "On";
+"dialog_mitek_torch_off"                = "Off";
+"dialog_mitek_torch_auto"               = "Auto";
+
+// Titles
+"misnap_check_front_text"               = "Check Front";
+"misnap_check_back_text"                = "Check Back";
+"misnap_license_text"                   = "License";
+"misnap_id_card_text"                   = "ID card";
+"misnap_passport_text"                  = "Passport";
+"misnap_document_text"                  = "Document";
+
+"dialog_success"                        = "Success!";
+
+"misnap_tutorial_do_not_show_again"     = "Don't show this screen again";
+"misnap_tutorial_check"                 = "Center the check on the screen, hold still, and we will take the photo for you.";
+"misnap_tutorial_document"              = "Center the document on the screen, hold still, and we will take the photo for you.";
+
+"help_failover_license"                 = "Center the license with all four corners visible and press the snap photo button when ready.";
+"help_failover_passport"                = "Center the passport with all four corners visible and press the snap photo button when ready.";
+"help_failover_check"                   = "Center the check on a dark, well lit surface with all four corners visible and press the snap photo button when ready.";
+"help_failover_document"                = "Center the document with all four corners visible and press the snap photo button when ready.";
+"help_check"                            = "Try placing the check on a dark, well lit surface and hold still, we will take the photo for you.";
+"help_document"                         = "Try placing the document on a dark, well lit surface and hold still, we will take the photo for you.";
+"help_manual_check"                     = "Place the check on a dark, well lit surface with all four corners visible, press the snap photo button when ready";
+"help_manual_document"                  = "Place the document on a dark well lit surface with all four corners visible, press the snap photo button when ready";
+
+"help_seamless_failover"                = "We were unable to automatically capture the image. Please align to the guide and snap a photo manually";
+
+"tutorial_help_check"                   = "Center the check on a dark surface, provide ample light. Align check.";
+"tutorial_help_license"                 = "Center the license on a dark surface, provide ample light. Align license.";
+"tutorial_help_passport"                = "Center the passport on a dark surface, provide ample light. Align passport.";
+"tutorial_help_document"                = "Center the document on a dark surface, provide ample light. Align document.";
+"tutorial_help_manual_check"            = "Center the check on a dark surface, provide ample light. Align check, hold steady and tap the capture button when ready.";
+"tutorial_help_manual_license"          = "Center the license on a dark surface, provide ample light. Align license, hold steady and tap the capture button when ready.";
+"tutorial_help_manual_passport"         = "Center the passport on a dark surface, provide ample light. Align passport, hold steady and tap the capture button when ready.";
+"tutorial_help_manual_document"         = "Center the document on a dark surface, provide ample light. Align document, hold steady and tap the capture button when ready.";
+
+"tutorial_photo_auto"                   = "We will take the photo for you.";
+"tutorial_photo_manual"                 = "Tap the capture button when ready.";
+
+"ghost_image_remittance"                = "Center payment stub here and wait, we will take the photo for you";
+"ghost_image_remittance_manual"         = "Center payment stub here, then press the Snap Photo button when ready";
+"ghost_image_check"                     = "Center check here and wait, we will take the photo for you";
+"ghost_image_check_manual"              = "Center check here, then press the Snap Photo button when ready";
+"ghost_image_drivers_license"           = "Center driver\'s license here and wait, we will take the photo for you";
+"ghost_image_drivers_license_manual"    = "Center driver\'s license here, then press the Snap Photo button when ready";
+"ghost_image_id_card"                   = "Center ID card here and wait, we will take the photo for you";
+"ghost_image_id_card_manual"            = "Center ID card here, then press the Snap Photo button when ready";
+"ghost_image_insurance_card"            = "Center insurance card here and wait, we will take the photo for you";
+"ghost_image_insurance_card_manual"     = "Center insurance card here, then press the Snap Photo button when ready";
+"ghost_image_vin_manual"                = "Center VIN here then press the snap photo button when ready";
+"ghost_image_w2"                        = "Center W2 here and wait, we will take the photo for you";
+"ghost_image_w2_manual"                 = "Center W2 here, then press the Snap Photo button when ready";
+"ghost_image_passport"                  = "Center passport here and wait, we will take the photo for you";
+"ghost_image_passport_manual"           = "Center passport here, then press the Snap Photo button when ready";
+"ghost_image_document_landscape"        = "Center document here and wait, we will take the photo for you";
+"ghost_image_document_landscape_manual" = "Center document here, then press the Snap Photo button when ready";
+"ghost_image_document_portrait"         = "Center document here and wait, we will take the photo for you";
+"ghost_image_document_portrait_manual"  = "Center document here, then press the Snap Photo button when ready";
+
+"button_cancel"                         = "Cancel";
+"misnap_overlay_cancel_button"          = "Cancel";
+"misnap_overlay_capture_button"         = "Capture image";
+"misnap_overlay_flash_on"               = "Flash is on";
+"misnap_overlay_flash_off"              = "Flash is off";
+"misnap_overlay_flash_auto"             = "Flash is in auto mode";
+"misnap_overlay_help_button"            = "Help";
+
+// Hint Messages for accessibility
+"good_frame"                            = "Tap now";
+"more_light"                            = "Move to a well-lit area"; //Too dark
+"less_light"                            = "Too bright";
+
+"hold_steady"                           = "Hold steady";
+"get_close"                             = "Move closer";
+"get_close_check"                       = "Move closer to check";
+"get_close_license"                     = "Move closer to license";
+"get_close_passport"                    = "Move closer to passport";
+
+"too_close"                             = "Move farther away";
+"too_close_check"                       = "Move farther from check";
+"too_close_license"                     = "Move farther from license";
+"too_close_passport"                    = "Move farther from passport";
+
+"hold_center"                           = "Reduce angle";
+"hold_center_check"                     = "Reduce angle of check";
+"hold_center_license"                   = "Reduce angle of license";
+"hold_center_passport"                  = "Reduce angle of passport";
+
+"reduce_glare"                          = "Reduce glare";
+"nothing_detected"                      = "Center a document on a dark background"; //For doc not found hint
+"low_contrast"                          = "Use dark background"; //Center a document on a dark background
+"busy_background"                       = "Use plain background";
+"not_check_back"                        = "Flip check";
+"not_check_front"                       = "Use check front";
+
+// Failover Reasons
+"Too Dim"                               = "Place the document in a well-lit area";
+"Too Bright"                            = "Place the document in an area with less light";
+"Not Sharp"                             = "Hold the device steady";
+"Low Contrast"                          = "Center a document on a dark background";
+"Busy Background"                       = "Place the document on a plain uncluttered background";
+"Reduce Glare"                          = "Avoid glare on the document";
+"Not Check Front"                       = "Use front of the check with all numbers visible";
+"Not Check Back"                        = "Flip the check to scan the back";
+"Angle Too Large"                       = "Hold the device directly over the document";
+"Too Much Rotation"                     = "Hold the device directly over the document";
+"Too Close"                             = "Move the device farther away from the document";
+"Too Far"                               = "Move the device closer to the document";
+"Hold Steady"                           = "Hold the device steady";
+"Nothing Detected"                      = "Center a document on a dark background";
+
+"session_interruption_label"            = "Full screen is required";
+
+/*
+<string name="dialog_mitek_cancel">Cancel</string>
+<string name="dialog_mitek_capture">Continue</string>
+<string name="dialog_mitek_try_again">Try Again</string>
+<string name="dialog_mitek_manual_capture">Manual Capture</string>
+<string name="misnap_check_front_text">Front Image</string>
+<string name="misnap_check_back_text">Back Image</string>
+<string name="misnap_overlay_cancel_button">Cancel</string>
+<string name="misnap_overlay_capture_button">Capture image</string>
+<string name="misnap_overlay_flash_toggle">Flash</string>
+<string name="misnap_overlay_help_button">Help</string>
+ 
+<string name="misnap_tutorial_check">Center the check on the screen, hold steady, and we\'ll take the picture for you.</string>
+<string name="misnap_tutorial_document">Center the document on the screen, hold steady, and we\'ll take the picture for you.</string>
+<string name="help_failover_check">Center the check with all 4 corners visible and press the snap photo button when ready.</string>
+<string name="help_failover_document">Center the document with all 4 corners visible and press the snap photo button when ready.</string>
+<string name="help_check">Try placing the check on a dark well lit surface and hold still, we\'ll take the photo for you.</string>
+<string name="help_document">Try placing the document on a dark well lit surface and hold still, we\'ll take the photo for you.</string>
+<string name="help_manual_check">Place the check on a dark well lit surface with all 4 corners visible, press the snap photo button when ready</string>
+<string name="help_manual_document">Place the document on a dark well lit surface with all 4 corners visible, press the snap photo button when ready</string>
+<string name="ghost_image_remittance">Center payment stub here and wait, we\'ll take the photo for you</string>
+<string name="ghost_image_remittance_manual">Center payment stub here, then press the Snap Photo button when ready</string>
+<string name="ghost_image_check">Center check here and wait, we\'ll take the photo for you</string>
+<string name="ghost_image_check_manual">Center check here, then press the Snap Photo button when ready</string>
+<string name="ghost_image_drivers_license">Center driver\'s license here and wait, we\'ll take the photo for you</string>
+<string name="ghost_image_drivers_license_manual">Center driver\'s license here, then press the Snap Photo button when ready</string>
+<string name="ghost_image_insurance_card">Center insurance card here and wait, we\'ll take the photo for you</string>
+<string name="ghost_image_vin_manual">Center VIN here then press the snap photo button when ready</string>
+<string name="ghost_image_w2">Center W2 here and wait, we\'ll take the photo for you</string>
+<string name="ghost_image_w2_manual">Center W2 here, then press the Snap Photo button when ready</string>
+<string name="ghost_image_document_landscape">Center card here and wait, we\'ll take the photo for you</string>
+<string name="ghost_image_document_landscape_manual">Center card here, then press the Snap Photo button when ready</string>
+<string name="ghost_image_documet_portrait">Center document here and wait, we\'ll take the photo for you</string>
+<string name="ghost_image_documet_portrait_manual">Center document here, then press the Snap Photo button when ready</string>
+ */

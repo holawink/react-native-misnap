@@ -1,0 +1,63 @@
+/* 
+  SampleApp.strings
+  SampleApp
+
+  Created by Jeremy Jessup on 5/10/16.
+  Copyright © 2016 Mitek Systems. All rights reserved.
+*/
+
+/*
+ Status Messages
+ */
+"Center face in the oval" = "Centrar Una Cara En El Óvalo"; // TODO: get a correct translation
+"Low lighting" = "Aumenta La Luz En Una Cara";
+"No face detected" = "Rostro No Detectado";
+"Get closer" = "Acérquese";
+"Get farther" = "Retírese";
+"Hold device upright" = "Mantener Dispositivo En Posición Vertical";
+"Hold still" = "Mantenerse Quieto";
+"Blink!" = "Parpadear Ya";
+"Tap Now!" = "Pulsar Ya";
+"CaptureSuccess" = "Gracias, hemos tomado su foto";
+
+/*
+ Capture conditions
+ */
+"Timeout" = "Timeout";
+"MiSnap Liveness was unable to auto-capture." = "MiSnap Liveness was unable to auto-capture.";
+"Retry" = "Retry";
+"Cancel" = "Cancel";
+"Manual" = "Manual";
+"MiSnap Liveness" = "MiSnap Liveness";
+
+/*
+ Results
+ */
+"Done" = "Done";
+"Results" = "Results";
+"Score" = "Score";
+"Rect" = "Rect";
+
+/*
+ Settings
+ */
+"Liveness" = "Liveness";
+"The minimum score of a liveness check when a subject blinks." = "The minimum score of a liveness check when a subject blinks.";
+"Range: %@" = "Range: %@";
+"Eye Distance (Min)" = "Eye Distance (Min)";
+"The minimum distance between eyes in pixels." = "The minimum distance between eyes in pixels.";
+"Eye Distance (Max)" = "Eye Distance (Max)";
+"The maximum distance between eyes in pixels." = "The maximum distance between eyes in pixels.";
+"Lighting" = "Lighting";
+"The lighting threshold." = "The lighting threshold.";
+"Sharpness" = "Sharpness";
+"The image sharpness threshold." = "The image sharpness threshold.";
+"Blink" = "Blink";
+"The blink threshold." = "The blink threshold.";
+"Timeout" = "Timeout";
+"Time in seconds to attempt auto-capture" = "Time in seconds to attempt auto-capture";
+"Tilt Angle" = "Tilt Angle";
+"The angle in degrees of device tilt." = "The angle in degrees of device tilt.";
+"Capture Eyes Open" = "Capture Eyes Open";
+"Attempt to capture subject with eyes open." = "Attempt to capture subject with eyes open.";
+
