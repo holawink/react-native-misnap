@@ -17,6 +17,8 @@
 @optional
 - (void)livenessCancelled;
 
+- (void)livenessDidFinishSuccessAnimation;
+
 @end
 
 @interface LivenessViewController : UIViewController
@@ -24,6 +26,8 @@
 @property (nonatomic) id <LivenessViewControllerDelegate> delegate;
 
 @property (strong, nonatomic) MiSnapLivenessCaptureParameters *captureParams;
+
+@property (nonatomic) BOOL shouldAutoDissmiss;
 
 @property (nonatomic) NSString *licenseKey;
 

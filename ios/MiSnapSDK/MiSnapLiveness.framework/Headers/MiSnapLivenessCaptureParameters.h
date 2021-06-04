@@ -47,11 +47,11 @@ typedef NS_ENUM(NSInteger, MiSnapLivenessCaptureMode) {
  *  Example: If the device tiltAngle exceeds the threshold, the `MiSnapLivenessResultType.kLiveness_Error_Device_Tilt`
  *  flag will be set.
  *
- *  @note This class conforms to the `NSCoding` protocol and supports serialization.
+ *  @note This class conforms to the `NSSecureCoding` protocol and supports serialization.
  *  @see `MiSnapLivenessCaptureResults`
  *  - Since: 1.0
  */
-@interface MiSnapLivenessCaptureParameters : NSObject <NSCoding>
+@interface MiSnapLivenessCaptureParameters : NSObject <NSSecureCoding>
 
 /**
  *  The capture mode that the MiSnapLivenessCaptureView should use.
