@@ -58,6 +58,31 @@ typedef NS_ENUM(NSInteger, CaptureStateType)
 
 @implementation LivenessViewController
 
+- (void)initializeObjects
+{
+    self.shouldAutoDissmiss = TRUE;
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self)
+    {
+        [self initializeObjects];
+    }
+    return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self)
+    {
+        [self initializeObjects];
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -81,14 +106,12 @@ typedef NS_ENUM(NSInteger, CaptureStateType)
 {
     [super viewWillAppear:animated];
     
-    self.captureView.licenseKey = self.licenseKey;
+    if (self.tutorialCancelled) { return; }
     
-    // Present tutorial every time before a session started
-    if (! self.tutorialHasBeenShown)
+    if (!self.tutorialHasBeenShown)
     {
         self.view.alpha = 0.0;
         self.view.hidden = YES;
-        self.tutorialHasBeenShown = YES;
         LivenessTutorialViewController *tutorialVC = [LivenessTutorialViewController instantiateFromStoryboard];
         tutorialVC.delegate = self;
         tutorialVC.modalPresentationStyle = UIModalPresentationFullScreen;
@@ -100,6 +123,10 @@ typedef NS_ENUM(NSInteger, CaptureStateType)
         {
             [self presentViewController:tutorialVC animated:NO completion:nil];
         }
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.tutorialHasBeenShown = YES;
+        });
     }
 }
 
@@ -107,16 +134,12 @@ typedef NS_ENUM(NSInteger, CaptureStateType)
 {
     [super viewDidAppear:animated];
     
-    if (self.tutorialCancelled)
+    if (self.tutorialCancelled) { return; }
+    
+    if (self.tutorialHasBeenShown)
     {
-        [self dismissVCanimated:NO];
-    }
-    else
-    {
-        if (self.tutorialHasBeenShown)
-        {
-            [self startPreview];
-        }
+        [self startPreview];
+        
         [UIView animateWithDuration:1.0 animations:^{
             self.view.alpha = 1.0;
         }];
@@ -131,25 +154,24 @@ typedef NS_ENUM(NSInteger, CaptureStateType)
 
 - (void)tutorialCancelButtonPressed
 {
+    self.tutorialCancelled = YES;
+    
+    [self stopPreview];
+    
+    if (self.shouldAutoDissmiss)
+    {
+        [self dismissVCanimated:NO];
+    }
+    
     if ([self.delegate respondsToSelector:@selector(livenessCancelled)])
     {
         [self.delegate livenessCancelled];
     }
-    self.tutorialCancelled = YES;
-    
-    [self stopPreview];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -188,6 +210,7 @@ typedef NS_ENUM(NSInteger, CaptureStateType)
     }
 	
 	// Set the capture view delegate and capture parameters prior to calling 'start'
+    self.captureView.licenseKey = self.licenseKey;
 	self.captureView.delegate = self;
 	self.captureView.captureParams = self.captureParams;
 	[self.captureView start];
@@ -203,6 +226,7 @@ typedef NS_ENUM(NSInteger, CaptureStateType)
 - (void)stopPreview
 {
 	[self.captureView shutdown];
+    self.captureView.delegate = nil;
 }
 
 - (void)runSnapAnimation
@@ -458,18 +482,25 @@ typedef NS_ENUM(NSInteger, CaptureStateType)
 	__block __weak LivenessViewController *wself = self;
 	
 	// Transition to the next view
-	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 5.0f * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-		dispatch_async(dispatch_get_main_queue(), ^{
-            if (wself.navigationController)
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 5.0f * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (wself.shouldAutoDissmiss)
             {
-                [wself.navigationController popViewControllerAnimated:NO];
+                if (wself.navigationController)
+                {
+                    [wself.navigationController popViewControllerAnimated:NO];
+                }
+                else
+                {
+                    [wself dismissViewControllerAnimated:NO completion:nil];
+                }
             }
-            else
+            if ([wself.delegate respondsToSelector:@selector(livenessDidFinishSuccessAnimation)])
             {
-                [wself dismissViewControllerAnimated:NO completion:nil];
+                [wself.delegate livenessDidFinishSuccessAnimation];
             }
-		});
-	});
+        });
+    });
 }
 
 - (void)livenessResults:(MiSnapLivenessCaptureResults *)results
@@ -550,6 +581,7 @@ typedef NS_ENUM(NSInteger, CaptureStateType)
 
 - (void)presentVC:(UIViewController *)vc
 {
+    vc.modalPresentationStyle = UIModalPresentationFullScreen;
     if (self.navigationController)
     {
         [self.navigationController pushViewController:vc animated:YES];
@@ -574,7 +606,7 @@ typedef NS_ENUM(NSInteger, CaptureStateType)
 
 - (void)dealloc
 {
-    //NSLog(@"LivenessViewController is being deallocated");
+    NSLog(@"LivenessViewController is being deallocated");
 }
 
 @end

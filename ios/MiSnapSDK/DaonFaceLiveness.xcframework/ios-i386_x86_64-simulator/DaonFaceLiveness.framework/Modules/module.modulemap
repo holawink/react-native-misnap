@@ -1,0 +1,6 @@
+framework module DaonFaceLiveness {
+  umbrella header "DaonFaceLiveness.h"
+
+  export *
+  module * { export * }
+}

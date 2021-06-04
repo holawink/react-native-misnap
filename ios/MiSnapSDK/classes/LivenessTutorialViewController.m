@@ -75,18 +75,18 @@
 
 - (IBAction)cancelButtonPressed:(id)sender
 {
+    if ([self.delegate respondsToSelector:@selector(tutorialCancelButtonPressed)])
+    {
+        [self.delegate tutorialCancelButtonPressed];
+    }
+    
     if (self.navigationController)
     {
-        [self.navigationController dismissViewControllerAnimated:NO completion:nil];
+        [self.navigationController popViewControllerAnimated:NO];
     }
     else
     {
         [self dismissViewControllerAnimated:NO completion:nil];
-    }
-    
-    if ([self.delegate respondsToSelector:@selector(tutorialCancelButtonPressed)])
-    {
-        [self.delegate tutorialCancelButtonPressed];
     }
 }
 
