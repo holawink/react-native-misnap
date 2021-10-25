@@ -1,8 +1,8 @@
 
 {
   "name": "react-native-misnap",
-  "version": "1.0.7",
-  "description": "Private react-native wrapper library around MiSnap + MiSnap liveness frameworks for iOS & Adndroid.",
+  "version": "3.0.0",
+  "description": "Private react-native wrapper library around MiSnap + MiSnap liveness frameworks for iOS & Android.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

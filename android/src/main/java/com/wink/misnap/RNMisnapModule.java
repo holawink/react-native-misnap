@@ -1,5 +1,5 @@
 
-package com.omni.misnap;
+package com.wink.misnap;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -110,14 +110,6 @@ public class RNMisnapModule extends ReactContextBaseJavaModule implements Activi
       if(intentMiSnap != null ){
           currentActivity.startActivityForResult(intentMiSnap, MiSnapApi.RESULT_PICTURE_CODE);
       }
-
-      // HashMap<String, String> hm = new HashMap<>();
-      // hm.put("base64encodedImage", "Hello From Native");
-      // WritableMap map = new WritableNativeMap();
-      // for (Map.Entry<String, String> entry : hm.entrySet()) {
-      //     map.putString(entry.getKey(), entry.getValue());
-      // }
-      // promise.resolve(map);
 
     } else if (captureType.equals("face")) {
       JSONObject faceCaptureParams = new JSONObject();

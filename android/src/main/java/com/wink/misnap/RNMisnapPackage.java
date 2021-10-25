@@ -1,5 +1,5 @@
 
-package com.omni.misnap;
+package com.wink.misnap;
 
 import java.util.Arrays;
 import java.util.Collections;

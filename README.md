@@ -25,7 +25,7 @@ Due the issue with pod & asset catalogs https://github.com/CocoaPods/CocoaPods/i
 #### Android
 
 1. Open up `android/app/src/main/java/[...]/MainActivity.java`
-  - Add `import com.omni.misnap.RNMisnapPackage;` to the imports at the top of the file
+  - Add `import com.wink.misnap.RNMisnapPackage;` to the imports at the top of the file
   - Add `new RNMisnapPackage()` to the list returned by the `getPackages()` method
 2. Append the following lines to `android/settings.gradle`:
   	```
