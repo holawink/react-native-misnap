@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="facialcapture_workflow_horizontal_margin">16dp</dimen>
+    <dimen name="facialcapture_workflow_vertical_margin">16dp</dimen>
+
+    <dimen name="facialcapture_workflow_horizontal_margin_half">8dp</dimen>
+    <dimen name="facialcapture_workflow_vertical_margin_half">8dp</dimen>
+
+    <dimen name="facialcapture_workflow_horizontal_margin_double">32dp</dimen>
+    <dimen name="facialcapture_workflow_vertical_margin_double">32dp</dimen>
+</resources>

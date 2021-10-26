@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CountdownTimerView">
+        <attr name="time" format="integer" />
+        <attr name="labels" format="reference" />
+        <attr name="countdownTimerStyle" format="reference" />
+        <attr name="android:animation" format="reference" />
+    </declare-styleable>
+</resources>
