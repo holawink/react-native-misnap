@@ -19,9 +19,10 @@ import com.facebook.react.bridge.WritableMap;
 import static android.app.Activity.RESULT_OK;
 
 
-import com.miteksystems.facialcapture.science.api.params.FacialCaptureApi;
+// import com.miteksystems.facialcapture.science.api.params.FacialCaptureApi;
 import com.miteksystems.facialcapture.workflow.FacialCaptureWorkflowActivity;
-import com.miteksystems.facialcapture.workflow.params.FacialCaptureWorkflowParameters;
+
+// import com.miteksystems.facialcapture.workflow.params.FacialCaptureWorkflowParameters;
 import com.miteksystems.misnap.params.CameraApi;
 import com.miteksystems.misnap.params.MiSnapApi;
 import com.miteksystems.misnap.params.ScienceApi;
@@ -114,7 +115,7 @@ public class RNMisnapModule extends ReactContextBaseJavaModule implements Activi
     } else if (captureType.equals("face")) {
       JSONObject faceCaptureParams = new JSONObject();
       try {
-        faceCaptureParams.put(FacialCaptureApi.FacialCaptureLicenseKey, licenseKey);
+        // faceCaptureParams.put(FacialCaptureApi.FacialCaptureLicenseKey, licenseKey);
         faceCaptureParams.put(CameraApi.MiSnapAllowScreenshots, 1);
       } catch (JSONException e) {
         e.printStackTrace();
