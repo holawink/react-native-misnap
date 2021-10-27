@@ -134,7 +134,7 @@ public class RNMisnapModule extends ReactContextBaseJavaModule implements Activi
   public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent intent) {
     if (MiSnapApi.RESULT_PICTURE_CODE == requestCode) {
       if (RESULT_OK == resultCode) {
-        FacialCaptureResult result = this.getResultFacialCapture();
+        FacialCaptureResult result = this.getResultFacialCapture(activity);
 
         byte[] image = result instanceof FacialCaptureResult.Success 
         ? this.getFacialImage(result)
@@ -157,8 +157,8 @@ public class RNMisnapModule extends ReactContextBaseJavaModule implements Activi
 
   // Get facial capture result
   // This will be handle what type of validation could be make
-  protected FacialCaptureResult getResultFacialCapture () {
-    Bundle extras = getIntent().getExtras();
+  protected FacialCaptureResult getResultFacialCapture (Activity activity) {
+    Bundle extras = activity.getIntent().getExtras();
     FacialCaptureResult result = extras.getParcelable(FacialCaptureWorkflowApi.FACIAL_CAPTURE_RESULT);
     return result;
   }
