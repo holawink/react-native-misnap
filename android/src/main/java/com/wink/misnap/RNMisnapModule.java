@@ -29,7 +29,6 @@ import com.miteksystems.misnap.misnapworkflow_UX2.MiSnapWorkflowActivity_UX2;
 import com.miteksystems.misnap.misnapworkflow_UX2.params.WorkflowApi;
 import com.miteksystems.misnap.params.CameraApi;
 import com.miteksystems.misnap.params.MiSnapApi;
-import com.miteksystems.misnap.PICTURE;
 
 // Facial resources
 import com.miteksystems.facialcapture.workflow.params.FacialCaptureWorkflowApi;
