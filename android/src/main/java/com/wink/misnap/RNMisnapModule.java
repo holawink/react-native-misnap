@@ -64,16 +64,17 @@ public class RNMisnapModule extends ReactContextBaseJavaModule implements Activi
 
   @ReactMethod
   public void greet(Promise promise) {
-    promise.resolve("HELLO FROM ANDROID NATIVE CODE (1.0.5)");
+    promise.resolve("HELLO FROM ANDROID NATIVE CODE (3.0.0)");
   }
 
   @ReactMethod
   public void capture(ReadableMap config, Promise promise) {
-     Activity currentActivity = getCurrentActivity();
+    Activity currentActivity = getCurrentActivity();
     currentPromise = promise;
 
-    String captureType = config.hasKey("captureType") ?
-        config.getString("captureType") : "idFront";
+    String captureType = config.hasKey("captureType") 
+      ? config.getString("captureType") 
+      : "idFront";
 
     // Config parameters
     String licenseKey = config.hasKey("livenessLicenseKey") ? config.getString("livenessLicenseKey") : "";
@@ -110,12 +111,13 @@ public class RNMisnapModule extends ReactContextBaseJavaModule implements Activi
       intentMiSnap.putExtra(MiSnapApi.JOB_SETTINGS, misnapParams.toString());
 
       if(intentMiSnap != null ){
-          currentActivity.startActivityForResult(intentMiSnap, MiSnapApi.RESULT_PICTURE_CODE);
+        currentActivity.startActivityForResult(intentMiSnap, MiSnapApi.RESULT_PICTURE_CODE);
       }
 
     } else if (captureType.equals("face")) {
       JSONObject faceCaptureParams = new JSONObject();
       try {
+        // Comment line, was deprecated on version 3.* of misnap sdk
         // faceCaptureParams.put(FacialCaptureApi.FacialCaptureLicenseKey, licenseKey);
         faceCaptureParams.put(CameraApi.MiSnapAllowScreenshots, 1);
       } catch (JSONException e) {
@@ -134,7 +136,7 @@ public class RNMisnapModule extends ReactContextBaseJavaModule implements Activi
   public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent intent) {
     if (MiSnapApi.RESULT_PICTURE_CODE == requestCode) {
       if (RESULT_OK == resultCode) {
-        FacialCaptureResult result = this.getResultFacialCapture(activity);
+        FacialCaptureResult result = this.getResultFacialCapture(intent);
 
         byte[] image = result instanceof FacialCaptureResult.Success 
         ? this.getFacialImage(result)
@@ -148,7 +150,7 @@ public class RNMisnapModule extends ReactContextBaseJavaModule implements Activi
         hm.put("metadata", mibiData);
         WritableMap map = new WritableNativeMap();
         for (Map.Entry<String, String> entry : hm.entrySet()) {
-            map.putString(entry.getKey(), entry.getValue());
+          map.putString(entry.getKey(), entry.getValue());
         }
         currentPromise.resolve(map);
       }
@@ -157,8 +159,8 @@ public class RNMisnapModule extends ReactContextBaseJavaModule implements Activi
 
   // Get facial capture result
   // This will be handle what type of validation could be make
-  protected FacialCaptureResult getResultFacialCapture (Activity activity) {
-    Bundle extras = activity.getIntent().getExtras();
+  protected FacialCaptureResult getResultFacialCapture (Intent intent) {
+    Bundle extras = intent.getExtras();
     FacialCaptureResult result = extras.getParcelable(FacialCaptureWorkflowApi.FACIAL_CAPTURE_RESULT);
     return result;
   }
@@ -173,8 +175,6 @@ public class RNMisnapModule extends ReactContextBaseJavaModule implements Activi
     }
     return image;
   }
-  // See MainActivity.java onActivityResult(),
-  // ResultsActivity.java onCreate() for additional sample code, and // FacialCaptureResult class for the data returned by the SDK.
 
   @ReactMethod
   public void getResults(Promise promise) {
