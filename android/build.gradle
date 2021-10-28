@@ -105,12 +105,4 @@ dependencies {
 
     implementation 'com.microsoft.appcenter:appcenter-crashes:3.2.2'
     implementation "androidx.multidex:multidex:2.0.1"
-
-    implementation ('com.google.mlkit:face-detection:16.1.0') {
-        exclude group: "com.google.android.gms"
-    }
-}
-
-configurations.implementation {
-    exclude group: 'com.google.firebase', module: 'firebase-common'
 }
