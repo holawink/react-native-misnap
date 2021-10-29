@@ -97,6 +97,11 @@ RCT_EXPORT_METHOD(capture:(NSDictionary *)config resolver:(RCTPromiseResolveBloc
     }
 }
 
+- (void)getFacialImage:()
+{
+    
+}
+
 #pragma mark - <MiSnapViewControllerDelegate>
 
 // Called when an image has been captured in either automatic or manual mode
