@@ -39,13 +39,13 @@ class MainViewController: UIViewController {
         miSnapFacialCaptureVC = nil
         
         if let results = results {
-            let resultVC = ResultsViewController.init(with: results)
-            resultVC.modalTransitionStyle = .crossDissolve
-            resultVC.modalPresentationStyle = .fullScreen
+            // let resultVC = ResultsViewController.init(with: results)
+            // resultVC.modalTransitionStyle = .crossDissolve
+            // resultVC.modalPresentationStyle = .fullScreen
             
-            presentVC(resultVC)
+            // presentVC(resultVC)
             
-            self.results = nil
+            // self.results = nil
         }
     }
     
@@ -155,9 +155,9 @@ class MainViewController: UIViewController {
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
             let openSettings = UIAlertAction(title: "Open Settings", style: .cancel) { _ in
-                if let url = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                }
+                // if let url = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(url) {
+                //     UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                // }
             }
             alert.addAction(cancel)
             alert.addAction(openSettings)

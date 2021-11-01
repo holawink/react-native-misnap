@@ -4,7 +4,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "RNMisnap"
-  s.version      = "1.2.5"
+  s.version      = "1.2.6"
   s.summary      = "RNMisnap"
   s.description  = <<-DESC
                   RNMisnap, https://www.miteksystems.com/mobile-capture react-native wrapper aroud native framework.

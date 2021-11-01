@@ -7,5 +7,5 @@
 @class MainViewController;
 
 @interface MainViewController : UIViewController
-
+- (MainViewController*) launchButtonAction;
 @end
