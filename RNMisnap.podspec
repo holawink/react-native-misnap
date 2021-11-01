@@ -22,11 +22,11 @@ Pod::Spec.new do |s|
 
   # s.resources =  ['ios/MiSnapSDK/resources/*']
   s.vendored_frameworks =
-  'ios/MiSnapSDK/DaonFaceLiveness.xcframework/ios-arm64_armv7/DaonFaceLiveness.framework', 
-  'ios/MiSnapSDK/DaonFaceLivenessBlink.xcframework/ios-arm64_armv7/DaonFaceLivenessBlink.framework', 
-  'ios/MiSnapSDK/DaonFaceQuality.xcframework/ios-arm64_armv7/DaonFaceQuality.framework', 
-  'ios/MiSnapSDK/DaonFaceSDK.xcframework/ios-arm64_armv7/DaonFaceSDK.framework',
-  'ios/MiSnapSDK/MiSnapFacialCapture.xcframework/ios-arm64_armv7/MiSnapFacialCapture.framework',
+  # 'ios/MiSnapSDK/DaonFaceLiveness.xcframework/ios-arm64_armv7/DaonFaceLiveness.framework', 
+  # 'ios/MiSnapSDK/DaonFaceLivenessBlink.xcframework/ios-arm64_armv7/DaonFaceLivenessBlink.framework', 
+  # 'ios/MiSnapSDK/DaonFaceQuality.xcframework/ios-arm64_armv7/DaonFaceQuality.framework', 
+  # 'ios/MiSnapSDK/DaonFaceSDK.xcframework/ios-arm64_armv7/DaonFaceSDK.framework',
+  # 'ios/MiSnapSDK/MiSnapFacialCapture.xcframework/ios-arm64_armv7/MiSnapFacialCapture.framework',
 
   'ios/MiSnapSDK/MiSnapBarcodeScanner.framework',
   'ios/MiSnapSDK/MiSnapLiveness.framework',
