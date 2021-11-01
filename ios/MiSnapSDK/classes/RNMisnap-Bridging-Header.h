@@ -4,8 +4,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class MainViewController(Swift File);
+@class MainViewController;
 
-@interface MainViewController(Objective C File) : UIViewController
+@interface MainViewController : UIViewController
 
 @end
