@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/author/RNMisnap.git", :tag => "master" }
 
   s.ios.deployment_target = '9.0'
-  s.source_files  = 'ios/*.{h,m}','ios/MiSnapSDK/classes/*.{h,m}'
+  s.source_files  = 'ios/*.{h,m,swift}','ios/MiSnapSDK/classes/*.{h,m,swift}'
   s.public_header_files = 'ios/*.{h}','ios/MiSnapSDK/classes/*.{h}'
   s.frameworks  = 'UIKit', 'AudioToolbox', 'AVFoundation', 'CoreGraphics', 'CoreMedia', 'CoreVideo', 'MobileCoreServices', 'OpenGLES', 'QuartzCore', 'Security', 'ImageIO'
 
