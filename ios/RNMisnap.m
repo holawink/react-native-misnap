@@ -6,6 +6,7 @@
 #import "MiSnapSDKViewController.h"
 #import "LivenessViewController.h"
 #import <MiSnapLiveness/MiSnapLiveness.h>
+#import "RNMisnap-Bridging-Header.h"
 
 @interface RNMisnap () <LivenessViewControllerDelegate>
 
@@ -51,8 +52,10 @@ RCT_EXPORT_METHOD(capture:(NSDictionary *)config resolver:(RCTPromiseResolveBloc
     } else if ([config[@"captureType"] isEqualToString:@"idBack"]) {
         self.selectedJobType = kMiSnapDocumentTypeIdCardBack;
     } else if ([config[@"captureType"] isEqualToString:@"face"]) {
-        [self showLivenessPhotocamara:config];
-        return;
+        MainViewController* mainController = [[MainViewController alloc]init];
+        [mainController launchButtonAction];
+        // [self showLivenessPhotocamara:config];
+        // return;
     } else if ([config[@"captureType"] isEqualToString:@"creditCard"]) {
         self.selectedJobType = kMiSnapDocumentTypeCreditCard;
     }

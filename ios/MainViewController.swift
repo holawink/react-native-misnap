@@ -1,6 +1,5 @@
 //
 //  MainViewController.swift
-//  MiSnapFacialCaptureSampleApp
 //
 //  Created by Stas Tsuprenko on 6/12/20.
 //  Copyright © 2020 Mitek Systems Inc. All rights reserved.
