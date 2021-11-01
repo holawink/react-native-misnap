@@ -22,11 +22,11 @@ Pod::Spec.new do |s|
 
   # s.resources =  ['ios/MiSnapSDK/resources/*']
   s.vendored_frameworks =
-  'ios/MiSnapSDK/ios-arm64_armv7/DaonFaceLiveness.xcframework', 
-  'ios/MiSnapSDK/ios-arm64_armv7/DaonFaceLivenessBlink.xcframework', 
-  'ios/MiSnapSDK/ios-arm64_armv7/DaonFaceQuality.xcframework', 
-  'ios/MiSnapSDK/ios-arm64_armv7/DaonFaceSDK.xcframework',
-  'ios/MiSnapSDK/ios-arm64_armv7/MiSnapFacialCapture.xcframework',
+  'ios/MiSnapSDK/ios-arm64_armv7/DaonFaceLiveness.framework', 
+  'ios/MiSnapSDK/ios-arm64_armv7/DaonFaceLivenessBlink.framework', 
+  'ios/MiSnapSDK/ios-arm64_armv7/DaonFaceQuality.framework', 
+  'ios/MiSnapSDK/ios-arm64_armv7/DaonFaceSDK.framework',
+  'ios/MiSnapSDK/ios-arm64_armv7/MiSnapFacialCapture.framework',
 
   'ios/MiSnapSDK/MiSnapBarcodeScanner.framework',
   'ios/MiSnapSDK/MiSnapLiveness.framework',
