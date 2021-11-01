@@ -4,7 +4,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "RNMisnap"
-  s.version      = "1.2.1"
+  s.version      = "1.2.2"
   s.summary      = "RNMisnap"
   s.description  = <<-DESC
                   RNMisnap, https://www.miteksystems.com/mobile-capture react-native wrapper aroud native framework.
@@ -16,17 +16,17 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/author/RNMisnap.git", :tag => "master" }
 
   s.ios.deployment_target = '9.0'
-  s.source_files  = 'ios/*.{h,m,swift}','ios/MiSnapSDK/classes/*.{h,m,swift}'
+  s.source_files  = 'ios/*.{h,m,swift}','ios/MiSnapSDK/classes/*.{h,m,swift}', 'ios/MiSnapSDK/classes/MiSnapFacialCaptureUX/*'
   s.public_header_files = 'ios/*.{h}','ios/MiSnapSDK/classes/*.{h}'
   s.frameworks  = 'UIKit', 'AudioToolbox', 'AVFoundation', 'CoreGraphics', 'CoreMedia', 'CoreVideo', 'MobileCoreServices', 'OpenGLES', 'QuartzCore', 'Security', 'ImageIO'
 
   # s.resources =  ['ios/MiSnapSDK/resources/*']
   s.vendored_frameworks =
-  'ios/MiSnapSDK/ios-arm64_armv7/DaonFaceLiveness.framework', 
-  'ios/MiSnapSDK/ios-arm64_armv7/DaonFaceLivenessBlink.framework', 
-  'ios/MiSnapSDK/ios-arm64_armv7/DaonFaceQuality.framework', 
-  'ios/MiSnapSDK/ios-arm64_armv7/DaonFaceSDK.framework',
-  'ios/MiSnapSDK/ios-arm64_armv7/MiSnapFacialCapture.framework',
+  'ios/MiSnapSDK/DaonFaceLiveness.xcframework/ios-arm64_armv7/DaonFaceLiveness.framework', 
+  'ios/MiSnapSDK/DaonFaceLivenessBlink.xcframework/ios-arm64_armv7/DaonFaceLivenessBlink.framework', 
+  'ios/MiSnapSDK/DaonFaceQuality.xcframework/ios-arm64_armv7/DaonFaceQuality.framework', 
+  'ios/MiSnapSDK/DaonFaceSDK.xcframework/ios-arm64_armv7/DaonFaceSDK.framework',
+  'ios/MiSnapSDK/MiSnapFacialCapture.xcframework/ios-arm64_armv7/MiSnapFacialCapture.framework',
 
   'ios/MiSnapSDK/MiSnapBarcodeScanner.framework',
   'ios/MiSnapSDK/MiSnapLiveness.framework',
