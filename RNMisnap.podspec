@@ -4,7 +4,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "RNMisnap"
-  s.version      = "1.1.0"
+  s.version      = "1.1.1"
   s.summary      = "RNMisnap"
   s.description  = <<-DESC
                   RNMisnap, https://www.miteksystems.com/mobile-capture react-native wrapper aroud native framework.
@@ -22,11 +22,11 @@ Pod::Spec.new do |s|
 
   # s.resources =  ['ios/MiSnapSDK/resources/*']
   s.vendored_frameworks =
-  'ios/MiSnapSDK/DaonFaceLiveness.xcframework', 
-  'ios/MiSnapSDK/DaonFaceLivenessBlink.xcframework', 
-  'ios/MiSnapSDK/DaonFaceQuality.xcframework', 
-  'ios/MiSnapSDK/DaonFaceSDK.xcframework',
-  'ios/MiSnapSDK/MiSnapFacialCapture.xcframework',
+  'ios/MiSnapSDK/ios-arm64_armv7/DaonFaceLiveness.xcframework', 
+  'ios/MiSnapSDK/ios-arm64_armv7/DaonFaceLivenessBlink.xcframework', 
+  'ios/MiSnapSDK/ios-arm64_armv7/DaonFaceQuality.xcframework', 
+  'ios/MiSnapSDK/ios-arm64_armv7/DaonFaceSDK.xcframework',
+  'ios/MiSnapSDK/ios-arm64_armv7/MiSnapFacialCapture.xcframework',
 
   'ios/MiSnapSDK/MiSnapBarcodeScanner.framework',
   'ios/MiSnapSDK/MiSnapLiveness.framework',
