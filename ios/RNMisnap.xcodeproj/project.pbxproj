@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B3E7B58A1CC2AC0600A0062D /* RNMisnap.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNMisnap.m */; };
-		E26D4DA92732EE070058621E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E5D6152731B0B3002C3004 /* MainViewController.swift */; };
 		E2E5D5832731A9AA002C3004 /* libRNMisnap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 134814201AA4EA6300B7C361 /* libRNMisnap.a */; };
 /* End PBXBuildFile section */
 
@@ -126,7 +125,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3E7B58A1CC2AC0600A0062D /* RNMisnap.m in Sources */,
-				E26D4DA92732EE070058621E /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
