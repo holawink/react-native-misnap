@@ -1,8 +1,8 @@
 //
 //  MainViewController.swift
-//  RNMisnap
+//  MainViewController
 //
-//  Created by Joseph Ramirez on 11/1/21.
+//  Created by Joseph Ramirez on 11/3/21.
 //  Copyright © 2021 Facebook. All rights reserved.
 //
 
@@ -11,7 +11,7 @@ import Foundation
 import UIKit
 import MiSnapFacialCapture
 
-class MainViewController: UIViewController {
+@objc open class MainViewController: UIViewController {
     
     @IBOutlet weak var launchButton: UIButton!
     var selectOnSmileSwitch: UISwitch!
@@ -24,7 +24,7 @@ class MainViewController: UIViewController {
     var results: MiSnapFacialCaptureResults?
     var miSnapFacialCaptureVC: MiSnapFacialCaptureViewController?
 
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         
         print("MiSnapFacialCapture v\(MiSnapFacialCapture.version())")
@@ -33,7 +33,7 @@ class MainViewController: UIViewController {
         configureSubviews()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
+    override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         miSnapFacialCaptureVC = nil
@@ -49,16 +49,16 @@ class MainViewController: UIViewController {
         }
     }
     
-    override var prefersStatusBarHidden: Bool {
+    override open var prefersStatusBarHidden: Bool {
         return true
     }
     
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
     
     // posible to run logic
-    @IBAction func launchButtonAction(_ sender: Any) {
+    @objc open func launchButtonAction(_ sender: Any) {
         let parameters = MiSnapFacialCaptureParameters()
         //parameters.countdownTime = 3
         //parameters.mode = .manual
