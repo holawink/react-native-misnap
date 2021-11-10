@@ -32,8 +32,7 @@ Pod::Spec.new do |s|
   'ios/MiSnapSDK/MiSnapSDKCamera.framework',
   'ios/MiSnapSDK/MiSnapSDKMibiData.framework',
   'ios/MiSnapSDK/MiSnapSDKScience.framework',
-  'ios/MiSnapSDK/MobileFlow.framework',
-  'ios/MiSnapSDK/MiSnapFacialCapture.framework'
+  'ios/MiSnapSDK/MobileFlow.framework'
 
   s.requires_arc = true
   s.dependency "React"
