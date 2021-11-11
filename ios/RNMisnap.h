@@ -8,7 +8,6 @@
 #import <UIKit/UIKit.h>
 #import <MiSnapSDK/MiSnapSDK.h>
 #import "MiSnapSDKViewController.h"
-#import "RNMisnap-Bridging-Header.h"
 
 @interface RNMisnap : NSObject <RCTBridgeModule, MiSnapViewControllerDelegate> {
     RCTPromiseResolveBlock  cResolver;

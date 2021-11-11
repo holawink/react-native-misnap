@@ -4,7 +4,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "RNMisnap"
-  s.version      = "1.2.7"
+  s.version      = "1.2.8"
   s.summary      = "RNMisnap"
   s.description  = <<-DESC
                   RNMisnap, https://www.miteksystems.com/mobile-capture react-native wrapper aroud native framework.
@@ -17,10 +17,8 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '9.0'
   s.source_files  = 'ios/*.{h,m}',
-    'ios/MiSnapSDK/classes/*.{h,m}', 
-    'ios/MiSnapSDK/classes/MiSnapFacialCaptureUX/*' , 
-    'ios/FacialSDK/MiSnapFacialCaptureUX/*', 
-    'ios/FacialSDK/MiSnapFacialCaptureUX/Resources/*'
+    'ios/MiSnapSDK/classes/*.{h,m}'
+    
   s.public_header_files = 'ios/*.{h}','ios/MiSnapSDK/classes/*.{h}'
   s.frameworks  = 'UIKit', 'AudioToolbox', 'AVFoundation', 'CoreGraphics', 'CoreMedia', 'CoreVideo', 'MobileCoreServices', 'OpenGLES', 'QuartzCore', 'Security', 'ImageIO'
 
