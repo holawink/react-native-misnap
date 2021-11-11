@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF1C37</color>
+    <color name="colorOnPrimary">#E1E1E2</color>
+    <color name="colorSecondary">#FF1C37</color>
+    <color name="colorOnSecondary">#E1E1E2</color>
+    <color name="colorBackground">#202020</color>
+    <color name="colorOnBackground">#E1E1E2</color>
+    <color name="colorSurface">#000000</color>
+    <color name="colorOnSurface">#E1E1E2</color>
+
+    <color name="colorVignette">#59FFFFFF</color>
+    <color name="colorBackgroundHints">#55000000</color>
+
+    <color name="colorFace">#FFFFFF</color>
+    <color name="colorHair">#777777</color>
+    <color name="colorEyes">#111111</color>
+    <color name="colorClothes">#777777</color>
+    <color name="colorAccessories">@color/colorPrimary</color>
+    <color name="colorSmile">@color/colorPrimary</color>
+    <color name="colorCameraIconShutter">#FFFFFF</color>
+    <color name="colorCameraIconBackground">@color/colorPrimary</color>
+    <color name="colorHandOutline">#111111</color>
+
+    <color name="colorOvalError">#FF1C37</color>
+    <color name="colorOvalNoError">#1CFF37</color>
+
+    <color name="colorSuccess">@color/colorOvalNoError</color>
+
+    <color name="colorDeviceEdge">#39424D</color>
+    <color name="colorDeviceBezel">#0B1B2B</color>
+    <color name="colorDeviceScreen">#667587</color>
+    <color name="colorDeviceSpeakerGrill">#3F4A59</color>
+</resources>

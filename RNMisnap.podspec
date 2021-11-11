@@ -4,7 +4,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "RNMisnap"
-  s.version      = "1.0.1"
+  s.version      = "1.2.8"
   s.summary      = "RNMisnap"
   s.description  = <<-DESC
                   RNMisnap, https://www.miteksystems.com/mobile-capture react-native wrapper aroud native framework.
@@ -16,26 +16,24 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/author/RNMisnap.git", :tag => "master" }
 
   s.ios.deployment_target = '9.0'
-  s.source_files  = 'ios/*.{h,m}','ios/MiSnapSDK/classes/*.{h,m}'
+  s.source_files  = 'ios/*.{h,m}',
+    'ios/MiSnapSDK/classes/*.{h,m}'
+    
   s.public_header_files = 'ios/*.{h}','ios/MiSnapSDK/classes/*.{h}'
   s.frameworks  = 'UIKit', 'AudioToolbox', 'AVFoundation', 'CoreGraphics', 'CoreMedia', 'CoreVideo', 'MobileCoreServices', 'OpenGLES', 'QuartzCore', 'Security', 'ImageIO'
 
   # s.resources =  ['ios/MiSnapSDK/resources/*']
-  s.vendored_frameworks = 'ios/MiSnapSDK/MiSnapSDK.framework',
+  s.vendored_frameworks =
+  'ios/MiSnapSDK/MiSnapBarcodeScanner.framework',
+  'ios/MiSnapSDK/MiSnapLiveness.framework',
+  'ios/MiSnapSDK/MiSnapSDK.framework',
   'ios/MiSnapSDK/MiSnapSDKCamera.framework',
   'ios/MiSnapSDK/MiSnapSDKMibiData.framework',
   'ios/MiSnapSDK/MiSnapSDKScience.framework',
-  'ios/MiSnapSDK/MobileFlow.framework', 
-  'ios/MiSnapSDK/MiSnapBarcodeScanner.framework', 
-  'ios/MiSnapSDK/MiSnapLiveness.framework', 
-  'ios/MiSnapSDK/DaonFaceLiveness.framework', 
-  'ios/MiSnapSDK/DaonFaceLivenessBlink.framework', 
-  'ios/MiSnapSDK/DaonFaceQuality.framework', 
-  'ios/MiSnapSDK/DaonFaceSDK.framework'
+  'ios/MiSnapSDK/MobileFlow.framework'
 
   s.requires_arc = true
   s.dependency "React"
   #s.dependency "others"
 
 end
-  

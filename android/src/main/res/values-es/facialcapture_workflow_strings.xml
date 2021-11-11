@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="facialcapture_camera_permission_title">Motivo de Solicitud</string>
+    <string name="facialcapture_camera_permission_rationale">Se necesita acceso a la cámara del dispositivo para capturar una foto de su rostro.</string>
+
+    <!--AutoModeTutorialFragment-->
+    <string name="facialcapture_auto_mode_tutorial_tts">Prepárese para centrar su rostro en el óvalo</string>
+    <string name="facialcapture_auto_mode_tutorial_button_text">Continuar</string>
+
+    <!-- FacialCaptureOverlayFragment -->
+    <string name="facialcapture_overlay_cancel_button">Cancelar</string>
+    <string name="facialcapture_overlay_help_button">Ayuda</string>
+
+    <!-- Timeout Screen -->
+    <string name="facialcapture_timeout_tts">Se acabó el tiempo, no tomamos su foto… ¿Quisiera intentar de nuevo con Captura Automática o Captura Manual?</string>
+    <string name="facialcapture_timeout_message_1">Se acabó el tiempo, no tomamos su foto…</string>
+    <string name="facialcapture_timeout_message_2">Quisiera intentar de nuevo?</string>
+    <string name="facialcapture_timeout_auto_capture">Captura Automática</string>
+    <string name="facialcapture_timeout_manual_capture">Captura Manual</string>
+    <string name="facialcapture_timeout_auto_capture_button_text">Automática</string>
+    <string name="facialcapture_timeout_manual_capture_button_text">Manual</string>
+
+    <!-- AutoModeHelpFragment -->
+    <string name="facialcapture_auto_mode_help_smile_tts">Por Favor: Colóquese frente a un fondo uniforme. Centre Su Rostro. Sonría Cuando Esté Listo. No oculte su cara con gorras, anteojos, bufandas, cabello… sin máscaras.</string>
+    <string name="facialcapture_auto_mode_help_iqa_only_tts">Por Favor: Colóquese frente a un fondo uniforme. Centre Su Rostro. Manténgase quieto cuando esté listo. No oculte su cara con gorras, anteojos, bufandas, cabello… sin máscaras.</string>
+    <string name="facialcapture_auto_mode_help_do_title">Por Favor:</string>
+    <string name="facialcapture_auto_mode_help_do_message_second">Centre Su Rostro</string>
+    <string name="facialcapture_auto_mode_help_do_message_first">Colóquese frente a un fondo uniforme</string>
+    <string name="facialcapture_auto_mode_help_do_message_third_smile">Sonría Cuando Este Listo</string>
+    <string name="facialcapture_auto_mode_help_do_message_third_iqa_only">Manténgase quieto cuando esté listo</string>
+    <string name="facialcapture_auto_mode_help_do_not_title">También:</string>
+    <string name="facialcapture_auto_mode_help_do_not_message_first">No oculte su cara con gorras, anteojos, bufandas, cabello… </string>
+    <string name="facialcapture_auto_mode_help_do_not_message_second">Sin máscaras</string>
+    <string name="facialcapture_auto_mode_help_process_button_text">Continuar</string>
+    <string name="facialcapture_auto_mode_help_cancel_button_text">Cancelar</string>
+
+    <!-- ManualModeHelpFragment -->
+    <string name="facialcapture_manual_mode_help_tts">Por Favor: Colóquese frente a un fondo uniforme. Centre Su Rostro. No oculte su cara con gorras, anteojos, bufandas, cabello… sin máscaras</string>
+    <string name="facialcapture_manual_mode_help_do_title">Por Favor:</string>
+    <string name="facialcapture_manual_mode_help_do_message_first">Colóquese frente a un fondo uniforme</string>
+    <string name="facialcapture_manual_mode_help_do_message_second">Centre Su Rostro</string>
+    <string name="facialcapture_manual_mode_help_do_not_title">También:</string>
+    <string name="facialcapture_manual_mode_help_do_not_message_first">No oculte su cara con gorras, anteojos, bufandas, cabello… </string>
+    <string name="facialcapture_manual_mode_help_do_not_message_second">Sin máscaras</string>
+    <string name="facialcapture_manual_mode_help_process_button_text">Continuar</string>
+
+    <!-- CaptureReviewFragment -->
+    <string name="facialcapture_capture_review_tts">¿Está conforme con el resultado? ¿Quiere volver a tomarla?</string>
+    <string name="facialcapture_capture_review_message">¿Está conforme con el resultado?</string>
+    <string name="facialcapture_capture_review_confirm_button_text">Se ve bien</string>
+    <string name="facialcapture_capture_review_retake_button_text">Volver a tomar</string>
+
+    <!-- Guide messages -->
+    <string name="facialcapture_overlay_message_face_not_found">Rostro No Detectado</string>
+    <string name="facialcapture_overlay_message_multiple_faces_found">Solo se permite un rostro</string>
+    <string name="facialcapture_overlay_message_face_straighten">Enderece su rostro</string>
+    <string name="facialcapture_overlay_message_face_move_further_away">Retírese</string>
+    <string name="facialcapture_overlay_message_face_get_closer">Acérquese</string>
+    <string name="facialcapture_overlay_message_smile_now">Sonría Ahora</string>
+    <string name="facialcapture_overlay_message_press_button_when_ready">Presione el botón cuando esté listo</string>
+    <string name="facialcapture_overlay_message_hold_still">No lo mueva</string>
+    <string name="facialcapture_overlay_message_stop_smiling">Pare de sonreir</string>
+
+    <!-- Others -->
+    <string name="facialcapture_overlay_success_text">Gracias, hemos tomado su foto.</string>
+    <string name="facialcapture_workflow_activity_label">Flujo de Captura Facial</string>
+
+    <string-array name="facialcapture_overlay_countdown_timer_labels">
+        <item>3</item>
+        <item>2</item>
+        <item>1</item>
+    </string-array>
+
+</resources>

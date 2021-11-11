@@ -1,0 +1,73 @@
+<resources>
+    <string name="facialcapture_camera_permission_title">Permission reason</string>
+    <string name="facialcapture_camera_permission_rationale">Camera access is required to snap a photo of your face.</string>
+
+    <!--AutoModeTutorialFragment-->
+    <string name="facialcapture_auto_mode_tutorial_tts">Get ready to center your face in the oval and smile</string>
+    <string name="facialcapture_auto_mode_tutorial_button_text">Continue</string>
+
+    <!-- FacialCaptureOverlayFragment -->
+    <string name="facialcapture_overlay_cancel_button">Cancel</string>
+    <string name="facialcapture_overlay_help_button">Help</string>
+
+    <!-- Timeout Screen -->
+    <string name="facialcapture_timeout_tts">"Time's up, we couldn't take your photo…". How would you like to try again, auto capture or take manual capture?</string>
+    <string name="facialcapture_timeout_message_1">"Time's up, we couldn't take your photo…"</string>
+    <string name="facialcapture_timeout_message_2">How would you like to try again?</string>
+    <string name="facialcapture_timeout_auto_capture">Auto Capture</string>
+    <string name="facialcapture_timeout_manual_capture">Take Manual Capture</string>
+    <string name="facialcapture_timeout_auto_capture_button_text">Auto</string>
+    <string name="facialcapture_timeout_manual_capture_button_text">Manual</string>
+
+    <!-- AutoModeHelpFragment -->
+    <string name="facialcapture_auto_mode_help_smile_tts">Please do: Stand against a plain background, center your face, smile when ready. Also no hats, glasses, scarfs, hair covering face… no masks</string>
+    <string name="facialcapture_auto_mode_help_iqa_only_tts">Please do: Stand against a plain background, center your face, hold still when ready. Also no hats, glasses, scarfs, hair covering face… no masks</string>
+    <string name="facialcapture_auto_mode_help_do_title">Please DO:</string>
+    <string name="facialcapture_auto_mode_help_do_message_second">Center your face</string>
+    <string name="facialcapture_auto_mode_help_do_message_first">Stand against a plain background</string>
+    <string name="facialcapture_auto_mode_help_do_message_third_smile">Smile when ready</string>
+    <string name="facialcapture_auto_mode_help_do_message_third_iqa_only">Hold still when ready</string>
+    <string name="facialcapture_auto_mode_help_do_not_title">Also:</string>
+    <string name="facialcapture_auto_mode_help_do_not_message_first">No hats, glasses, scarfs, hair covering face…</string>
+    <string name="facialcapture_auto_mode_help_do_not_message_second">No masks</string>
+    <string name="facialcapture_auto_mode_help_process_button_text">Continue</string>
+    <string name="facialcapture_auto_mode_help_cancel_button_text">Cancel</string>
+
+    <!-- ManualModeHelpFragment -->
+    <string name="facialcapture_manual_mode_help_tts">Please do: Stand against a plain background, center your face, also, no hats, glasses, scarfs, hair covering face… no masks</string>
+    <string name="facialcapture_manual_mode_help_do_title">Please DO:</string>
+    <string name="facialcapture_manual_mode_help_do_message_first">Stand against a plain background</string>
+    <string name="facialcapture_manual_mode_help_do_message_second">Center your face</string>
+    <string name="facialcapture_manual_mode_help_do_not_title">Also:</string>
+    <string name="facialcapture_manual_mode_help_do_not_message_first">No hats, glasses, scarfs, hair covering face…</string>
+    <string name="facialcapture_manual_mode_help_do_not_message_second">No masks</string>
+    <string name="facialcapture_manual_mode_help_process_button_text">Continue</string>
+
+    <!-- CaptureReviewFragment -->
+    <string name="facialcapture_capture_review_tts">Are you happy with your selfie or would you like to retake it?</string>
+    <string name="facialcapture_capture_review_message">Are you happy with your selfie?</string>
+    <string name="facialcapture_capture_review_confirm_button_text">Looks Good</string>
+    <string name="facialcapture_capture_review_retake_button_text">Retake</string>
+
+    <!-- Guide messages -->
+    <string name="facialcapture_overlay_message_face_not_found">Face not detected</string>
+    <string name="facialcapture_overlay_message_multiple_faces_found">Only one face is allowed</string>
+    <string name="facialcapture_overlay_message_face_straighten">Straighten your face</string>
+    <string name="facialcapture_overlay_message_face_move_further_away">Move farther away</string>
+    <string name="facialcapture_overlay_message_face_get_closer">Get closer</string>
+    <string name="facialcapture_overlay_message_smile_now">Smile now</string>
+    <string name="facialcapture_overlay_message_stop_smiling">Stop smiling</string>
+    <string name="facialcapture_overlay_message_press_button_when_ready">Press button when ready</string>
+    <string name="facialcapture_overlay_message_hold_still">Hold Still</string>
+
+    <!-- Others -->
+    <string name="facialcapture_overlay_success_text">Thank you,\nwe just took your photo.</string>
+    <string name="facialcapture_workflow_activity_label">Facial Capture Workflow</string>
+
+    <string-array name="facialcapture_overlay_countdown_timer_labels">
+        <item>3</item>
+        <item>2</item>
+        <item>1</item>
+    </string-array>
+
+</resources>

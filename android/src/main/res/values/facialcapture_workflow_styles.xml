@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="FacialCaptureWorkflowTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+        <item name="colorSurface">@color/colorSurface</item>
+        <item name="colorOnSurface">@color/colorOnSurface</item>
+        <item name="android:colorBackground">@color/colorBackground</item>
+        <item name="colorOnBackground">@color/colorOnBackground</item>
+
+        <item name="android:buttonStyle">@style/FacialCaptureWorkflowTheme.Button</item>
+        <item name="android:alertDialogStyle">@style/FacialCaptureWorkflowTheme.Dialog</item>
+        <item name="countdownTimerStyle">@style/Widget.CountdownTimer</item>
+    </style>
+
+    <style name="FacialCaptureWorkflowTheme.TextAppearance.Display1" parent="@style/TextAppearance.MaterialComponents.Headline4" />
+
+    <style name="FacialCaptureWorkflowTheme.TextAppearance.Headline" parent="@style/TextAppearance.MaterialComponents.Headline4">
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <style name="FacialCaptureWorkflowTheme.TextAppearance.Headline.Medium">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="FacialCaptureWorkflowTheme.TextAppearance.Medium" parent="@style/TextAppearance.AppCompat.Medium" />
+
+    <style name="FacialCaptureWorkflowTheme.TextAppearance.Small" parent="@style/TextAppearance.AppCompat.Small" />
+
+    <style name="FacialCaptureWorkflowTheme.TextAppearance.CountdownTimer" parent="@style/TextAppearance.AppCompat.Display4">
+        <item name="android:textColor">@color/colorTextCountdownTimer</item>
+    </style>
+
+    <style name="FacialCaptureWorkflowTheme.Button" parent="@style/Widget.MaterialComponents.Button" />
+
+    <style name="FacialCaptureWorkflowTheme.Button.Borderless" parent="@style/Widget.MaterialComponents.Button.TextButton" />
+
+    <style name="FacialCaptureWorkflowTheme.Button.Outlined" parent="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
+    <style name="FacialCaptureWorkflowTheme.Dialog" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <item name="materialAlertDialogBodyTextStyle">
+            @style/FacialCaptureWorkflowTheme.TextAppearance.Headline.Medium
+        </item>
+        <item name="android:backgroundDimAmount">0.7</item>
+    </style>
+
+    <style name="Widget.CountdownTimer" parent="">
+        <item name="android:textAppearance">
+            @style/FacialCaptureWorkflowTheme.TextAppearance.CountdownTimer
+        </item>
+    </style>
+</resources>
