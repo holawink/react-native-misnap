@@ -1,6 +1,0 @@
-framework module DaonFaceLivenessBlink {
-  umbrella header "DaonFaceLivenessBlink.h"
-
-  export *
-  module * { export * }
-}

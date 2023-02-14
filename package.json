@@ -1,7 +1,7 @@
 
 {
   "name": "react-native-misnap",
-  "version": "1.0.7",
+  "version": "2.0.0",
   "description": "Private react-native wrapper library around MiSnap + MiSnap liveness frameworks for iOS & Adndroid.",
   "main": "index.js",
   "scripts": {
@@ -10,8 +10,9 @@
   "keywords": [
     "react-native"
   ],
-  "author": "",
-  "license": "",
+  "license": "MIT",
+  "author": "wink",
+  "homepage": "",
   "peerDependencies": {
     "react-native": ">=v0.40.0"
   }
