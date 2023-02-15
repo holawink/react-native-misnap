@@ -10,7 +10,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.0'
+        classpath 'com.android.tools.build:gradle:4.2.2'
     }
 }
 
@@ -18,14 +18,14 @@ apply plugin: 'com.android.library'
 apply plugin: 'maven'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
     buildToolsVersion = "29.0.3"
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 30
+        minSdkVersion 23
+        targetSdkVersion 31
         versionCode 1
-        versionName "1.0.1"
+        versionName "2.0.0"
     }
     lintOptions {
         abortOnError false
