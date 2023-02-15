@@ -54,6 +54,10 @@ repositories {
     }
     maven {
     url = uri('https://maven.pkg.github.com/mitek-systems/misnap-android')
+    credentials {
+                username = 'YeinelR'
+                password = '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' // created in Step 1.
+            }
     }
 }
 
