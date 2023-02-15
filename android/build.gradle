@@ -2,10 +2,11 @@ buildscript {
     repositories {
         jcenter()
         google()
-        flatDir {
-            dirs 'libs'
+        mavenCentral()
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
         }
-       mavenLocal()
     }
 
     dependencies {
@@ -37,10 +38,12 @@ android {
 }
 
 repositories {
-    mavenLocal()
     google()
-    flatDir {
-        dirs 'libs'
+    jcenter()
+    mavenCentral()
+    maven {
+        url 'https://maven.google.com/'
+        name 'Google'
     }
 }
 
