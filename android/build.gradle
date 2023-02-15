@@ -7,6 +7,9 @@ buildscript {
             url 'https://maven.google.com/'
             name 'Google'
         }
+        maven {
+            url = uri('https://maven.pkg.github.com/mitek-systems/misnap-android')
+        }
     }
 
     dependencies {
@@ -44,6 +47,9 @@ repositories {
     maven {
         url 'https://maven.google.com/'
         name 'Google'
+    }
+    maven {
+    url = uri('https://maven.pkg.github.com/mitek-systems/misnap-android')
     }
 }
 
