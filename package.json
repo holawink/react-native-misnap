@@ -3,6 +3,7 @@
   "name": "react-native-misnap",
   "version": "2.0.0",
   "description": "Private react-native wrapper library around MiSnap + MiSnap liveness frameworks for iOS & Adndroid.",
+  "summary": "Private react-native wrapper library around MiSnap",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,7 +13,7 @@
   ],
   "license": "MIT",
   "author": "wink",
-  "homepage": "",
+  "homepage": "https://github.com/holawink/react-native-misnap",
   "peerDependencies": {
     "react-native": ">=v0.40.0"
   }

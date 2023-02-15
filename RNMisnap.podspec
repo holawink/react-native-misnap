@@ -13,8 +13,8 @@ Pod::Spec.new do |s|
   s.description  = package['description']
   s.homepage     = package['homepage']
   s.license      = package['license']
-  s.author       = package['author']
-  s.source       = ...
+  s.author       = { "author" => "author@domain.cn" }
+  s.source       = { :git => "https://github.com/author/RNMisnap.git", :tag => "master" }
 
   s.ios.deployment_target = '9.0'
   s.source_files  = 'ios/*.{h,m}','ios/MiSnapSDK/classes/*.{h,m}'
