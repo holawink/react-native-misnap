@@ -1,6 +1,6 @@
 // MisnapModule.java
 
-package com.reactlibrary;
+package com.fintechla.wink;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;

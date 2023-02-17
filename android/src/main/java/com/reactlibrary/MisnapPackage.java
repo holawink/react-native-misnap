@@ -1,6 +1,6 @@
 // MisnapPackage.java
 
-package com.reactlibrary;
+package com.fintechla.wink;
 
 import java.util.Arrays;
 import java.util.Collections;
