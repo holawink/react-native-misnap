@@ -1,96 +1,148 @@
-buildscript {
-    repositories {
-        jcenter()
-        google()
-        mavenCentral()
-        maven {
-            url 'https://maven.google.com/'
-            name 'Google'
-        }
-        maven {
-            url = uri('https://maven.pkg.github.com/mitek-systems/misnap-android')
-            credentials {
-                username = 'YeinelR'
-                password = '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' // created in Step 1.
-            }
-        }
-    }
+// android/build.gradle
 
-    dependencies {
-        classpath 'com.android.tools.build:gradle:4.2.2'
-    }
+// based on:
+//
+// * https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle
+//   previous location:
+//   - https://github.com/facebook/react-native/blob/0.58-stable/local-cli/templates/HelloWorld/android/build.gradle
+//
+// * https://github.com/facebook/react-native/blob/0.60-stable/template/android/app/build.gradle
+//   previous location:
+//   - https://github.com/facebook/react-native/blob/0.58-stable/local-cli/templates/HelloWorld/android/app/build.gradle
+
+// These defaults should reflect the SDK versions used by
+// the minimum React Native version supported.
+def DEFAULT_COMPILE_SDK_VERSION = 28
+def DEFAULT_BUILD_TOOLS_VERSION = '28.0.3'
+def DEFAULT_MIN_SDK_VERSION = 16
+def DEFAULT_TARGET_SDK_VERSION = 28
+
+def safeExtGet(prop, fallback) {
+    rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
 }
 
 apply plugin: 'com.android.library'
 apply plugin: 'maven'
 
-android {
-    compileSdkVersion 31
-    buildToolsVersion = "29.0.3"
-
-    defaultConfig {
-        minSdkVersion 23
-        targetSdkVersion 31
-        versionCode 1
-        versionName "2.0.0"
-    }
-    lintOptions {
-        abortOnError false
-    }
-    buildTypes { 
-        release {
-            minifyEnabled true
+buildscript {
+    // The Android Gradle plugin is only required when opening the android folder stand-alone.
+    // This avoids unnecessary downloads and potential conflicts when the library is included as a
+    // module dependency in an application project.
+    // ref: https://docs.gradle.org/current/userguide/tutorial_using_tasks.html#sec:build_script_external_dependencies
+    if (project == rootProject) {
+        repositories {
+            google()
+        }
+        dependencies {
+            // This should reflect the Gradle plugin version used by
+            // the minimum React Native version supported.
+            classpath 'com.android.tools.build:gradle:3.4.1'
         }
     }
 }
 
-repositories {
-    google()
-    jcenter()
-    mavenCentral()
-    maven {
-        url 'https://maven.google.com/'
-        name 'Google'
+android {
+    compileSdkVersion safeExtGet('compileSdkVersion', DEFAULT_COMPILE_SDK_VERSION)
+    buildToolsVersion safeExtGet('buildToolsVersion', DEFAULT_BUILD_TOOLS_VERSION)
+    defaultConfig {
+        minSdkVersion safeExtGet('minSdkVersion', DEFAULT_MIN_SDK_VERSION)
+        targetSdkVersion safeExtGet('targetSdkVersion', DEFAULT_TARGET_SDK_VERSION)
+        versionCode 1
+        versionName "1.0"
     }
-    maven {
-    url = uri('https://maven.pkg.github.com/mitek-systems/misnap-android')
-    credentials {
-                username = 'YeinelR'
-                password = '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' // created in Step 1.
-            }
+    lintOptions {
+        abortOnError false
     }
 }
 
+repositories {
+    // ref: https://www.baeldung.com/maven-local-repository
+    mavenLocal()
+    maven {
+        // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+        url "$rootDir/../node_modules/react-native/android"
+    }
+    maven {
+        // Android JSC is installed from npm
+        url "$rootDir/../node_modules/jsc-android/dist"
+    }
+    google()
+}
+
 dependencies {
-    implementation 'com.facebook.react:react-native:+'
-    // Use this for check + id sessions
-    implementation "com.miteksystems.misnap:document:5.2"
+    //noinspection GradleDynamicVersion
+    implementation 'com.facebook.react:react-native:+'  // From node_modules
+}
 
-    // Use this for barcode sessions
-    implementation "com.miteksystems.misnap:barcode:5.2"
+def configureReactNativePom(def pom) {
+    def packageJson = new groovy.json.JsonSlurper().parseText(file('../package.json').text)
 
-    // Use this for selfie + voice sessions
-    implementation "com.miteksystems.misnap:biometric:5.2"
+    pom.project {
+        name packageJson.title
+        artifactId packageJson.name
+        version = packageJson.version
+        group = "com.reactlibrary"
+        description packageJson.description
+        url packageJson.repository.baseUrl
 
-    // Use this for selfie sessions
-    implementation "com.miteksystems.misnap:face:5.2"
+        licenses {
+            license {
+                name packageJson.license
+                url packageJson.repository.baseUrl + '/blob/master/' + packageJson.licenseFilename
+                distribution 'repo'
+            }
+        }
 
-    // Use this for voice sessions
-    implementation "com.miteksystems.misnap:voice:5.2"
+        developers {
+            developer {
+                id packageJson.author.username
+                name packageJson.author.name
+            }
+        }
+    }
+}
 
-    // Use this for automatically getting the nfc credentials and then reading the chip
-    implementation "com.miteksystems.misnap:combined-nfc:5.2"
+afterEvaluate { project ->
+    // some Gradle build hooks ref:
+    // https://www.oreilly.com/library/view/gradle-beyond-the/9781449373801/ch03.html
+    task androidJavadoc(type: Javadoc) {
+        source = android.sourceSets.main.java.srcDirs
+        classpath += files(android.bootClasspath)
+        classpath += files(project.getConfigurations().getByName('compile').asList())
+        include '**/*.java'
+    }
 
-    // Use this for only reading the nfc chip
-    implementation "com.miteksystems.misnap:nfc:5.2"
+    task androidJavadocJar(type: Jar, dependsOn: androidJavadoc) {
+        classifier = 'javadoc'
+        from androidJavadoc.destinationDir
+    }
 
-    implementation "com.android.support:appcompat-v7:28.0.0"
-    implementation "androidx.constraintlayout:constraintlayout:2.0.0-beta4"
-    implementation 'org.greenrobot:eventbus:3.1.1'
-    implementation 'com.android.support:appcompat-v7:23.2.1' 
-    implementation 'de.greenrobot:eventbus:2.4.0'
-    implementation 'com.android.support:percent:23.3.0'
-    implementation 'commons-io:commons-io:2.5'
-    implementation 'org.slf4j:slf4j-android:1.7.12'
-    implementation "org.apache.commons:commons-imaging:1.0-alpha2"
+    task androidSourcesJar(type: Jar) {
+        classifier = 'sources'
+        from android.sourceSets.main.java.srcDirs
+        include '**/*.java'
+    }
+
+    android.libraryVariants.all { variant ->
+        def name = variant.name.capitalize()
+        def javaCompileTask = variant.javaCompileProvider.get()
+
+        task "jar${name}"(type: Jar, dependsOn: javaCompileTask) {
+            from javaCompileTask.destinationDir
+        }
+    }
+
+    artifacts {
+        archives androidSourcesJar
+        archives androidJavadocJar
+    }
+
+    task installArchives(type: Upload) {
+        configuration = configurations.archives
+        repositories.mavenDeployer {
+            // Deploy to react-native-event-bridge/maven, ready to publish to npm
+            repository url: "file://${projectDir}/../android/maven"
+            configureReactNativePom pom
+        }
+    }
 }

@@ -1,20 +1,40 @@
-
 {
   "name": "react-native-misnap",
+  "title": "React Native Misnap",
   "version": "2.0.0",
   "description": "Private react-native wrapper library around MiSnap + MiSnap liveness frameworks for iOS & Adndroid.",
-  "summary": "Private react-native wrapper library around MiSnap",
   "main": "index.js",
+  "files": [
+    "README.md",
+    "android",
+    "index.js",
+    "ios",
+    "react-native-misnap.podspec"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/holawink/react-native-misnap.git",
+    "baseUrl": "https://github.com/holawink/react-native-misnap"
   },
   "keywords": [
     "react-native"
   ],
+  "author": {
+    "name": "Wink",
+    "email": "winkdev@holawink.com"
+  },
   "license": "MIT",
-  "author": "wink",
-  "homepage": "https://github.com/holawink/react-native-misnap",
+  "licenseFilename": "LICENSE",
+  "readmeFilename": "README.md",
   "peerDependencies": {
-    "react-native": ">=v0.40.0"
+    "react": ">=16.8.1",
+    "react-native": ">=0.60.0-rc.0 <1.0.x"
+  },
+  "devDependencies": {
+    "react": "^16.9.0",
+    "react-native": "^0.61.5"
   }
 }

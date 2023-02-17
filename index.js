@@ -1,13 +1,7 @@
+// main index.js
+
 import { NativeModules } from 'react-native';
 
-const { RNMisnap } = NativeModules;
+const { Misnap } = NativeModules;
 
-export default {
-  greet():Promise<string> {
-    return RNMisnap.greet();
-  },
-
-  capture(config) {
-    return RNMisnap.capture(config);
-  },
-};
+export default Misnap;
